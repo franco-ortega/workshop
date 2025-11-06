@@ -2,7 +2,7 @@ import List from './components/List/List';
 import styles from './page.module.css';
 
 export default function Home() {
-	const sampleData = ['eggs', 'juice', 'cookies', 'salsa'];
+	const sampleData = ['eggs', 'juice', 'cookies', 'salsa', 'salad'];
 
 	return (
 		<div className={styles.page}>
