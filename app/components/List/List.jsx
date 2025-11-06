@@ -1,12 +1,10 @@
 import ListItem from '../ListItem/ListItem';
 
-export default function List() {
-	const sampleData = ['eggs', 'juice', 'cookies', 'salsa'];
-
+export default function List({ list }) {
 	return (
 		<ol>
-			{sampleData.map((data) => (
-				<ListItem key={'1'} data={data} />
+			{list.map((item) => (
+				<ListItem key={'1'} item={item} />
 			))}
 		</ol>
 	);

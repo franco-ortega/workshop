@@ -1,3 +1,3 @@
-export default function Item({ data }) {
-	return <div>Item: {data}</div>;
+export default function Item({ item }) {
+	return <div>Item: {item}</div>;
 }

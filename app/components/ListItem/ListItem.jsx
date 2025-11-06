@@ -1,9 +1,9 @@
 import Item from '../Item/Item';
 
-export default function ListItem({ data }) {
+export default function ListItem({ item }) {
 	return (
 		<li>
-			<Item data={data} />
+			<Item item={item} />
 		</li>
 	);
 }
