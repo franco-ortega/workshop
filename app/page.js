@@ -8,7 +8,7 @@ export default function Home() {
 		<div className={styles.page}>
 			<main className={styles.main}>
 				<div className={styles.intro}>
-					<h1>Hello, world.</h1>
+					<h1>Hello, list.</h1>
 					<p>
 						<List list={sampleData} />
 					</p>
