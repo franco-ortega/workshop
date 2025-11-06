@@ -1,15 +1,12 @@
 import Link from 'next/link';
+import NavLink from '../NavLink/NavLink';
 
 export default function Nav() {
 	return (
 		<nav>
 			<ul>
-				<Link href={'/'}>
-					<li>Home Page</li>
-				</Link>
-				<Link href={'/list'}>
-					<li>List App</li>
-				</Link>
+				<NavLink url={'/'} text={'Home'} />
+				<NavLink url={'/list'} text={'List App'} />
 			</ul>
 		</nav>
 	);
