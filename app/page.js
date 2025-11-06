@@ -1,3 +1,4 @@
+import List from './components/List/List';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -6,7 +7,9 @@ export default function Home() {
 			<main className={styles.main}>
 				<div className={styles.intro}>
 					<h1>Hello, world.</h1>
-					<p></p>
+					<p>
+						<List />
+					</p>
 				</div>
 				<div className={styles.ctas}>
 					{/* <a
