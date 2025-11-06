@@ -16,7 +16,7 @@ export default function Home() {
 		<div>
 			<main>
 				<div>
-					<h2>List App</h2>
+					<h1>List App</h1>
 
 					<List list={sampleData} />
 				</div>
