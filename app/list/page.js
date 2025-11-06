@@ -1,7 +1,5 @@
-// import List from '../../components/List/List';
-// import styles from './page.module.css';
-
 import List from '@/components/List/List';
+// import styles from './page.module.css';
 
 export default function Home() {
 	const sampleData = [
