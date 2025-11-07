@@ -8,9 +8,9 @@
 	--button-secondary-border: #ebebeb;
 
 	/* display: flex; */
-	min-height: 100vh;
-	align-items: center;
-	justify-content: center;
+	height: 100%;
+	/* align-items: center; */
+	/* justify-content: center; */
 	font-family: var(--font-geist-sans);
 
 	background: linear-gradient(
@@ -20,18 +20,26 @@
 		var(--background-gradient-3)
 	);
 	color: hsl(300, 80%, 90%);
+
+	padding: 1rem;
 }
 
 .main {
-	/* display: flex;
-	min-height: 100vh;
-	width: 100%;
-	max-width: 800px;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	background-color: var(--foreground);
-	padding: 120px 60px; */
+	/* outline: 1px dashed black; */
+	display: flex;
+	align-content: center;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 60px;
+}
+
+.content {
+	background-color: hsl(0, 100%, 70%, 0.15);
+	border: 1px solid hsl(330, 100%, 50%, 0.5);
+	border-radius: 5px;
+	padding: 1rem 2rem;
+	font-weight: 500;
 }
 
 .intro {
