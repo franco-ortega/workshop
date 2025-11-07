@@ -1,4 +1,4 @@
-import List from '../components/List/List';
+import List from '@/components/List/List';
 // import styles from './page.module.css';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
 		<div>
 			<main>
 				<div>
-					<h2>List App</h2>
+					<h1>List App</h1>
 
 					<List list={sampleData} />
 				</div>
