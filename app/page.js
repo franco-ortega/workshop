@@ -3,10 +3,10 @@ import styles from './page.module.css';
 export default function Home() {
 	return (
 		<div className={styles.page}>
-			<main className={styles.main}>
-				<div className={styles.intro}>
-					<h1>Hello, App</h1>
-					<p>Hmmm...</p>
+			<h1>Welcome to the Workshop</h1>
+			<main>
+				<div>
+					<p>A workshop for testing apps.</p>
 				</div>
 			</main>
 		</div>
