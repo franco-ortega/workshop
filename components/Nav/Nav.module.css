@@ -1,0 +1,14 @@
+.Nav {
+	background-color: rgb(23, 42, 99);
+	padding: 0.5rem;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.Nav ul {
+	width: 10rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.25rem;
+	text-align: center;
+}
