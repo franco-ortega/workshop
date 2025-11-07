@@ -1,0 +1,22 @@
+.NavLink {
+	background-color: rgb(156, 55, 156);
+	border: 1px solid transparent;
+	/* border-radius: 5px; */
+	color: rgb(0, 0, 0);
+	padding: 0.25rem;
+	transition: background-color 0.75s, border-color 0.75s, color 0.25s;
+}
+
+.NavLink a {
+	text-decoration: none;
+}
+
+@media (hover: hover) {
+	/* when hover is supported */
+	.NavLink:hover {
+		background-color: rgb(103, 38, 103);
+		border-color: rgb(26, 255, 0);
+		color: white;
+		transition: background-color 0.75s, border-color 0.75s, color 0.25s;
+	}
+}

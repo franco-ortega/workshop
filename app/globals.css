@@ -28,6 +28,13 @@ li {
 }
 
 /*
+  Links use default text color
+*/
+a {
+	color: inherit;
+}
+
+/*
   3. Allow percentage-based heights in the application
 */
 html,
