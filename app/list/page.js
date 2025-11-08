@@ -3,6 +3,7 @@
 import List from '@/components/List/List';
 import Form from '@/components/Form/Form';
 import styles from './page.module.css';
+import { useState } from 'react';
 
 export default function Home() {
 	const sampleData = [
@@ -13,6 +14,20 @@ export default function Home() {
 		{ id: 5, data: 'salad' },
 	];
 
+	const [list, setList] = useState([{ id: 0, data: 'nada' }]);
+
+	const addListItem = ({ item }) => {
+		setList((prevState) => [
+			...prevState,
+			{
+				id: prevState[0].id + 1 || 1,
+				data: item,
+			},
+		]);
+	};
+
+	console.log(list);
+
 	return (
 		<div className={styles.page}>
 			<main>
@@ -21,7 +36,7 @@ export default function Home() {
 					<List list={sampleData} />
 
 					<div>
-						<Form buttonText={'Add Item'} />
+						<Form handler={addListItem} buttonText={'Add Item'} />
 					</div>
 				</div>
 			</main>
