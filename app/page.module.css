@@ -1,8 +1,4 @@
 .page {
-	--background-gradient-1: hsl(290, 75%, 35%);
-	--background-gradient-2: hsl(320, 85%, 45%);
-	--background-gradient-3: hsl(350, 100%, 85%);
-
 	--button-primary-hover: #383838;
 	--button-secondary-hover: #f2f2f2;
 	--button-secondary-border: #ebebeb;
@@ -13,12 +9,7 @@
 	/* justify-content: center; */
 	font-family: var(--font-geist-sans);
 
-	background: linear-gradient(
-		to bottom right,
-		var(--background-gradient-1),
-		var(--background-gradient-2),
-		var(--background-gradient-3)
-	);
+	background: var(--bkgd-gradient);
 	color: hsl(300, 80%, 90%);
 
 	padding: 1rem;

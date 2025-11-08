@@ -1,6 +1,16 @@
 :root {
 	/* --background: #ffffff; */
 	/* --foreground: #171717; */
+	--background-gradient-1: hsl(290, 75%, 35%);
+	--background-gradient-2: hsl(320, 85%, 45%);
+	--background-gradient-3: hsl(350, 100%, 85%);
+
+	--bkgd-gradient: linear-gradient(
+		to bottom right,
+		var(--background-gradient-1),
+		var(--background-gradient-2),
+		var(--background-gradient-3)
+	);
 }
 
 /*
