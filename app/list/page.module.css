@@ -1,0 +1,11 @@
+.page {
+	background: var(--bkgd-gradient);
+	color: hsl(300, 80%, 90%);
+
+	padding: 1rem;
+
+	height: 100%;
+	/* align-items: center; */
+	/* justify-content: center; */
+	font-family: var(--font-geist-sans);
+}
