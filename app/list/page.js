@@ -1,4 +1,7 @@
+'use client';
+
 import List from '@/components/List/List';
+import Form from '@/components/Form/Form';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -15,8 +18,11 @@ export default function Home() {
 			<main>
 				<div>
 					<h1>List App</h1>
-
 					<List list={sampleData} />
+
+					<div>
+						<Form buttonText={'Add Item'} />
+					</div>
 				</div>
 			</main>
 		</div>
