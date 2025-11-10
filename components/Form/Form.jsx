@@ -15,25 +15,15 @@ export default function Form({ handler, buttonText }) {
 
 	return (
 		<form onSubmit={submitListItem}>
-			<Label>
-				<Input onChangeHandler={onItemChange} />
-			</Label>
-			<Button text={buttonText} />
+			<label>
+				<input
+					type='text'
+					value={item}
+					onChange={(e) => onItemChange(e.target.value)}
+				/>
+			</label>
+
+			<button>{buttonText}</button>
 		</form>
 	);
-}
-
-// helper functions
-function Input({ onChangeHandler }) {
-	return (
-		<input type='text' onChange={(e) => onChangeHandler(e.target.value)} />
-	);
-}
-
-function Button({ text }) {
-	return <button>{text}</button>;
-}
-
-function Label({ children }) {
-	return <label>{children}</label>;
 }

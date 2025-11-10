@@ -35,7 +35,7 @@ export default function Home() {
 			<main>
 				<div>
 					<h1>List App</h1>
-					<List list={sampleData} />
+					{/* <List list={sampleData} /> */}
 
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
