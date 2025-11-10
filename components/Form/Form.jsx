@@ -3,14 +3,12 @@ import { useState } from 'react';
 export default function Form({ handler, buttonText }) {
 	const [item, setItem] = useState('');
 
-	const onItemChange = (item) => {
-		setItem(item);
-	};
+	const onItemChange = (item) => setItem(item);
 
 	const submitListItem = (e) => {
 		e.preventDefault();
-
 		handler(item);
+		setItem('');
 	};
 
 	return (
