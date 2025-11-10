@@ -20,6 +20,7 @@ export default function Home() {
 		setList((prevState) => [
 			...prevState,
 			{
+				//check to see that at least one item exists before incrementing id
 				id: prevState[prevState.length - 1]
 					? prevState[prevState.length - 1].id + 1
 					: 1,
