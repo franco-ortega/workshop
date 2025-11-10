@@ -30,8 +30,6 @@ export default function Home() {
 		]);
 	};
 
-	console.log(list);
-
 	return (
 		<div className={styles.page}>
 			<main>

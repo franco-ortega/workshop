@@ -6,12 +6,9 @@ export default function Form({ handler, buttonText }) {
 	const onItemChange = (item) => {
 		setItem(item);
 	};
-	console.log({ item });
 
 	const submitListItem = (e) => {
 		e.preventDefault();
-		console.log('submit');
-		console.log(item);
 
 		handler(item);
 	};
