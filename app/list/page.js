@@ -21,7 +21,7 @@ export default function Home() {
 			...prevState,
 			{
 				id: prevState[prevState.length - 1]
-					? prevState[prevState.length - 1]?.id + 1
+					? prevState[prevState.length - 1].id + 1
 					: 1,
 				data: item,
 			},
