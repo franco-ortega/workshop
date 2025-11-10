@@ -15,9 +15,10 @@ export default function Form({ handler, buttonText }) {
 
 	return (
 		<form onSubmit={submitListItem}>
-			<label>
+			<label htmlFor='list-item'>
 				<input
 					type='text'
+					id='list-item'
 					value={item}
 					onChange={(e) => onItemChange(e.target.value)}
 				/>
