@@ -39,6 +39,7 @@ export default function Home() {
 
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
+						<List list={list} />
 					</div>
 				</div>
 			</main>
