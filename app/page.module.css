@@ -3,10 +3,7 @@
 	--button-secondary-hover: #f2f2f2;
 	--button-secondary-border: #ebebeb;
 
-	/* display: flex; */
 	height: 100%;
-	/* align-items: center; */
-	/* justify-content: center; */
 	font-family: var(--font-geist-sans);
 
 	background: var(--bkgd-gradient);
