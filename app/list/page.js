@@ -14,9 +14,12 @@ export default function Home() {
 		{ id: 5, data: 'salad' },
 	];
 
-	const [list, setList] = useState(
-		JSON.parse(localStorage.getItem('LIST')) || []
-	);
+	const [list, setList] = useState([]);
+
+	useEffect(() => {
+		const storedList = JSON.parse(localStorage.getItem('LIST'));
+		if (storedList) setList(storedList);
+	}, []);
 
 	const addListItem = (item) => {
 		setList((prevState) => {
