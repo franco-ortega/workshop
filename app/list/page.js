@@ -17,17 +17,24 @@ export default function Home() {
 	const [list, setList] = useState([]);
 
 	const addListItem = (item) => {
-		setList((prevState) => [
-			...prevState,
-			{
-				//check to see that at least one item exists before incrementing id
-				id: prevState[prevState.length - 1]
-					? prevState[prevState.length - 1].id + 1
-					: // otherwise give first item an id of 1
-					  1,
-				data: item,
-			},
-		]);
+		setList((prevState) => {
+			const updatedList = [
+				...prevState,
+				{
+					//check to see that at least one item exists before incrementing id
+					id: prevState[prevState.length - 1]
+						? prevState[prevState.length - 1].id + 1
+						: // otherwise give first item an id of 1
+						  1,
+					data: item,
+				},
+			];
+
+			const stringyList = JSON.stringify(updatedList);
+			window.localStorage.setItem('LIST', stringyList);
+
+			return updatedList;
+		});
 	};
 
 	return (
