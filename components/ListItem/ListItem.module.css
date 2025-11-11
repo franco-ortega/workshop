@@ -1,0 +1,9 @@
+.ListItem {
+	display: flex;
+	gap: 10px;
+}
+
+.ListItem:has(input:checked) {
+	color: black;
+	text-decoration: line-through;
+}
