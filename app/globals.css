@@ -5,11 +5,22 @@
 	--background-gradient-2: hsl(320, 85%, 45%);
 	--background-gradient-3: hsl(350, 100%, 85%);
 
+	--background-gradient-island-1: hsl(230, 76%, 70%);
+	--background-gradient-island-2: hsl(230, 49%, 50%);
+	--background-gradient-island-3: hsl(230, 52%, 30%);
+
 	--bkgd-gradient: linear-gradient(
 		to bottom right,
 		var(--background-gradient-1),
 		var(--background-gradient-2),
 		var(--background-gradient-3)
+	);
+
+	--bkgd-gradient-island: linear-gradient(
+		to bottom right,
+		var(--background-gradient-island-1),
+		var(--background-gradient-island-2),
+		var(--background-gradient-island-3)
 	);
 }
 
