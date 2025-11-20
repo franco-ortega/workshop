@@ -1,4 +1,4 @@
 .page {
 	background: var(--bkgd-gradient-island);
-	height: 100%;
+	height: var(--page-height);
 }

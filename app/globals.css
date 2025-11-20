@@ -22,6 +22,10 @@
 		var(--background-gradient-island-2),
 		var(--background-gradient-island-3)
 	);
+
+	--nav-height: 3rem;
+
+	--page-height: calc(100% - var(--nav-height));
 }
 
 /*
