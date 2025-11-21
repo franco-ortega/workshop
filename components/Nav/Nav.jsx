@@ -7,6 +7,7 @@ export default function Nav() {
 			<ul>
 				<NavLink url={'/'} text={'Home'} />
 				<NavLink url={'/list'} text={'List App'} />
+				<NavLink url={'/islands'} text={'Islands'} />
 			</ul>
 		</nav>
 	);
