@@ -1,0 +1,6 @@
+.Island {
+	background-color: hsl(0, 59%, 41%);
+	border-color: tan;
+	border-width: 15px;
+	border-style: ridge groove groove ridge;
+}
