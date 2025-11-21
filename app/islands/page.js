@@ -30,9 +30,16 @@ export default function Islands() {
 	};
 	return (
 		<div className={styles.page}>
+			<header className={styles.header}>
+				<h1 className={styles.title}>Islands</h1>
+				<div className={styles.lineWrapper}>
+					<div className={`${styles.bookmark} ${styles.leftBookmark}`}></div>
+					<div className={`${styles.bookmark} ${styles.rightBookmark}`}></div>
+					<hr className={styles.line} />
+				</div>
+			</header>
 			<main>
 				<div>
-					<h1>Islands</h1>
 					<Island {...testIsland} />
 					<Island {...island1} />
 					<Island {...island2} />
