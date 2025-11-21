@@ -3,7 +3,8 @@
 	--button-secondary-hover: #f2f2f2;
 	--button-secondary-border: #ebebeb;
 
-	height: 100%;
+	height: var(--page-height);
+
 	font-family: var(--font-geist-sans);
 
 	background: var(--bkgd-gradient);
