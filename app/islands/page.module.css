@@ -20,9 +20,8 @@
 	margin: auto;
 	width: fit-content;
 
-	color: hsl(236, 70%, 24%);
 	font-size: 3rem;
-	line-height: 1;
+	line-height: 1.2;
 
 	background: linear-gradient(
 		to top,
@@ -35,21 +34,6 @@
 	background-clip: text;
 	color: transparent;
 }
-
-/* .title:hover {
-	background: linear-gradient(
-		to top,
-		hsl(236, 70%, 30%),
-		hsl(236, 70%, 40%),
-		hsl(236, 70%, 50%),
-		hsl(236, 70%, 60%)
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-
-	transition: all 100ms;
-} */
 
 .lineWrapper {
 	width: 13rem;
@@ -88,7 +72,6 @@
 }
 
 .leftBookmark {
-	/* border: 2px orange solid; */
 	left: 0;
 	background: linear-gradient(
 		to top right,
@@ -99,7 +82,6 @@
 }
 
 .rightBookmark {
-	/* border: 2px fuchsia solid; */
 	background-color: hsl(240, 100%, 80%);
 	background: linear-gradient(
 		to top right,
