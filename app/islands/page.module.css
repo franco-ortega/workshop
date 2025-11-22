@@ -2,6 +2,8 @@
 	background: var(--bkgd-gradient-island);
 	height: var(--page-height);
 	padding: 1rem;
+
+	outline: 5px yellow dashed;
 }
 
 .header {
