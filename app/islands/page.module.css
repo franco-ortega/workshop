@@ -3,7 +3,7 @@
 	height: var(--page-height);
 	padding: 1rem;
 
-	outline: 5px yellow dashed;
+	/* outline: 5px yellow dashed; */
 }
 
 .header {
@@ -92,4 +92,18 @@
 		hsl(240, 100%, 80%)
 	);
 	right: 0;
+}
+
+.main {
+	/* outline: 2px dotted lightgreen; */
+	position: relative;
+	/* inset: 0; */
+	/* bottom: -100px; */
+}
+
+.islandChain {
+	/* outline: 3px dashed pink; */
+	position: relative;
+	/* inset: 0; */
+	/* bottom: -10%; */
 }

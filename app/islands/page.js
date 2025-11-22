@@ -40,13 +40,18 @@ export default function Islands() {
 					<hr className={styles.line} />
 				</div>
 			</header>
-			<main>
-				<div>
+			<main className={styles.main}>
+				<div className={styles.islandChain}>
 					<IslandBox inset={'50px 0px 0px 100px'}>
 						<Island {...testIsland} />
 					</IslandBox>
-					<Island {...island1} />
-					<Island {...island2} />
+					<IslandBox inset={'250px 0px 0px 150px'}>
+						<Island {...island1} />
+					</IslandBox>
+
+					<IslandBox inset={'50px 0px 0px 300px'}>
+						<Island {...island2} />
+					</IslandBox>
 				</div>
 			</main>
 		</div>

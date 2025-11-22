@@ -1,6 +1,7 @@
 .IslandBox {
-	border: 2px dotted white;
+	/* border: 2px dotted white; */
 	padding: 1rem;
 	width: fit-content;
-	position: relative;
+	height: fit-content;
+	position: absolute;
 }

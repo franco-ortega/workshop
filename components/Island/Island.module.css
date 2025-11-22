@@ -3,4 +3,6 @@
 	border-color: tan;
 	border-width: 15px;
 	border-style: ridge groove groove ridge;
+	text-align: center;
+	margin: auto;
 }
