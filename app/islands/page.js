@@ -1,6 +1,7 @@
 'use client';
 
 import Island from '@/components/Island/Island';
+import IslandBox from '@/components/IslandBox/IslandBox';
 import styles from './page.module.css';
 
 export default function Islands() {
@@ -28,6 +29,7 @@ export default function Islands() {
 		width: '7rem',
 		height: '9rem',
 	};
+
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
@@ -38,11 +40,18 @@ export default function Islands() {
 					<hr className={styles.line} />
 				</div>
 			</header>
-			<main>
-				<div>
-					<Island {...testIsland} />
-					<Island {...island1} />
-					<Island {...island2} />
+			<main className={styles.main}>
+				<div className={styles.islandChain}>
+					<IslandBox inset={'50px 0px 0px 100px'}>
+						<Island {...testIsland} />
+					</IslandBox>
+					<IslandBox inset={'250px 0px 0px 150px'}>
+						<Island {...island1} />
+					</IslandBox>
+
+					<IslandBox inset={'50px 0px 0px 300px'}>
+						<Island {...island2} />
+					</IslandBox>
 				</div>
 			</main>
 		</div>
