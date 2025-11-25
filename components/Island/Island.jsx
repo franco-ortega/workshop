@@ -23,7 +23,7 @@ export default function Island({
 				height,
 			}}
 		>
-			Island
+			<div>Island</div>
 		</div>
 	);
 }
