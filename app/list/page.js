@@ -3,7 +3,7 @@
 import List from '@/components/List/List';
 import Form from '@/components/Form/Form';
 import styles from './page.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
 	const sampleData = [
@@ -14,12 +14,12 @@ export default function Home() {
 		{ id: 5, data: 'salad' },
 	];
 
-	const [list, setList] = useState([
-		() => {
-			const storedList = JSON.parse(localStorage.getItem('LIST'));
-			return storedList ? JSON.parse(localStorage.getItem('LIST')) : [];
-		},
-	]);
+	const [list, setList] = useState([]);
+
+	useEffect(() => {
+		const storedList = JSON.parse(localStorage.getItem('LIST'));
+		if (storedList) setList(storedList);
+	}, []);
 
 	const addListItem = (item) => {
 		setList((prevState) => {
@@ -51,7 +51,7 @@ export default function Home() {
 
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
-						<List list={list} />
+						{list && <List list={list} />}
 					</div>
 				</div>
 			</main>
