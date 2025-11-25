@@ -51,7 +51,11 @@ export default function Home() {
 
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
-						{list && <List list={list} />}
+						{list.length ? (
+							<List list={list} />
+						) : (
+							'No list yet. Why not create one?'
+						)}
 					</div>
 				</div>
 			</main>
