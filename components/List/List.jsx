@@ -1,7 +1,6 @@
 import ListItem from '../ListItem/ListItem';
 
 export default function List({ list }) {
-	console.log(list);
 	return (
 		<ul>
 			{list.map((item) => (

@@ -17,8 +17,8 @@ export default function Home() {
 	const [list, setList] = useState([]);
 
 	useEffect(() => {
-		const storedList = JSON.parse(localStorage.getItem('LIST'));
-		if (storedList) setList(storedList);
+		const storedList = localStorage.getItem('LIST');
+		if (storedList) setList(JSON.parse(storedList));
 	}, []);
 
 	const addListItem = (item) => {
@@ -35,8 +35,10 @@ export default function Home() {
 				},
 			];
 
-			const stringyList = JSON.stringify(updatedList);
-			localStorage.setItem('LIST', stringyList);
+			// const stringyList = JSON.stringify(updatedList);
+			// localStorage.setItem('LIST', stringyList);
+			localStorage.setItem('LIST', JSON.stringify(updatedList));
+			return updatedList;
 
 			return updatedList;
 		});
@@ -47,8 +49,6 @@ export default function Home() {
 			<main>
 				<div>
 					<h1>List App</h1>
-					{/* <List list={sampleData} /> */}
-
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
 						{list.length ? (
