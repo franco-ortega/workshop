@@ -3,6 +3,16 @@
 	border-color: tan;
 	border-width: 15px;
 	border-style: ridge groove groove ridge;
-	text-align: center;
+
+	box-shadow: 5px 5px 2px hsl(185, 95%, 16%);
+
+	position: relative;
+}
+
+.Island div {
+	position: absolute;
+	inset: 0;
+	width: fit-content;
+	height: fit-content;
 	margin: auto;
 }
