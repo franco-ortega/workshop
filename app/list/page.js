@@ -15,10 +15,12 @@ export default function Home() {
 	];
 
 	const [list, setList] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const storedList = localStorage.getItem('LIST');
 		if (storedList) setList(JSON.parse(storedList));
+		setIsLoading(false);
 	}, []);
 
 	const addListItem = (item) => {
@@ -39,8 +41,6 @@ export default function Home() {
 			// localStorage.setItem('LIST', stringyList);
 			localStorage.setItem('LIST', JSON.stringify(updatedList));
 			return updatedList;
-
-			return updatedList;
 		});
 	};
 
@@ -51,7 +51,9 @@ export default function Home() {
 					<h1>List App</h1>
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
-						{list.length ? (
+						{isLoading ? (
+							'Loading...'
+						) : list.length ? (
 							<List list={list} />
 						) : (
 							'No list yet. Why not create one?'
