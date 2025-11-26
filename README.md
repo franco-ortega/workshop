@@ -1,3 +1,3 @@
 Workshop app
 
-(more info to come)
+An app to practice a variety of coding techniques displayed across multiple pages.
