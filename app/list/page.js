@@ -32,7 +32,7 @@ export default function Home() {
 				...prevState,
 				{
 					//check to see that at least one item exists before incrementing id
-					id: prevState[prevState.length - 1]
+					id: prevState[0]
 						? prevState[prevState.length - 1].id + 1
 						: // otherwise give first item an id of 1
 						  1,
