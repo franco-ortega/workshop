@@ -52,7 +52,7 @@ export default function Home() {
 					<div>
 						<Form handler={addListItem} buttonText={'Add Item'} />
 						{isLoading ? (
-							'Loading...'
+							'Retrieving list...'
 						) : list.length ? (
 							<List list={list} />
 						) : (
