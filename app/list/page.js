@@ -4,6 +4,7 @@ import List from '@/components/List/List';
 import Form from '@/components/Form/Form';
 import styles from './page.module.css';
 import { useEffect, useState } from 'react';
+import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export default function Home() {
 	const sampleData = [
@@ -14,12 +15,14 @@ export default function Home() {
 		{ id: 5, data: 'salad' },
 	];
 
+	const LIST = 'LIST';
+
 	const [list, setList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		const storedList = localStorage.getItem('LIST');
-		if (storedList) setList(JSON.parse(storedList));
+		const storedList = getLocalStorage(LIST);
+		if (storedList) setList(storedList);
 		setIsLoading(false);
 	}, []);
 
@@ -37,9 +40,7 @@ export default function Home() {
 				},
 			];
 
-			// const stringyList = JSON.stringify(updatedList);
-			// localStorage.setItem('LIST', stringyList);
-			localStorage.setItem('LIST', JSON.stringify(updatedList));
+			setLocalStorage(LIST, updatedList);
 			return updatedList;
 		});
 	};
