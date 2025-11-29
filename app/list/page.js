@@ -48,19 +48,21 @@ export default function Home() {
 	return (
 		<div className={styles.page}>
 			<main>
-				<div>
-					<h1>List App</h1>
-					<div>
-						<Form handler={addListItem} buttonText={'Add Item'} />
-						{isLoading ? (
-							'Retrieving list...'
-						) : list.length ? (
-							<List list={list} />
-						) : (
-							'No list yet. Why not create one?'
-						)}
-					</div>
+				{/* <div> */}
+				<h1>List App</h1>
+				<div className={styles.formWrapper}>
+					<Form handler={addListItem} buttonText={'Add Item'} />
 				</div>
+				<div>
+					{isLoading ? (
+						'Retrieving list...'
+					) : list.length ? (
+						<List list={list} />
+					) : (
+						'No list yet. Why not create one?'
+					)}
+				</div>
+				{/* </div> */}
 			</main>
 		</div>
 	);

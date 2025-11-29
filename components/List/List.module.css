@@ -15,6 +15,8 @@ maybe add option to have a narrow or wide list
 	min-width: 15rem;
 	max-width: 20rem;
 
+	margin-inline: auto;
+
 	h2 {
 		color: hsl(0, 0%, 90%);
 		text-decoration: underline;

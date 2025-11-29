@@ -8,3 +8,12 @@
 
 	font-family: var(--font-geist-sans);
 }
+
+.formWrapper {
+	background-color: hsl(0, 0%, 0%, 10%);
+	border-radius: 5px;
+	padding: 1rem 2rem;
+
+	max-width: fit-content;
+	margin-block: 1rem;
+}
