@@ -1,0 +1,27 @@
+/* 
+IDEAS
+
+maybe add option to have a narrow or wide list 
+*/
+
+.List {
+	border: 2px solid hsl(0, 0%, 90%);
+	border-radius: 5px;
+
+	padding-block: 0.5rem 1rem;
+	padding-inline: 1rem;
+	line-height: 1.5;
+
+	min-width: 15rem;
+	max-width: 20rem;
+
+	h2 {
+		color: hsl(0, 0%, 90%);
+		text-decoration: underline;
+		text-align: center;
+		/* outline: 2px dashed yellow; */
+		max-width: 100%;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+}
