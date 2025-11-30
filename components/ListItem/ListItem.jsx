@@ -5,7 +5,11 @@ export default function ListItem({ item }) {
 	return (
 		<li className={styles.ListItem}>
 			<input type='checkbox' id={item} name={item} />
-			<label htmlFor={item}>{item}</label>
+			<label htmlFor={item}>
+				{item}
+				<span>EDIT</span>
+				<span>DELETE</span>
+			</label>
 		</li>
 	);
 }
