@@ -7,7 +7,6 @@ export default function EditIcon() {
 			alt='Edit Icon'
 			width={15} // Specify the width
 			height={15} // Specify the height
-			style={{ display: 'inline-block' }}
 		/>
 	);
 }
