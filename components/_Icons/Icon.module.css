@@ -1,0 +1,13 @@
+.Icon {
+	transition: all 250ms linear;
+	border-radius: 5px;
+	padding: 1px;
+
+	@media (hover: hover) {
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.15);
+			rotate: calc(10deg);
+		}
+	}
+}
