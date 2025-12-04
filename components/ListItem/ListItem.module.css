@@ -3,8 +3,23 @@
 	align-items: center;
 	gap: 10px;
 	padding-block: 0.25rem;
+	padding: 0.5rem;
 
-	/* outline: 1px dotted silver; */
+	& > button {
+		background-color: transparent;
+		border: none;
+
+		transition: all 250ms linear;
+		border-radius: 2px;
+
+		@media (hover: hover) {
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+				rotate: calc(15deg);
+			}
+		}
+	}
 }
 
 .ListItem:has(input:checked) {

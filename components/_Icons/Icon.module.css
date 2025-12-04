@@ -1,12 +1,18 @@
 .Icon {
 	transition: all 250ms linear;
 	border-radius: 5px;
-	padding: 1px;
+	height: 25px;
+	width: 25px;
+	padding-block: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+
+	outline: dotted 2px yellow;
 
 	@media (hover: hover) {
 		&:hover {
 			cursor: pointer;
-			transform: scale(1.15);
+			transform: scale(1.1);
 			rotate: calc(10deg);
 		}
 	}
