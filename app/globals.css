@@ -87,6 +87,7 @@ picture,
 video,
 canvas,
 svg {
+	/* display: inline-block; */
 	display: block;
 	max-width: 100%;
 }

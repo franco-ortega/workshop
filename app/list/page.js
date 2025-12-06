@@ -45,6 +45,10 @@ export default function Home() {
 		});
 	};
 
+	const deleteListItem = (id) => {
+		setList((prev) => prev.filter((element) => element.id !== id));
+	};
+
 	return (
 		<div className={styles.page}>
 			<main>
@@ -57,7 +61,7 @@ export default function Home() {
 					{isLoading ? (
 						'Retrieving list...'
 					) : list.length ? (
-						<List list={list} />
+						<List list={list} deleteItemHandler={deleteListItem} />
 					) : (
 						'No list yet. Why not create one?'
 					)}
