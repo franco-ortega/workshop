@@ -45,8 +45,8 @@ export default function Home() {
 		});
 	};
 
-	const deleteListItem = () => {
-		console.log('delete me');
+	const deleteListItem = (id) => {
+		setList((prev) => prev.filter((element) => element.id !== id));
 	};
 
 	return (

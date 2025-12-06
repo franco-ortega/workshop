@@ -9,7 +9,7 @@ export default function List({ list, deleteItemHandler }) {
 				{list.map((item) => (
 					<ListItem
 						key={item.id}
-						item={item.data}
+						item={item}
 						deleteItemHandler={deleteItemHandler}
 					/>
 				))}
