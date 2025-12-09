@@ -46,7 +46,13 @@ export default function Home() {
 	};
 
 	const deleteListItem = (id) => {
-		setList((prev) => prev.filter((element) => element.id !== id));
+		setList((prev) => {
+			const updatedList = prev.filter((element) => element.id !== id);
+
+			setLocalStorage(LIST, updatedList);
+
+			return updatedList;
+		});
 	};
 
 	return (
