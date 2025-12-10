@@ -1,5 +1,6 @@
 'use client';
 
+import { CONSTANTS } from '../../utils/constants';
 import List from '@/components/List/List';
 import Form from '@/components/Form/Form';
 import styles from './page.module.css';
@@ -15,7 +16,7 @@ export default function Home() {
 		{ id: 5, data: 'salad' },
 	];
 
-	const LIST = 'LIST';
+	const LIST = CONSTANTS.LIST;
 
 	const [list, setList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
