@@ -46,6 +46,19 @@ export default function Home() {
 		});
 	};
 
+	const editListItem = (id) => {
+		// open input to edit item
+		// display current item in input
+		// save edited item
+		// or cancel edit
+
+		setList((prev) => {
+			const updatedList = prev.filter((element) => element.id !== id);
+			setLocalStorage(LIST, updatedList);
+			return updatedList;
+		});
+	};
+
 	return (
 		<div className={styles.page}>
 			<main>
