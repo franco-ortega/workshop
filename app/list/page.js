@@ -8,14 +8,6 @@ import { useEffect, useState } from 'react';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export default function Home() {
-	const sampleData = [
-		{ id: 1, data: 'eggs' },
-		{ id: 2, data: 'juice' },
-		{ id: 3, data: 'cookies' },
-		{ id: 4, data: 'salsa' },
-		{ id: 5, data: 'salad' },
-	];
-
 	const LIST = CONSTANTS.LIST;
 
 	const [list, setList] = useState([]);
@@ -25,7 +17,7 @@ export default function Home() {
 		const storedList = getLocalStorage(LIST);
 		if (storedList) setList(storedList);
 		setIsLoading(false);
-	}, []);
+	}, [LIST]);
 
 	const addListItem = (item) => {
 		setList((prevState) => {
@@ -49,9 +41,7 @@ export default function Home() {
 	const deleteListItem = (id) => {
 		setList((prev) => {
 			const updatedList = prev.filter((element) => element.id !== id);
-
 			setLocalStorage(LIST, updatedList);
-
 			return updatedList;
 		});
 	};
@@ -59,7 +49,6 @@ export default function Home() {
 	return (
 		<div className={styles.page}>
 			<main>
-				{/* <div> */}
 				<h1>List App</h1>
 				<div className={styles.formWrapper}>
 					<Form handler={addListItem} buttonText={'Add Item'} />
@@ -73,8 +62,15 @@ export default function Home() {
 						'No list yet. Why not create one?'
 					)}
 				</div>
-				{/* </div> */}
 			</main>
 		</div>
 	);
 }
+
+const sampleData = [
+	{ id: 1, data: 'eggs' },
+	{ id: 2, data: 'juice' },
+	{ id: 3, data: 'cookies' },
+	{ id: 4, data: 'salsa' },
+	{ id: 5, data: 'salad' },
+];
