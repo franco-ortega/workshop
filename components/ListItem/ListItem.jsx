@@ -8,19 +8,9 @@ export default function ListItem({ item, deleteItemHandler, editListItem }) {
 
 	console.log(editedItem);
 
-	const onDeleteItem = () => deleteItemHandler(item.id);
-
-	const onEditItem = () => {
-		setEdit(true);
-	};
-
 	const onSaveItem = () => {
 		console.log('save edit');
 		editListItem(item.id, editedItem);
-		setEdit(false);
-	};
-
-	const onCancelEdit = () => {
 		setEdit(false);
 	};
 
@@ -31,10 +21,10 @@ export default function ListItem({ item, deleteItemHandler, editListItem }) {
 					<input type='checkbox' id={item.id} name={item.data} />
 					<label htmlFor={item.data}>{item.data}</label>
 
-					<button onClick={onEditItem}>
+					<button onClick={() => setEdit(true)}>
 						<Icon iconAlt={'Edit'} iconPath={'/icons/edit-icon-feather.svg'} />
 					</button>
-					<button onClick={onDeleteItem}>
+					<button onClick={() => deleteItemHandler(item.id)}>
 						<Icon
 							iconAlt={'Trash'}
 							iconPath={'/icons/trash-icon-feather.svg'}
@@ -55,7 +45,7 @@ export default function ListItem({ item, deleteItemHandler, editListItem }) {
 					<button onClick={onSaveItem}>
 						<Icon iconAlt={'Save'} iconPath={'/icons/save-icon-feather.svg'} />
 					</button>
-					<button onClick={onCancelEdit}>
+					<button onClick={() => setEdit(false)}>
 						<Icon
 							iconAlt={'Cancel'}
 							iconPath={'/icons/x-circle-icon-feather.svg'}
