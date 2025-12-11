@@ -46,14 +46,19 @@ export default function Home() {
 		});
 	};
 
-	const editListItem = (id) => {
+	const editListItem = (id, editedItem) => {
 		// open input to edit item
 		// display current item in input
 		// save edited item
 		// or cancel edit
 
 		setList((prev) => {
-			const updatedList = prev.filter((element) => element.id !== id);
+			const updatedList = prev.map((element) => {
+				if (element.id === id) {
+					return { id, data: editedItem };
+				} else return element;
+			});
+
 			setLocalStorage(LIST, updatedList);
 			return updatedList;
 		});
@@ -70,7 +75,11 @@ export default function Home() {
 					{isLoading ? (
 						'Retrieving list...'
 					) : list.length ? (
-						<List list={list} deleteItemHandler={deleteListItem} />
+						<List
+							list={list}
+							deleteItemHandler={deleteListItem}
+							editListItem={editListItem}
+						/>
 					) : (
 						'No list yet. Why not create one?'
 					)}

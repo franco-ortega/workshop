@@ -2,8 +2,11 @@ import { useState } from 'react';
 import Icon from '../_Icons/Icon';
 import styles from './ListItem.module.css';
 
-export default function ListItem({ item, deleteItemHandler }) {
+export default function ListItem({ item, deleteItemHandler, editListItem }) {
 	const [edit, setEdit] = useState(false);
+	const [editedItem, setEditedItem] = useState('');
+
+	console.log(editedItem);
 
 	const onDeleteItem = () => deleteItemHandler(item.id);
 
@@ -13,6 +16,8 @@ export default function ListItem({ item, deleteItemHandler }) {
 
 	const onSaveItem = () => {
 		console.log('save edit');
+		editListItem(item.id, editedItem);
+		setEdit(false);
 	};
 
 	const onCancelEdit = () => {
@@ -44,6 +49,7 @@ export default function ListItem({ item, deleteItemHandler }) {
 							id={item.id}
 							name={item.data}
 							size='10'
+							onChange={(e) => setEditedItem(e.target.value)}
 						/>
 					</label>
 					<button onClick={onSaveItem}>
