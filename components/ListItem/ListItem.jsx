@@ -6,8 +6,6 @@ export default function ListItem({ item, deleteItemHandler, editListItem }) {
 	const [edit, setEdit] = useState(false);
 	const [editedItem, setEditedItem] = useState('');
 
-	console.log(editedItem);
-
 	const onSaveItem = () => {
 		console.log('save edit');
 		editListItem(item.id, editedItem);
