@@ -5,7 +5,6 @@ import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import ListForm from '@/components/Form/ListForm';
 import List from '@/components/List/List';
-// import Form from '@/components/Form/Form';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -40,21 +39,13 @@ export default function Home() {
 		<div className={styles.page}>
 			<main>
 				<h1>List App</h1>
-				{/* <div className={styles.formWrapper}>
-					<Form handler={addListItem} buttonText={'Add Item'} />
-				</div> */}
 				{/* form needs to add item to list - a handler that updates state and local storage */}
 				<ListForm formHandler={addListItem} />
 				<div>
 					{isLoading ? (
 						'Retrieving list...'
 					) : list.length ? (
-						<List
-							list={list}
-							setList={setList}
-							// deleteItemHandler={deleteListItem}
-							// editListItem={editListItem}
-						/>
+						<List list={list} setList={setList} />
 					) : (
 						'No list yet. Why not create one?'
 					)}
