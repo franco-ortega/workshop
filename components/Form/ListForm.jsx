@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { setLocalStorage } from '@/utils/localStorage';
 import styles from './ListForm.module.css';
 
 export default function ListForm({ formHandler }) {
@@ -7,10 +6,7 @@ export default function ListForm({ formHandler }) {
 
 	const onListItemSubmit = (e) => {
 		e.preventDefault();
-
 		formHandler(item);
-
-		// reset input
 		setItem('');
 	};
 
