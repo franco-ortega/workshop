@@ -1,7 +1,7 @@
 import { CONSTANTS } from '@/utils/constants';
+import { setLocalStorage } from '@/utils/localStorage';
 import ListItem from '../ListItem/ListItem';
 import styles from './List.module.css';
-import { setLocalStorage } from '@/utils/localStorage';
 
 export default function List({ list, setList }) {
 	const LIST = CONSTANTS.LIST;
@@ -27,6 +27,23 @@ export default function List({ list, setList }) {
 		});
 	};
 
+	const checkListItem = (id) => {
+		// check or uncheck list item -> change status from false to true
+		// check -> change status from false to true
+		// uncheck -> change status from true to false
+		// just needs to change the current state of the boolean
+		setList((prev) => {
+			const updatedList = prev.map((item) => {
+				if (item.id === id) {
+					return { ...item, checked: !item.checked };
+				} else return item;
+			});
+
+			setLocalStorage(LIST, updatedList);
+			return updatedList;
+		});
+	};
+
 	return (
 		<section className={styles.List}>
 			<h2>Groceries</h2>
@@ -37,6 +54,7 @@ export default function List({ list, setList }) {
 						item={item || 'missing data'}
 						deleteItemHandler={deleteListItem}
 						editListItem={editListItem}
+						checkListItem={checkListItem}
 					/>
 				))}
 			</ul>

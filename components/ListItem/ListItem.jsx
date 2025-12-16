@@ -2,7 +2,12 @@ import { useState } from 'react';
 import Icon from '../_Icons/Icon';
 import styles from './ListItem.module.css';
 
-export default function ListItem({ item, deleteItemHandler, editListItem }) {
+export default function ListItem({
+	item,
+	deleteItemHandler,
+	editListItem,
+	checkListItem,
+}) {
 	const [edit, setEdit] = useState(false);
 	const [editedItem, setEditedItem] = useState('');
 
@@ -12,11 +17,20 @@ export default function ListItem({ item, deleteItemHandler, editListItem }) {
 		setEdit(false);
 	};
 
+	const onCheckItem = () => {
+		checkListItem(item.id);
+	};
+
 	return (
 		<li className={styles.ListItem}>
 			{!edit ? (
 				<>
-					<input type='checkbox' id={item.id} name={item.data} />
+					<input
+						type='checkbox'
+						id={item.id}
+						name={item.data}
+						onChange={onCheckItem}
+					/>
 					<label htmlFor={item.data}>{item.data}</label>
 
 					<button onClick={() => setEdit(true)}>
