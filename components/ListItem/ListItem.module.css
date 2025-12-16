@@ -2,8 +2,13 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	padding-block: 0.25rem;
-	padding: 0.5rem;
+	padding: 0.5rem 1rem;
+
+	border-bottom: solid 1px white;
+
+	&:first-of-type {
+		border-top: solid 1px white;
+	}
 
 	& > button {
 		background-color: transparent;

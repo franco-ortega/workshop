@@ -12,13 +12,8 @@ export default function ListItem({
 	const [editedItem, setEditedItem] = useState('');
 
 	const onSaveItem = () => {
-		console.log('save edit');
 		editListItem(item.id, editedItem);
 		setEdit(false);
-	};
-
-	const onCheckItem = () => {
-		checkListItem(item.id);
 	};
 
 	return (
@@ -29,7 +24,7 @@ export default function ListItem({
 						type='checkbox'
 						id={item.id}
 						name={item.data}
-						onChange={onCheckItem}
+						onChange={() => checkListItem(item.id)}
 						checked={item.checked}
 					/>
 					<label htmlFor={item.data}>{item.data}</label>
