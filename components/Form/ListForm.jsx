@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styles from './ListForm.module.css';
 
-export default function ListForm({ formHandler }) {
+export default function ListForm({ addListItem }) {
 	const [item, setItem] = useState('');
 
 	const onListItemSubmit = (e) => {
 		e.preventDefault();
-		formHandler(item);
+		addListItem(item);
 		setItem('');
 	};
 

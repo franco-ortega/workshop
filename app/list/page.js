@@ -40,7 +40,7 @@ export default function Home() {
 			<main>
 				<h1>List App</h1>
 				{/* form needs to add item to list - a handler that updates state and local storage */}
-				<ListForm formHandler={addListItem} />
+				<ListForm addListItem={addListItem} />
 				<div>
 					{isLoading ? (
 						'Retrieving list...'
