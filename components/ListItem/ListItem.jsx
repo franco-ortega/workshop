@@ -30,6 +30,7 @@ export default function ListItem({
 						id={item.id}
 						name={item.data}
 						onChange={onCheckItem}
+						checked={item.checked}
 					/>
 					<label htmlFor={item.data}>{item.data}</label>
 
