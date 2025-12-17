@@ -15,9 +15,10 @@ maybe add option to have a narrow or wide list
 	min-width: 15rem;
 	max-width: 20rem;
 
-	margin-inline: auto;
+	/* margin-inline: auto; */
 
 	/* background-color: hsl(60, 100%, 50%, 0.1); */
+	/* box-shadow: 20px 20px 5px 5px hsl(0, 0%, 0%, 0.5); */
 
 	h2 {
 		/* background-color: hsl(60, 100%, 50%, 0.1); */
