@@ -29,7 +29,6 @@ export default function ListItem({
 						checked={item.checked}
 					/>
 					<label htmlFor={item.data}>{item.data}</label>
-
 					<div>
 						<IconButton
 							clickHandler={() => setEdit(true)}
@@ -54,15 +53,16 @@ export default function ListItem({
 							onChange={(e) => setEditedItem(e.target.value)}
 						/>
 					</label>
-					<button onClick={onSaveItem}>
-						<Icon iconAlt={'Save'} iconPath={'/icons/save-icon-feather.svg'} />
-					</button>
-					<button onClick={() => setEdit(false)}>
-						<Icon
-							iconAlt={'Cancel'}
-							iconPath={'/icons/x-circle-icon-feather.svg'}
-						/>
-					</button>
+					<IconButton
+						clickHandler={onSaveItem}
+						iconAlt={'Save'}
+						iconPath={'/icons/save-icon-feather.svg'}
+					/>
+					<IconButton
+						clickHandler={() => setEdit(false)}
+						iconAlt={'Cancel'}
+						iconPath={'/icons/x-circle-icon-feather.svg'}
+					/>
 				</>
 			)}
 		</li>
