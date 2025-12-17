@@ -53,16 +53,18 @@ export default function ListItem({
 							onChange={(e) => setEditedItem(e.target.value)}
 						/>
 					</label>
-					<IconButton
-						clickHandler={onSaveItem}
-						iconAlt={'Save'}
-						iconPath={'/icons/save-icon-feather.svg'}
-					/>
-					<IconButton
-						clickHandler={() => setEdit(false)}
-						iconAlt={'Cancel'}
-						iconPath={'/icons/x-circle-icon-feather.svg'}
-					/>
+					<div>
+						<IconButton
+							clickHandler={onSaveItem}
+							iconAlt={'Save'}
+							iconPath={'/icons/save-icon-feather.svg'}
+						/>
+						<IconButton
+							clickHandler={() => setEdit(false)}
+							iconAlt={'Cancel'}
+							iconPath={'/icons/x-circle-icon-feather.svg'}
+						/>
+					</div>
 				</>
 			)}
 		</li>
