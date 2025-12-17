@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icon from '../_Icons/Icon';
 import styles from './ListItem.module.css';
+import IconButton from '../_Icons/IconButton';
 
 export default function ListItem({
 	item,
@@ -30,18 +31,16 @@ export default function ListItem({
 					<label htmlFor={item.data}>{item.data}</label>
 
 					<div>
-						<button onClick={() => setEdit(true)}>
-							<Icon
-								iconAlt={'Edit'}
-								iconPath={'/icons/edit-icon-feather.svg'}
-							/>
-						</button>
-						<button onClick={() => deleteItemHandler(item.id)}>
-							<Icon
-								iconAlt={'Trash'}
-								iconPath={'/icons/trash-icon-feather.svg'}
-							/>
-						</button>
+						<IconButton
+							clickHandler={() => setEdit(true)}
+							iconAlt={'Edit'}
+							iconPath={'/icons/edit-icon-feather.svg'}
+						/>
+						<IconButton
+							clickHandler={() => deleteItemHandler(item.id)}
+							iconAlt={'Trash'}
+							iconPath={'/icons/trash-icon-feather.svg'}
+						/>
 					</div>
 				</>
 			) : (

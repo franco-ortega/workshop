@@ -6,11 +6,6 @@
 
 	border-bottom: solid 1px white;
 
-	/* height: 3rem; */
-	/* white-space: nowrap; */
-	/* overflow-x: auto; */
-	/* scrollbar-color: transparent transparent; */
-
 	&:last-of-type {
 		border-bottom: solid 1px transparent;
 	}
@@ -22,7 +17,7 @@
 		gap: 0.625rem;
 
 		& > button {
-			background-color: transparent;
+			/* background-color: transparent;
 			border: none;
 
 			transition: all 250ms linear;
@@ -36,7 +31,7 @@
 					transform: scale(1.1);
 					rotate: calc(15deg);
 				}
-			}
+			} */
 		}
 	}
 }
