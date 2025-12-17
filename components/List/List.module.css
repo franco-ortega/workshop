@@ -37,7 +37,7 @@ maybe add option to have a narrow or wide list
 
 	ul {
 		max-height: 30rem;
-		overflow: auto;
+		overflow-y: auto;
 		scrollbar-width: thin;
 		scrollbar-color: hsl(0, 0%, 75%) hsl(0, 0%, 95%);
 	}
