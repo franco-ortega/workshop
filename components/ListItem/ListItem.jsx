@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import Icon from '../_Icons/Icon';
-import styles from './ListItem.module.css';
 import IconButton from '../_Icons/IconButton';
+import styles from './ListItem.module.css';
 
 export default function ListItem({
 	item,
@@ -18,14 +17,14 @@ export default function ListItem({
 
 	const onEditItem = (e) => setEditedItem(e.target.value);
 
-	const onDeleteItem = () => deleteItemHandler(item.id);
-
 	const onSaveItem = () => {
 		editListItem(item.id, editedItem);
 		setEdit(false);
 	};
 
 	const onCancelEdit = () => setEdit(false);
+
+	const onDeleteItem = () => deleteItemHandler(item.id);
 
 	return (
 		<li className={styles.ListItem}>
