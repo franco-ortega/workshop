@@ -12,10 +12,20 @@ export default function ListItem({
 	const [edit, setEdit] = useState(false);
 	const [editedItem, setEditedItem] = useState('');
 
+	const onCheckItem = () => checkListItem(item.id);
+
+	const onOpenEdit = () => setEdit(true);
+
+	const onEditItem = (e) => setEditedItem(e.target.value);
+
+	const onDeleteItem = () => deleteItemHandler(item.id);
+
 	const onSaveItem = () => {
 		editListItem(item.id, editedItem);
 		setEdit(false);
 	};
+
+	const onCancelEdit = () => setEdit(false);
 
 	return (
 		<li className={styles.ListItem}>
@@ -25,18 +35,18 @@ export default function ListItem({
 						type='checkbox'
 						id={item.id}
 						name={item.data}
-						onChange={() => checkListItem(item.id)}
+						onChange={onCheckItem}
 						checked={item.checked}
 					/>
 					<label htmlFor={item.id}>{item.data}</label>
 					<div>
 						<IconButton
-							clickHandler={() => setEdit(true)}
+							clickHandler={onOpenEdit}
 							iconAlt={'Edit'}
 							iconPath={'/icons/edit-icon-feather.svg'}
 						/>
 						<IconButton
-							clickHandler={() => deleteItemHandler(item.id)}
+							clickHandler={onDeleteItem}
 							iconAlt={'Trash'}
 							iconPath={'/icons/trash-icon-feather.svg'}
 						/>
@@ -50,7 +60,7 @@ export default function ListItem({
 							id={item.id}
 							name={item.data}
 							size='10'
-							onChange={(e) => setEditedItem(e.target.value)}
+							onChange={onEditItem}
 						/>
 					</label>
 					<div>
@@ -60,7 +70,7 @@ export default function ListItem({
 							iconPath={'/icons/save-icon-feather.svg'}
 						/>
 						<IconButton
-							clickHandler={() => setEdit(false)}
+							clickHandler={onCancelEdit}
 							iconAlt={'Cancel'}
 							iconPath={'/icons/x-circle-icon-feather.svg'}
 						/>
