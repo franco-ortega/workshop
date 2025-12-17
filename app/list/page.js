@@ -53,7 +53,7 @@ export default function Home() {
 
 	return (
 		<div className={styles.page}>
-			<SampleData />
+			{/* <SampleData /> */}
 			<main>
 				<h1>List App</h1>
 				{/* form needs to add item to list - a handler that updates state and local storage */}

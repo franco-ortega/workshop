@@ -29,15 +29,20 @@ export default function ListItem({
 					/>
 					<label htmlFor={item.data}>{item.data}</label>
 
-					<button onClick={() => setEdit(true)}>
-						<Icon iconAlt={'Edit'} iconPath={'/icons/edit-icon-feather.svg'} />
-					</button>
-					<button onClick={() => deleteItemHandler(item.id)}>
-						<Icon
-							iconAlt={'Trash'}
-							iconPath={'/icons/trash-icon-feather.svg'}
-						/>
-					</button>
+					<div>
+						<button onClick={() => setEdit(true)}>
+							<Icon
+								iconAlt={'Edit'}
+								iconPath={'/icons/edit-icon-feather.svg'}
+							/>
+						</button>
+						<button onClick={() => deleteItemHandler(item.id)}>
+							<Icon
+								iconAlt={'Trash'}
+								iconPath={'/icons/trash-icon-feather.svg'}
+							/>
+						</button>
+					</div>
 				</>
 			) : (
 				<>
