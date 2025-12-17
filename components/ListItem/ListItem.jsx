@@ -28,7 +28,7 @@ export default function ListItem({
 						onChange={() => checkListItem(item.id)}
 						checked={item.checked}
 					/>
-					<label htmlFor={item.data}>{item.data}</label>
+					<label htmlFor={item.id}>{item.data}</label>
 					<div>
 						<IconButton
 							clickHandler={() => setEdit(true)}
