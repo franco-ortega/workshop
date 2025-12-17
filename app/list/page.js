@@ -12,6 +12,21 @@ export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
 	const LIST = CONSTANTS.LIST;
 
+	function SampleData() {
+		return (
+			<div className={styles.sampleData}>
+				<button
+					onClick={() => {
+						setList(sampleData);
+						setLocalStorage(LIST, sampleData);
+					}}
+				>
+					Load Sample List
+				</button>
+			</div>
+		);
+	}
+
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 		if (storedList) setList(storedList);
@@ -27,6 +42,7 @@ export default function Home() {
 					// otherwise give first item an id of 1
 					id: prevState[0] ? prevState[prevState.length - 1].id + 1 : 1,
 					data: item,
+					checked: false,
 				},
 			];
 
@@ -37,10 +53,11 @@ export default function Home() {
 
 	return (
 		<div className={styles.page}>
+			{/* <SampleData /> */}
 			<main>
 				<h1>List App</h1>
 				{/* form needs to add item to list - a handler that updates state and local storage */}
-				<ListForm formHandler={addListItem} />
+				<ListForm addListItem={addListItem} />
 				<div>
 					{isLoading ? (
 						'Retrieving list...'
@@ -56,11 +73,11 @@ export default function Home() {
 }
 
 const sampleData = [
-	{ id: 1, data: 'eggs' },
-	{ id: 2, data: 'juice' },
-	{ id: 3, data: 'cookies' },
-	{ id: 4, data: 'salsa' },
-	{ id: 5, data: 'salad' },
+	{ id: 1, data: 'eggs', checked: false },
+	{ id: 2, data: 'juice', checked: false },
+	{ id: 3, data: 'cookies', checked: false },
+	{ id: 4, data: 'salsa', checked: false },
+	{ id: 5, data: 'salad', checked: false },
 ];
 
 const deleteListItem = (id) => {

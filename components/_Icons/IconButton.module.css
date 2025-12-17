@@ -1,0 +1,17 @@
+.IconButton {
+	background-color: transparent;
+	border: none;
+
+	transition: all 250ms linear;
+	border-radius: 2px;
+
+	min-width: 1rem;
+
+	@media (hover: hover) {
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.1);
+			rotate: calc(15deg);
+		}
+	}
+}

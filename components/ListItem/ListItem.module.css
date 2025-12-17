@@ -2,23 +2,19 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	padding-block: 0.25rem;
-	padding: 0.5rem;
+	padding: 0.5rem 1rem;
 
-	& > button {
-		background-color: transparent;
-		border: none;
+	border-bottom: solid 1px white;
 
-		transition: all 250ms linear;
-		border-radius: 2px;
+	&:last-of-type {
+		border-bottom: solid 1px transparent;
+	}
 
-		@media (hover: hover) {
-			&:hover {
-				cursor: pointer;
-				transform: scale(1.1);
-				rotate: calc(15deg);
-			}
-		}
+	div {
+		display: flex;
+		gap: 0.625rem;
+
+		/* outline: yellow dotted 1px; */
 	}
 }
 
