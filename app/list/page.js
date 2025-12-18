@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
-import ListForm from '@/components/Form/ListForm';
-import List from '@/components/List/List';
+// import ListForm from '@/components/Form/ListForm';
+// import List from '@/components/List/List';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
 import CreateList from '@/components/CreateList.jsx/CreateList';
@@ -14,13 +14,36 @@ export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
 	const LIST = CONSTANTS.LIST;
 
+	const [lists, setLists] = useState(null);
+
+	const createNewList = (data) => {
+		setLists(data);
+
+		// kind of like this:
+		setLists((prevState) => {
+			const newList = [
+				...prevState,
+				{
+					title: 'TEST',
+					//check to see that at least one item exists before incrementing id
+					// otherwise give first item an id of 1
+					listId: prevState[0] ? prevState[prevState.length - 1].listId + 1 : 1,
+					items: [],
+				},
+			];
+
+			setLocalStorage(LIST, newList);
+			return newList;
+		});
+	};
+
 	function SampleData() {
 		return (
 			<div className={styles.sampleData}>
 				<button
 					onClick={() => {
-						setList(sampleData);
-						setLocalStorage(LIST, sampleData);
+						setLists(sampleList);
+						setLocalStorage(LIST, sampleList);
 					}}
 				>
 					Load Sample List
@@ -31,7 +54,7 @@ export default function Home() {
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
-		if (storedList) setList(storedList);
+		if (storedList) setLists(storedList);
 		setIsLoading(false);
 	}, [LIST]);
 
@@ -53,59 +76,46 @@ export default function Home() {
 		});
 	};
 
+	console.log(lists);
+
 	return (
 		<div className={styles.page}>
 			{/* <SampleData /> */}
-			<main>
+			<header className={styles.header}>
 				<h1>List App</h1>
-
-				{/* form needs to add item to list - a handler that updates state and local storage */}
-				{/* <ListForm addListItem={addListItem} /> */}
-				{/* <div>
-					{isLoading ? (
-						'Retrieving list...'
-					) : list.length ? (
-						<List list={list} setList={setList} />
-					) : (
-						'No list yet. Why not create one?'
-					)}
-				</div> */}
+				<CreateList createNewList={createNewList} />
+			</header>
+			<main>
+				{!isLoading && !lists && <div>No list yet. Why not create one?</div>}
 				<div>
-					{isLoading ? (
-						'Retrieving list...'
-					) : list.length ? (
-						<ListWrapper
-							list={list}
-							setList={setList}
-							addListItem={addListItem}
-						/>
-					) : (
-						<CreateList />
-					)}
+					{isLoading
+						? 'Retrieving list...'
+						: lists && (
+								<ListWrapper
+									lists={lists}
+									setList={setList}
+									addListItem={addListItem}
+								/>
+						  )}
 				</div>
 			</main>
 		</div>
 	);
 }
 
-const sampleData = [
-	{ id: 1, data: 'eggs', checked: false },
-	{ id: 2, data: 'juice', checked: false },
-	{ id: 3, data: 'cookies', checked: false },
-	{ id: 4, data: 'salsa', checked: false },
-	{ id: 5, data: 'salad', checked: false },
+const sampleList = [
+	{
+		title: 'List',
+		listId: 1,
+		items: [
+			{ itemId: 1, data: 'eggs', checked: false },
+			{ itemId: 2, data: 'juice', checked: false },
+			{ itemId: 3, data: 'cookies', checked: false },
+			{ itemId: 4, data: 'salsa', checked: false },
+			{ itemId: 5, data: 'salad', checked: false },
+		],
+	},
 ];
-
-const sampleList = {
-	title: 'List',
-	items: [
-		{ id: 1, data: 'eggs', checked: false },
-		{ id: 2, data: 'juice', checked: false },
-		{ id: 3, data: 'cookies', checked: false },
-		{ id: 4, data: 'salsa', checked: false },
-		{ id: 5, data: 'salad', checked: false },
-	],
-};
 
 const deleteListItem = (id) => {
 	setList((prev) => {

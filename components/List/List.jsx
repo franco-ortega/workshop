@@ -46,22 +46,28 @@ export default function List({ list, setList, addListItem }) {
 	};
 
 	return (
-		<section className={styles.List}>
-			<h2>Groceries</h2>
-			<div>
-				<ListForm addListItem={addListItem} />
-			</div>
-			<ul>
-				{list.map((item) => (
-					<ListItem
-						key={item ? item.id : 1}
-						item={item || 'missing data'}
-						deleteItemHandler={deleteListItem}
-						editListItem={editListItem}
-						checkListItem={checkListItem}
-					/>
-				))}
-			</ul>
-		</section>
+		<>
+			{list && (
+				<section className={styles.List}>
+					<h2>
+						<span>{list.title}</span>
+					</h2>
+					<div>
+						<ListForm addListItem={addListItem} />
+					</div>
+					<ul>
+						{list.items.map((item) => (
+							<ListItem
+								key={item ? item.itemId : 1}
+								item={item || 'missing data'}
+								deleteItemHandler={deleteListItem}
+								editListItem={editListItem}
+								checkListItem={checkListItem}
+							/>
+						))}
+					</ul>
+				</section>
+			)}
+		</>
 	);
 }

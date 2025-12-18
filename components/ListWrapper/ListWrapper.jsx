@@ -2,11 +2,18 @@ import ListForm from '../Form/ListForm';
 import List from '../List/List';
 import styles from './ListWrapper.module.css';
 
-function ListWrapper({ list, setList, addListItem }) {
+function ListWrapper({ setList, addListItem, lists }) {
 	return (
 		<section className={styles.ListWrapper}>
-			{/* <ListForm addListItem={addListItem} /> */}
-			<List list={list} setList={setList} addListItem={addListItem} />
+			{lists &&
+				lists.map((list) => (
+					<List
+						key={list.listId}
+						setList={setList}
+						addListItem={addListItem}
+						list={list}
+					/>
+				))}
 		</section>
 	);
 }
