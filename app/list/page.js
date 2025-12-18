@@ -5,8 +5,9 @@ import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import ListForm from '@/components/Form/ListForm';
 import List from '@/components/List/List';
-import styles from './page.module.css';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
+import styles from './page.module.css';
+import CreateList from '@/components/CreateList.jsx/CreateList';
 
 export default function Home() {
 	const [list, setList] = useState([]);
@@ -57,6 +58,7 @@ export default function Home() {
 			{/* <SampleData /> */}
 			<main>
 				<h1>List App</h1>
+
 				{/* form needs to add item to list - a handler that updates state and local storage */}
 				{/* <ListForm addListItem={addListItem} /> */}
 				{/* <div>
@@ -78,7 +80,7 @@ export default function Home() {
 							addListItem={addListItem}
 						/>
 					) : (
-						'No list yet. Why not create one?'
+						<CreateList />
 					)}
 				</div>
 			</main>
@@ -93,6 +95,17 @@ const sampleData = [
 	{ id: 4, data: 'salsa', checked: false },
 	{ id: 5, data: 'salad', checked: false },
 ];
+
+const sampleList = {
+	title: 'List',
+	items: [
+		{ id: 1, data: 'eggs', checked: false },
+		{ id: 2, data: 'juice', checked: false },
+		{ id: 3, data: 'cookies', checked: false },
+		{ id: 4, data: 'salsa', checked: false },
+		{ id: 5, data: 'salad', checked: false },
+	],
+};
 
 const deleteListItem = (id) => {
 	setList((prev) => {
