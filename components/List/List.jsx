@@ -1,9 +1,10 @@
 import { CONSTANTS } from '@/utils/constants';
 import { setLocalStorage } from '@/utils/localStorage';
 import ListItem from '../ListItem/ListItem';
+import ListForm from '../Form/ListForm';
 import styles from './List.module.css';
 
-export default function List({ list, setList }) {
+export default function List({ list, setList, addListItem }) {
 	const LIST = CONSTANTS.LIST;
 
 	const deleteListItem = (id) => {
@@ -47,6 +48,9 @@ export default function List({ list, setList }) {
 	return (
 		<section className={styles.List}>
 			<h2>Groceries</h2>
+			<div>
+				<ListForm addListItem={addListItem} />
+			</div>
 			<ul>
 				{list.map((item) => (
 					<ListItem

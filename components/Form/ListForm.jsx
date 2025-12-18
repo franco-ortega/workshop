@@ -15,14 +15,14 @@ export default function ListForm({ addListItem }) {
 			<form onSubmit={onListItemSubmit}>
 				<label htmlFor='list-item'>
 					<input
-						type='text'
-						id='list-item'
+						type={'text'}
+						id={'list-item'}
 						value={item}
+						placeholder={'add item'}
 						onChange={(e) => setItem(e.target.value)}
 					/>
 				</label>
-
-				<button>Add Item</button>
+				<button>+</button>
 			</form>
 		</div>
 	);

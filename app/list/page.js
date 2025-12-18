@@ -6,6 +6,7 @@ import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import ListForm from '@/components/Form/ListForm';
 import List from '@/components/List/List';
 import styles from './page.module.css';
+import ListWrapper from '@/components/ListWrapper/ListWrapper';
 
 export default function Home() {
 	const [list, setList] = useState([]);
@@ -57,12 +58,25 @@ export default function Home() {
 			<main>
 				<h1>List App</h1>
 				{/* form needs to add item to list - a handler that updates state and local storage */}
-				<ListForm addListItem={addListItem} />
-				<div>
+				{/* <ListForm addListItem={addListItem} /> */}
+				{/* <div>
 					{isLoading ? (
 						'Retrieving list...'
 					) : list.length ? (
 						<List list={list} setList={setList} />
+					) : (
+						'No list yet. Why not create one?'
+					)}
+				</div> */}
+				<div>
+					{isLoading ? (
+						'Retrieving list...'
+					) : list.length ? (
+						<ListWrapper
+							list={list}
+							setList={setList}
+							addListItem={addListItem}
+						/>
 					) : (
 						'No list yet. Why not create one?'
 					)}
