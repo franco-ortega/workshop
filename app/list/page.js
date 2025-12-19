@@ -37,21 +37,6 @@ export default function Home() {
 		});
 	};
 
-	function SampleData() {
-		return (
-			<div className={styles.sampleData}>
-				<button
-					onClick={() => {
-						setLists(sampleList);
-						setLocalStorage(LIST, sampleList);
-					}}
-				>
-					Load Sample List
-				</button>
-			</div>
-		);
-	}
-
 	const addListItem = (listId, item) => {
 		setLists((prev) => {
 			const listToUpdate = prev.find((list) => list.listId === listId);
@@ -72,8 +57,7 @@ export default function Home() {
 								listToUpdate.title,
 								listToUpdate.items[listToUpdate.items.length - 1].itemId
 						  )
-						: // ? listToUpdate.items[listToUpdate.items.length - 1].itemId + 1
-						  listToUpdate.title + 1,
+						: listToUpdate.title + 1,
 					data: item,
 					checked: false,
 				},
@@ -86,12 +70,26 @@ export default function Home() {
 				return list;
 			});
 
-			// console.log(newListofLists);
-
 			setLocalStorage(LIST, newListofLists);
 			return newListofLists;
 		});
 	};
+
+	// this component only needs to render when I want to create sample data
+	function SampleData() {
+		return (
+			<div className={styles.sampleData}>
+				<button
+					onClick={() => {
+						setLists(sampleList);
+						setLocalStorage(LIST, sampleList);
+					}}
+				>
+					Load Sample List
+				</button>
+			</div>
+		);
+	}
 
 	return (
 		<div className={styles.page}>
@@ -132,24 +130,3 @@ const sampleList = [
 		],
 	},
 ];
-
-const deleteListItem = (id) => {
-	setList((prev) => {
-		const updatedList = prev.filter((element) => element.id !== id);
-		setLocalStorage(LIST, updatedList);
-		return updatedList;
-	});
-};
-
-const editListItem = (id, editedItem) => {
-	setList((prev) => {
-		const updatedList = prev.map((element) => {
-			if (element.id === id) {
-				return { id, data: editedItem };
-			} else return element;
-		});
-
-		setLocalStorage(LIST, updatedList);
-		return updatedList;
-	});
-};
