@@ -9,11 +9,9 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
-			const updatedItems = prev[listIndex].items.filter(
+			prev[listIndex].items = prev[listIndex].items.filter(
 				(item) => item.itemId !== itemId
 			);
-
-			prev[listIndex].items = updatedItems;
 
 			setLocalStorage(LIST, prev);
 
