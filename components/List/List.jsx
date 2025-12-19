@@ -4,42 +4,20 @@ import ListItem from '../ListItem/ListItem';
 import ListForm from '../Form/ListForm';
 import styles from './List.module.css';
 
-export default function List({
-	list,
-	setList,
-	addListItem,
-	setLists,
-	listIndex,
-}) {
+export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
-
-	const deleteListItem = (id) => {
-		setList((prev) => {
-			const updatedList = prev.filter((element) => element.id !== id);
-			setLocalStorage(LIST, updatedList);
-			return updatedList;
-		});
-	};
-
-	const currentId = list.listId;
 
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
-			const updatedLists = prev.map((list) => {
-				if (list.listId === currentId) {
-					const updatedItems = list.items.filter(
-						(item) => item.itemId !== itemId
-					);
+			const updatedItems = prev[listIndex].items.filter(
+				(item) => item.itemId !== itemId
+			);
 
-					list.items = updatedItems;
-					return list;
-				}
-				return list;
-			});
+			prev[listIndex].items = updatedItems;
 
-			setLocalStorage(LIST, updatedLists);
+			setLocalStorage(LIST, prev);
 
-			return updatedLists;
+			return [...prev];
 		});
 	};
 
@@ -99,3 +77,19 @@ export default function List({
 		</>
 	);
 }
+
+// const deleteItem = (itemId) => {
+// 	setLists((prev) => {
+// 		const updatedLists = prev.map((list) => {
+// 			if (list.listId === listId) {
+// 				list.items = list.items.filter((item) => item.itemId !== itemId);
+// 				return list;
+// 			}
+// 			return list;
+// 		});
+
+// 		setLocalStorage(LIST, updatedLists);
+
+// 		return updatedLists;
+// 	});
+// };
