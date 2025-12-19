@@ -10,7 +10,6 @@ import styles from './page.module.css';
 import CreateList from '@/components/CreateList.jsx/CreateList';
 
 export default function Home() {
-	const [list, setList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const LIST = CONSTANTS.LIST;
 
@@ -76,7 +75,7 @@ export default function Home() {
 		});
 	};
 
-	console.log(lists);
+	// console.log(lists);
 
 	return (
 		<div className={styles.page}>
@@ -93,7 +92,7 @@ export default function Home() {
 						: lists && (
 								<ListWrapper
 									lists={lists}
-									setList={setList}
+									setLists={setLists}
 									addListItem={addListItem}
 								/>
 						  )}
@@ -103,6 +102,7 @@ export default function Home() {
 	);
 }
 
+////////////////////////////////////////////
 const sampleList = [
 	{
 		title: 'List',

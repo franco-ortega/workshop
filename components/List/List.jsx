@@ -4,7 +4,13 @@ import ListItem from '../ListItem/ListItem';
 import ListForm from '../Form/ListForm';
 import styles from './List.module.css';
 
-export default function List({ list, setList, addListItem }) {
+export default function List({
+	list,
+	setList,
+	addListItem,
+	setLists,
+	listIndex,
+}) {
 	const LIST = CONSTANTS.LIST;
 
 	const deleteListItem = (id) => {
@@ -12,6 +18,28 @@ export default function List({ list, setList, addListItem }) {
 			const updatedList = prev.filter((element) => element.id !== id);
 			setLocalStorage(LIST, updatedList);
 			return updatedList;
+		});
+	};
+
+	const currentId = list.listId;
+
+	const deleteItem = (itemId) => {
+		setLists((prev) => {
+			const updatedLists = prev.map((list) => {
+				if (list.listId === currentId) {
+					const updatedItems = list.items.filter(
+						(item) => item.itemId !== itemId
+					);
+
+					list.items = updatedItems;
+					return list;
+				}
+				return list;
+			});
+
+			setLocalStorage(LIST, updatedLists);
+
+			return updatedLists;
 		});
 	};
 
@@ -60,7 +88,7 @@ export default function List({ list, setList, addListItem }) {
 							<ListItem
 								key={item ? item.itemId : 1}
 								item={item || 'missing data'}
-								deleteItemHandler={deleteListItem}
+								deleteItemHandler={deleteItem}
 								editListItem={editListItem}
 								checkListItem={checkListItem}
 							/>

@@ -24,7 +24,9 @@ export default function ListItem({
 
 	const onCancelEdit = () => setEdit(false);
 
-	const onDeleteItem = () => deleteItemHandler(item.id);
+	const onDeleteItem = () => deleteItemHandler(item.itemId);
+
+	// console.log('ListItem: ', item, item.itemId);
 
 	return (
 		<li className={styles.ListItem}>
