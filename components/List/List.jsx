@@ -23,7 +23,6 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		setLists((prev) => {
 			const updatedLists = prev[listIndex].items.map((element) => {
 				if (element.itemId === id) {
-					console.log({ element });
 					return { itemId: id, data: editedItem, checked };
 				} else return element;
 			});
@@ -57,7 +56,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 						<span>{list.title}</span>
 					</h2>
 					<div>
-						<ListForm addListItem={addListItem} />
+						<ListForm addListItem={addListItem} listId={list.listId} />
 					</div>
 					<ul>
 						{list.items.map((item) => (
@@ -67,6 +66,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 								deleteItemHandler={deleteItem}
 								editListItem={editItem}
 								checkListItem={checkListItem}
+								listId={list.listId}
 							/>
 						))}
 					</ul>

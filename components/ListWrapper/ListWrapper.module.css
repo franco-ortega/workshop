@@ -1,5 +1,8 @@
 .ListWrapper {
 	background-color: hsl(60, 100%, 10%, 0.25);
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
 }
 
 .ListWrapper * {

@@ -10,21 +10,21 @@ function CreateList({ createNewList }) {
 	const onCreateList = (e) => {
 		e.preventDefault();
 
-		const sampleList = [
-			{
-				title: 'List',
-				listId: 111,
-				items: [
-					{ itemId: 1, data: 'eggs', checked: false },
-					{ itemId: 2, data: 'juice', checked: false },
-					{ itemId: 3, data: 'cookies', checked: false },
-					{ itemId: 4, data: 'salsa', checked: false },
-					{ itemId: 5, data: 'salad', checked: false },
-				],
-			},
-		];
+		// const sampleList = [
+		// 	{
+		// 		title: 'List',
+		// 		listId: 111,
+		// 		items: [
+		// 			{ itemId: 1, data: 'eggs', checked: false },
+		// 			{ itemId: 2, data: 'juice', checked: false },
+		// 			{ itemId: 3, data: 'cookies', checked: false },
+		// 			{ itemId: 4, data: 'salsa', checked: false },
+		// 			{ itemId: 5, data: 'salad', checked: false },
+		// 		],
+		// 	},
+		// ];
 
-		createNewList(sampleList);
+		createNewList();
 	};
 
 	return (

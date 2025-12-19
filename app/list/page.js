@@ -3,27 +3,27 @@
 import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
-// import ListForm from '@/components/Form/ListForm';
-// import List from '@/components/List/List';
+import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
-import CreateList from '@/components/CreateList.jsx/CreateList';
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
+	const [lists, setLists] = useState([]);
 	const LIST = CONSTANTS.LIST;
 
-	const [lists, setLists] = useState(null);
+	useEffect(() => {
+		const storedList = getLocalStorage(LIST);
+		if (storedList) setLists(storedList);
+		setIsLoading(false);
+	}, [LIST]);
 
-	const createNewList = (data) => {
-		setLists(data);
-
-		// kind of like this:
+	const createNewList = () => {
 		setLists((prevState) => {
 			const newList = [
 				...prevState,
 				{
-					title: 'TEST',
+					title: 'LIST',
 					//check to see that at least one item exists before incrementing id
 					// otherwise give first item an id of 1
 					listId: prevState[0] ? prevState[prevState.length - 1].listId + 1 : 1,
@@ -32,6 +32,7 @@ export default function Home() {
 			];
 
 			setLocalStorage(LIST, newList);
+
 			return newList;
 		});
 	};
@@ -51,31 +52,46 @@ export default function Home() {
 		);
 	}
 
-	useEffect(() => {
-		const storedList = getLocalStorage(LIST);
-		if (storedList) setLists(storedList);
-		setIsLoading(false);
-	}, [LIST]);
+	const addListItem = (listId, item) => {
+		setLists((prev) => {
+			const listToUpdate = prev.find((list) => list.listId === listId);
 
-	const addListItem = (item) => {
-		setList((prevState) => {
-			const updatedList = [
-				...prevState,
+			const createId = (title, lastId = title + 1) => {
+				const titleLength = Number(title.length); // 4
+
+				const idNumber = Number(lastId.slice(titleLength)); // 1
+				const newId = title + (idNumber + 1);
+				return newId;
+			};
+
+			const newItemList = [
+				...listToUpdate.items,
 				{
-					//check to see that at least one item exists before incrementing id
-					// otherwise give first item an id of 1
-					listId: prevState[0] ? prevState[prevState.length - 1].listId + 1 : 1,
+					itemId: listToUpdate.items.length
+						? createId(
+								listToUpdate.title,
+								listToUpdate.items[listToUpdate.items.length - 1].itemId
+						  )
+						: // ? listToUpdate.items[listToUpdate.items.length - 1].itemId + 1
+						  listToUpdate.title + 1,
 					data: item,
 					checked: false,
 				},
 			];
 
-			setLocalStorage(LIST, updatedList);
-			return updatedList;
+			const newListofLists = prev.map((list) => {
+				if (list.listId === listId) {
+					return { ...list, items: newItemList };
+				}
+				return list;
+			});
+
+			// console.log(newListofLists);
+
+			setLocalStorage(LIST, newListofLists);
+			return newListofLists;
 		});
 	};
-
-	// console.log(lists);
 
 	return (
 		<div className={styles.page}>
