@@ -19,27 +19,27 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
-	const editListItem = (id, editedItem) => {
-		setList((prev) => {
-			const updatedList = prev.map((element) => {
-				if (element.id === id) {
-					return { id, data: editedItem };
+	const editItem = (id, editedItem, checked) => {
+		setLists((prev) => {
+			const updatedLists = prev[listIndex].items.map((element) => {
+				if (element.itemId === id) {
+					console.log({ element });
+					return { itemId: id, data: editedItem, checked };
 				} else return element;
 			});
 
-			setLocalStorage(LIST, updatedList);
-			return updatedList;
+			prev[listIndex].items = updatedLists;
+
+			setLocalStorage(LIST, prev);
+
+			return [...prev];
 		});
 	};
 
 	const checkListItem = (id) => {
-		// check or uncheck list item -> change status from false to true
-		// check -> change status from false to true
-		// uncheck -> change status from true to false
-		// just needs to change the current state of the boolean
 		setList((prev) => {
 			const updatedList = prev.map((item) => {
-				if (item.id === id) {
+				if (item.itemId === id) {
 					return { ...item, checked: !item.checked };
 				} else return item;
 			});
@@ -65,7 +65,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 								key={item ? item.itemId : 1}
 								item={item || 'missing data'}
 								deleteItemHandler={deleteItem}
-								editListItem={editListItem}
+								editListItem={editItem}
 								checkListItem={checkListItem}
 							/>
 						))}
@@ -89,5 +89,18 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 // 		setLocalStorage(LIST, updatedLists);
 
 // 		return updatedLists;
+// 	});
+// };
+
+// const editListItem = (id, editedItem) => {
+// 	setList((prev) => {
+// 		const updatedList = prev.map((element) => {
+// 			if (element.id === id) {
+// 				return { id, data: editedItem };
+// 			} else return element;
+// 		});
+
+// 		setLocalStorage(LIST, updatedList);
+// 		return updatedList;
 // 	});
 // };

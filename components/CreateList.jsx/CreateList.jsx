@@ -9,7 +9,6 @@ function CreateList({ createNewList }) {
 
 	const onCreateList = (e) => {
 		e.preventDefault();
-		console.log('create new list');
 
 		const sampleList = [
 			{

@@ -11,14 +11,14 @@ export default function ListItem({
 	const [edit, setEdit] = useState(false);
 	const [editedItem, setEditedItem] = useState('');
 
-	const onCheckItem = () => checkListItem(item.id);
+	const onCheckItem = () => checkListItem(item.itemId);
 
 	const onOpenEdit = () => setEdit(true);
 
 	const onEditItem = (e) => setEditedItem(e.target.value);
 
 	const onSaveItem = () => {
-		editListItem(item.id, editedItem);
+		editListItem(item.itemId, editedItem, item.checked);
 		setEdit(false);
 	};
 
@@ -26,20 +26,18 @@ export default function ListItem({
 
 	const onDeleteItem = () => deleteItemHandler(item.itemId);
 
-	// console.log('ListItem: ', item, item.itemId);
-
 	return (
-		<li className={styles.ListItem}>
+		<li className={styles.ListItem} key={item.itemId}>
 			{!edit ? (
 				<>
 					<input
 						type='checkbox'
-						id={item.id}
+						id={item.itemId}
 						name={item.data}
 						onChange={onCheckItem}
 						checked={item.checked}
 					/>
-					<label htmlFor={item.id}>{item.data}</label>
+					<label htmlFor={item.itemId}>{item.data}</label>
 					<div>
 						<IconButton
 							clickHandler={onOpenEdit}
@@ -58,7 +56,7 @@ export default function ListItem({
 					<label htmlFor={item.data}>
 						<input
 							defaultValue={item.data}
-							id={item.id}
+							id={item.itemId}
 							name={item.data}
 							size='10'
 							onChange={onEditItem}

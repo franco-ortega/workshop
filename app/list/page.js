@@ -64,7 +64,7 @@ export default function Home() {
 				{
 					//check to see that at least one item exists before incrementing id
 					// otherwise give first item an id of 1
-					id: prevState[0] ? prevState[prevState.length - 1].id + 1 : 1,
+					listId: prevState[0] ? prevState[prevState.length - 1].listId + 1 : 1,
 					data: item,
 					checked: false,
 				},
