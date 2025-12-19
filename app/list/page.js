@@ -18,15 +18,24 @@ export default function Home() {
 		setIsLoading(false);
 	}, [LIST]);
 
-	const createNewList = () => {
-		setLists((prevState) => {
+	const createId = (idData) => {
+		const { title, lastId } = idData;
+
+		const titleLength = title.length;
+		const lastIdNumber = Number(lastId.slice(titleLength));
+		const newId = title + (lastIdNumber + 1);
+		return newId;
+	};
+
+	const createList = () => {
+		setLists((prev) => {
 			const newList = [
-				...prevState,
+				...prev,
 				{
 					title: 'LIST',
 					//check to see that at least one item exists before incrementing id
 					// otherwise give first item an id of 1
-					listId: prevState[0] ? prevState[prevState.length - 1].listId + 1 : 1,
+					listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
 					items: [],
 				},
 			];
@@ -41,22 +50,15 @@ export default function Home() {
 		setLists((prev) => {
 			const listToUpdate = prev.find((list) => list.listId === listId);
 
-			const createId = (title, lastId = title + 1) => {
-				const titleLength = Number(title.length); // 4
-
-				const idNumber = Number(lastId.slice(titleLength)); // 1
-				const newId = title + (idNumber + 1);
-				return newId;
-			};
-
 			const newItemList = [
 				...listToUpdate.items,
 				{
 					itemId: listToUpdate.items.length
-						? createId(
-								listToUpdate.title,
-								listToUpdate.items[listToUpdate.items.length - 1].itemId
-						  )
+						? createId({
+								title: listToUpdate.title,
+								lastId:
+									listToUpdate.items[listToUpdate.items.length - 1].itemId,
+						  })
 						: listToUpdate.title + 1,
 					data: item,
 					checked: false,
@@ -96,7 +98,7 @@ export default function Home() {
 			{/* <SampleData /> */}
 			<header className={styles.header}>
 				<h1>List App</h1>
-				<CreateList createNewList={createNewList} />
+				<CreateList createList={createList} />
 			</header>
 			<main>
 				{!isLoading && !lists && <div>No list yet. Why not create one?</div>}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './CreateList.module.css';
 
-function CreateList({ createNewList }) {
+function CreateList({ createList }) {
 	const [isTitle, setIsTitle] = useState(false);
 
 	const toggleTitleOn = () => setIsTitle(true);
@@ -24,7 +24,7 @@ function CreateList({ createNewList }) {
 		// 	},
 		// ];
 
-		createNewList();
+		createList();
 	};
 
 	return (
