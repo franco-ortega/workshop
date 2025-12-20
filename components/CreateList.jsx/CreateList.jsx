@@ -32,6 +32,8 @@ function CreateList({ createList }) {
 		// ];
 
 		createList(listTitle);
+		setListTitle('');
+		toggleTitleOff();
 	};
 
 	return (
