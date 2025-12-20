@@ -15,9 +15,7 @@ function CreateList({ createList }) {
 		setIsChecked(true);
 	};
 
-	const onTitleChange = (e) => {
-		setListTitle(e.target.value);
-	};
+	const onTitleChange = (e) => setListTitle(e.target.value);
 
 	const onCreateList = (e) => {
 		e.preventDefault();

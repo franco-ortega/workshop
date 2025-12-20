@@ -35,6 +35,16 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
+	const deleteList = (listId) => {
+		setLists((prev) => {
+			const updatedLists = prev.filter((list) => list.listId !== listId);
+			setLocalStorage(LIST, updatedLists);
+
+			return updatedLists;
+		});
+	};
+
+	// STILL NEED TO UPDATE THIS
 	const checkListItem = (id) => {
 		setList((prev) => {
 			const updatedList = prev.map((item) => {
@@ -69,38 +79,14 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 								listId={list.listId}
 							/>
 						))}
+						<div>
+							<button onClick={() => deleteList(list.listId)}>
+								Delete List
+							</button>
+						</div>
 					</ul>
 				</section>
 			)}
 		</>
 	);
 }
-
-// const deleteItem = (itemId) => {
-// 	setLists((prev) => {
-// 		const updatedLists = prev.map((list) => {
-// 			if (list.listId === listId) {
-// 				list.items = list.items.filter((item) => item.itemId !== itemId);
-// 				return list;
-// 			}
-// 			return list;
-// 		});
-
-// 		setLocalStorage(LIST, updatedLists);
-
-// 		return updatedLists;
-// 	});
-// };
-
-// const editListItem = (id, editedItem) => {
-// 	setList((prev) => {
-// 		const updatedList = prev.map((element) => {
-// 			if (element.id === id) {
-// 				return { id, data: editedItem };
-// 			} else return element;
-// 		});
-
-// 		setLocalStorage(LIST, updatedList);
-// 		return updatedList;
-// 	});
-// };
