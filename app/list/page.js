@@ -27,12 +27,12 @@ export default function Home() {
 		return newId;
 	};
 
-	const createList = () => {
+	const createList = (title) => {
 		setLists((prev) => {
 			const newList = [
 				...prev,
 				{
-					title: 'LIST',
+					title: title,
 					//check to see that at least one item exists before incrementing id
 					// otherwise give first item an id of 1
 					listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,

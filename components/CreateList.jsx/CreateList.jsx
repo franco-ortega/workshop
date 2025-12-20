@@ -3,9 +3,16 @@ import styles from './CreateList.module.css';
 
 function CreateList({ createList }) {
 	const [isTitle, setIsTitle] = useState(false);
+	const [listTitle, setListTitle] = useState('');
 
 	const toggleTitleOn = () => setIsTitle(true);
 	const toggleTitleOff = () => setIsTitle(false);
+
+	const onTitleChange = (e) => {
+		setListTitle(e.target.value);
+	};
+
+	console.log(listTitle);
 
 	const onCreateList = (e) => {
 		e.preventDefault();
@@ -24,7 +31,7 @@ function CreateList({ createList }) {
 		// 	},
 		// ];
 
-		createList();
+		createList(listTitle);
 	};
 
 	return (
@@ -53,7 +60,15 @@ function CreateList({ createList }) {
 				</label>
 				<button>Create List</button>
 
-				{isTitle && <input placeholder='list title' />}
+				{isTitle && (
+					<label htmlFor='list-title'>
+						<input
+							id={'list-title'}
+							placeholder='list title'
+							onChange={onTitleChange}
+						/>
+					</label>
+				)}
 			</form>
 		</div>
 	);
