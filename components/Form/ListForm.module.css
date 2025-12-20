@@ -1,8 +1,19 @@
 .ListForm {
 	background-color: hsl(0, 0%, 0%, 10%);
-	border-radius: 5px;
-	padding: 2rem 2rem;
+	padding-block: 1rem;
 
-	max-width: fit-content;
-	margin-block: 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+.ListForm label {
+	flex: 1;
+}
+
+.ListForm input {
+	padding-left: 0.25rem;
+}
+
+.ListForm button {
+	width: 1.75rem;
 }

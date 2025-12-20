@@ -3,22 +3,92 @@
 import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
-import ListForm from '@/components/Form/ListForm';
-import List from '@/components/List/List';
+import CreateList from '@/components/CreateList.jsx/CreateList';
+import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
 
 export default function Home() {
-	const [list, setList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [lists, setLists] = useState([]);
 	const LIST = CONSTANTS.LIST;
 
+	useEffect(() => {
+		const storedList = getLocalStorage(LIST);
+		if (storedList) setLists(storedList);
+		setIsLoading(false);
+	}, [LIST]);
+
+	const removeSpaces = (str) => {
+		return str.replace(/\s+/g, '');
+	};
+
+	const createId = (idData) => {
+		const { title, lastId } = idData;
+
+		const titleLength = title.length;
+		const lastIdNumber = Number(lastId.slice(titleLength));
+		const newId = title + (lastIdNumber + 1);
+		return removeSpaces(newId);
+	};
+
+	const createList = (title) => {
+		setLists((prev) => {
+			const newList = [
+				...prev,
+				{
+					title: title,
+					//check to see that at least one item exists before incrementing id
+					// otherwise give first item an id of 1
+					listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
+					items: [],
+				},
+			];
+
+			setLocalStorage(LIST, newList);
+
+			return newList;
+		});
+	};
+
+	const addListItem = (listId, item) => {
+		setLists((prev) => {
+			const listToUpdate = prev.find((list) => list.listId === listId);
+
+			const newItemList = [
+				...listToUpdate.items,
+				{
+					itemId: listToUpdate.items.length
+						? createId({
+								title: listToUpdate.title,
+								lastId:
+									listToUpdate.items[listToUpdate.items.length - 1].itemId,
+						  })
+						: listToUpdate.title + 1,
+					data: item,
+					checked: false,
+				},
+			];
+
+			const newListofLists = prev.map((list) => {
+				if (list.listId === listId) {
+					return { ...list, items: newItemList };
+				}
+				return list;
+			});
+
+			setLocalStorage(LIST, newListofLists);
+			return newListofLists;
+		});
+	};
+
+	// this component only needs to render when I want to create sample data
 	function SampleData() {
 		return (
 			<div className={styles.sampleData}>
 				<button
 					onClick={() => {
-						setList(sampleData);
-						setLocalStorage(LIST, sampleData);
+						setLists(sampleList);
+						setLocalStorage(LIST, sampleList);
 					}}
 				>
 					Load Sample List
@@ -27,76 +97,42 @@ export default function Home() {
 		);
 	}
 
-	useEffect(() => {
-		const storedList = getLocalStorage(LIST);
-		if (storedList) setList(storedList);
-		setIsLoading(false);
-	}, [LIST]);
-
-	const addListItem = (item) => {
-		setList((prevState) => {
-			const updatedList = [
-				...prevState,
-				{
-					//check to see that at least one item exists before incrementing id
-					// otherwise give first item an id of 1
-					id: prevState[0] ? prevState[prevState.length - 1].id + 1 : 1,
-					data: item,
-					checked: false,
-				},
-			];
-
-			setLocalStorage(LIST, updatedList);
-			return updatedList;
-		});
-	};
-
 	return (
 		<div className={styles.page}>
 			{/* <SampleData /> */}
-			<main>
+			<header className={styles.header}>
 				<h1>List App</h1>
-				{/* form needs to add item to list - a handler that updates state and local storage */}
-				<ListForm addListItem={addListItem} />
+				<CreateList createList={createList} />
+			</header>
+			<main>
+				{!isLoading && !lists && <div>No list yet. Why not create one?</div>}
 				<div>
-					{isLoading ? (
-						'Retrieving list...'
-					) : list.length ? (
-						<List list={list} setList={setList} />
-					) : (
-						'No list yet. Why not create one?'
-					)}
+					{isLoading
+						? 'Retrieving list...'
+						: lists && (
+								<ListWrapper
+									lists={lists}
+									setLists={setLists}
+									addListItem={addListItem}
+								/>
+						  )}
 				</div>
 			</main>
 		</div>
 	);
 }
 
-const sampleData = [
-	{ id: 1, data: 'eggs', checked: false },
-	{ id: 2, data: 'juice', checked: false },
-	{ id: 3, data: 'cookies', checked: false },
-	{ id: 4, data: 'salsa', checked: false },
-	{ id: 5, data: 'salad', checked: false },
+////////////////////////////////////////////
+const sampleList = [
+	{
+		title: 'List',
+		listId: 1,
+		items: [
+			{ itemId: 1, data: 'eggs', checked: false },
+			{ itemId: 2, data: 'juice', checked: false },
+			{ itemId: 3, data: 'cookies', checked: false },
+			{ itemId: 4, data: 'salsa', checked: false },
+			{ itemId: 5, data: 'salad', checked: false },
+		],
+	},
 ];
-
-const deleteListItem = (id) => {
-	setList((prev) => {
-		const updatedList = prev.filter((element) => element.id !== id);
-		setLocalStorage(LIST, updatedList);
-		return updatedList;
-	});
-};
-
-const editListItem = (id, editedItem) => {
-	setList((prev) => {
-		const updatedList = prev.map((element) => {
-			if (element.id === id) {
-				return { id, data: editedItem };
-			} else return element;
-		});
-
-		setLocalStorage(LIST, updatedList);
-		return updatedList;
-	});
-};
