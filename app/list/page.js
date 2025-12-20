@@ -18,13 +18,17 @@ export default function Home() {
 		setIsLoading(false);
 	}, [LIST]);
 
+	const removeSpaces = (str) => {
+		return str.replace(/\s+/g, '');
+	};
+
 	const createId = (idData) => {
 		const { title, lastId } = idData;
 
 		const titleLength = title.length;
 		const lastIdNumber = Number(lastId.slice(titleLength));
 		const newId = title + (lastIdNumber + 1);
-		return newId;
+		return removeSpaces(newId);
 	};
 
 	const createList = (title) => {
