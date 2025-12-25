@@ -14,6 +14,11 @@ export default function Home() {
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
+
+		if (!storedList[0]?.title) {
+			setLists([]);
+			setIsLoading(false);
+		}
 		if (storedList) setLists(storedList);
 		setIsLoading(false);
 	}, [LIST]);
