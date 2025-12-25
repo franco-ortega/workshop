@@ -1,19 +1,16 @@
 .ListForm {
-	background-color: hsl(0, 0%, 0%, 10%);
+	background-color: hsl(0, 0%, 0%, 20%);
 	padding-block: 1rem;
+	padding-inline: 0.5rem;
 
-	display: flex;
-	justify-content: center;
-}
-
-.ListForm label {
-	flex: 1;
+	--add-item-btn-width: 1.75rem;
 }
 
 .ListForm input {
 	padding-left: 0.25rem;
+	max-width: calc(100% - var(--add-item-btn-width));
 }
 
 .ListForm button {
-	width: 1.75rem;
+	width: var(--add-item-btn-width);
 }
