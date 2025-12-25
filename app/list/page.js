@@ -15,12 +15,14 @@ export default function Home() {
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 
-		if (!storedList[0]?.title) {
-			setLists([]);
+		if (storedList) {
+			if (storedList[0]?.title) {
+				setLists(storedList);
+			} else {
+				setLists([]);
+			}
 			setIsLoading(false);
 		}
-		if (storedList) setLists(storedList);
-		setIsLoading(false);
 	}, [LIST]);
 
 	const removeSpaces = (str) => {
