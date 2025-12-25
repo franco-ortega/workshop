@@ -1,0 +1,22 @@
+import { useState } from 'react';
+// import ListForm from '../Form/ListForm';
+import List from '../List/List';
+import styles from './ListWrapper.module.css';
+
+function ListWrapper({ addListItem, lists, setLists }) {
+	return (
+		<section className={styles.ListWrapper}>
+			{lists &&
+				lists.map((list, i) => (
+					<List
+						key={list.listId}
+						setLists={setLists}
+						addListItem={addListItem}
+						list={list}
+						listIndex={i}
+					/>
+				))}
+		</section>
+	);
+}
+export default ListWrapper;

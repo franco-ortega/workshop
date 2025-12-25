@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styles from './ListForm.module.css';
 
-export default function ListForm({ addListItem }) {
+export default function ListForm({ addListItem, listId }) {
 	const [item, setItem] = useState('');
 
 	const onListItemSubmit = (e) => {
 		e.preventDefault();
-		addListItem(item);
+		addListItem(listId, item);
 		setItem('');
 	};
 
@@ -15,14 +15,14 @@ export default function ListForm({ addListItem }) {
 			<form onSubmit={onListItemSubmit}>
 				<label htmlFor='list-item'>
 					<input
-						type='text'
-						id='list-item'
+						type={'text'}
+						id={'list-item'}
 						value={item}
+						placeholder={'add item'}
 						onChange={(e) => setItem(e.target.value)}
 					/>
 				</label>
-
-				<button>Add Item</button>
+				<button>+</button>
 			</form>
 		</div>
 	);

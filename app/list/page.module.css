@@ -9,6 +9,12 @@
 	font-family: var(--font-geist-sans);
 }
 
+.header {
+	/* outline: dashed 2px rgb(9, 58, 9); */
+	/* display: flex; */
+	/* justify-content: space-between; */
+}
+
 .formWrapper {
 	background-color: hsl(0, 0%, 0%, 10%);
 	border-radius: 5px;

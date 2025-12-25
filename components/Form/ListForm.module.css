@@ -1,8 +1,16 @@
 .ListForm {
-	background-color: hsl(0, 0%, 0%, 10%);
-	border-radius: 5px;
-	padding: 2rem 2rem;
+	background-color: hsl(0, 0%, 0%, 20%);
+	padding-block: 1rem;
+	padding-inline: 0.5rem;
 
-	max-width: fit-content;
-	margin-block: 1rem;
+	--add-item-btn-width: 1.75rem;
+}
+
+.ListForm input {
+	padding-left: 0.25rem;
+	max-width: calc(100% - var(--add-item-btn-width));
+}
+
+.ListForm button {
+	width: var(--add-item-btn-width);
 }
