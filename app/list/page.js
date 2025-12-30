@@ -59,10 +59,6 @@ export default function Home() {
 				...prev,
 				{
 					title: newTitle,
-					//check to see that at least one item exists before incrementing id
-					// otherwise give first item an id of 1
-					// listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
-					// listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
 					listId: createId({
 						title: newTitle,
 						lastId: prev[prev.length - 1].listId,
@@ -108,25 +104,8 @@ export default function Home() {
 		});
 	};
 
-	// this component only needs to render when I want to create sample data
-	function SampleData() {
-		return (
-			<div className={styles.sampleData}>
-				<button
-					onClick={() => {
-						setLists(sampleList);
-						setLocalStorage(LIST, sampleList);
-					}}
-				>
-					Load Sample List
-				</button>
-			</div>
-		);
-	}
-
 	return (
 		<div className={styles.page}>
-			{/* <SampleData /> */}
 			<header className={styles.header}>
 				<h1>List App</h1>
 				<CreateList createList={createList} />
@@ -149,17 +128,27 @@ export default function Home() {
 	);
 }
 
-////////////////////////////////////////////
-const sampleList = [
-	{
-		title: 'List',
-		listId: 1,
-		items: [
-			{ itemId: 1, data: 'eggs', checked: false },
-			{ itemId: 2, data: 'juice', checked: false },
-			{ itemId: 3, data: 'cookies', checked: false },
-			{ itemId: 4, data: 'salsa', checked: false },
-			{ itemId: 5, data: 'salad', checked: false },
-		],
-	},
-];
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// this component only needs to render when I want to create sample data
+function SampleData() {
+	return (
+		<div className={styles.sampleData}>
+			<button
+				onClick={() => {
+					setLists(sampleList);
+					setLocalStorage(LIST, sampleList);
+				}}
+			>
+				Load Sample List
+			</button>
+		</div>
+	);
+}
