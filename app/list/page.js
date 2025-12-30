@@ -6,6 +6,7 @@ import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
+import { createId } from '@/utils/createId';
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -49,19 +50,6 @@ export default function Home() {
 			setIsLoading(false);
 		}
 	}, [LIST]);
-
-	const removeSpaces = (str) => {
-		return str.replace(/\s+/g, '');
-	};
-
-	const createId = (idData) => {
-		const { title, lastId } = idData;
-
-		const titleLength = title.length;
-		const lastIdNumber = Number(lastId.slice(titleLength));
-		const newId = title + (lastIdNumber + 1);
-		return removeSpaces(newId);
-	};
 
 	const createList = (title) => {
 		const newTitle = title.length ? title : UNTITLED;
