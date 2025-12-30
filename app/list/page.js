@@ -30,10 +30,21 @@ export default function Home() {
 			if (storedList[0]?.title) {
 				const updatedList = updateData(storedList);
 
-				console.log({ updatedList });
 				setLists(updatedList);
 			} else {
-				setLists([]);
+				setLists((prev) => {
+					const updatedData = [
+						{
+							title: 'Groceries',
+							listId: 'groceries1',
+							items: prev,
+						},
+					];
+
+					setLocalStorage(LIST, updatedData);
+
+					return updatedData;
+				});
 			}
 			setIsLoading(false);
 		}
