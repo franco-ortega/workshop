@@ -14,19 +14,12 @@ export default function Home() {
 	const UNTITLED = CONSTANTS.UNTITLED;
 
 	const updateData = (data) => {
-		console.log(String(data[0].listId).length);
-		// console.log(list.listId.length);
 		const updatedData = data.map((list) => {
-			if (String(list.listId).length <= 1) {
-				return {
-					...list,
-					listId: list.title + list.listId,
-				};
-			}
-			return list;
+			return { ...list, listId: list.listId.toLowerCase() };
 		});
 
-		console.log({ updatedData });
+		setLocalStorage(LIST, updatedData);
+
 		return updatedData;
 	};
 
@@ -36,6 +29,8 @@ export default function Home() {
 		if (storedList) {
 			if (storedList[0]?.title) {
 				const updatedList = updateData(storedList);
+
+				console.log({ updatedList });
 				setLists(updatedList);
 			} else {
 				setLists([]);
