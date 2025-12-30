@@ -11,13 +11,32 @@ export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
 	const LIST = CONSTANTS.LIST;
+	const UNTITLED = CONSTANTS.UNTITLED;
+
+	const updateData = (data) => {
+		console.log(String(data[0].listId).length);
+		// console.log(list.listId.length);
+		const updatedData = data.map((list) => {
+			if (String(list.listId).length <= 1) {
+				return {
+					...list,
+					listId: list.title + list.listId,
+				};
+			}
+			return list;
+		});
+
+		console.log({ updatedData });
+		return updatedData;
+	};
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 
 		if (storedList) {
 			if (storedList[0]?.title) {
-				setLists(storedList);
+				const updatedList = updateData(storedList);
+				setLists(updatedList);
 			} else {
 				setLists([]);
 			}
@@ -39,14 +58,21 @@ export default function Home() {
 	};
 
 	const createList = (title) => {
+		const newTitle = title.length ? title : UNTITLED;
+
 		setLists((prev) => {
 			const newList = [
 				...prev,
 				{
-					title: title,
+					title: newTitle,
 					//check to see that at least one item exists before incrementing id
 					// otherwise give first item an id of 1
-					listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
+					// listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
+					// listId: prev[0] ? prev[prev.length - 1].listId + 1 : 1,
+					listId: createId({
+						title: newTitle,
+						lastId: prev[prev.length - 1].listId,
+					}),
 					items: [],
 				},
 			];

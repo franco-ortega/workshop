@@ -62,9 +62,11 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		<>
 			{list && (
 				<section className={styles.List}>
-					<h2>
-						<span>{list.title}</span>
-					</h2>
+					{list.title && (
+						<h2>
+							<span>{list.title}</span>
+						</h2>
+					)}
 					<div>
 						<ListForm addListItem={addListItem} listId={list.listId} />
 					</div>
