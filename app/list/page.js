@@ -23,21 +23,8 @@ export default function Home() {
 				const updatedList = updateData(storedList);
 
 				setLists(updatedList);
-			} else {
-				setLists((prev) => {
-					const updatedData = [
-						{
-							title: 'Groceries',
-							listId: 'groceries1',
-							items: prev,
-						},
-					];
-
-					setLocalStorage(LIST, updatedData);
-
-					return updatedData;
-				});
 			}
+
 			setIsLoading(false);
 		}
 	}, [LIST]);
@@ -97,7 +84,9 @@ export default function Home() {
 				<CreateList createList={createList} />
 			</header>
 			<main>
-				{!isLoading && !lists && <div>No list yet. Why not create one?</div>}
+				{!isLoading && !lists.length && (
+					<div>No list yet. Why not create one?</div>
+				)}
 				<div>
 					{isLoading
 						? 'Retrieving list...'
