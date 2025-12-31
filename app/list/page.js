@@ -8,6 +8,7 @@ import { updateData } from '@/utils/updateData';
 import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
+import Loading from '@/components/Loading/Loading';
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -88,15 +89,17 @@ export default function Home() {
 					<div>No list yet. Why not create one?</div>
 				)}
 				<div>
-					{isLoading
-						? 'Retrieving list...'
-						: lists && (
-								<ListWrapper
-									lists={lists}
-									setLists={setLists}
-									addListItem={addListItem}
-								/>
-						  )}
+					{isLoading ? (
+						<Loading message={'Retrieving list...'} />
+					) : (
+						lists && (
+							<ListWrapper
+								lists={lists}
+								setLists={setLists}
+								addListItem={addListItem}
+							/>
+						)
+					)}
 				</div>
 			</main>
 		</div>
