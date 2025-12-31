@@ -3,26 +3,17 @@
 import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
+import { createId } from '@/utils/createId';
+import { updateData } from '@/utils/updateData';
 import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import styles from './page.module.css';
-import { createId } from '@/utils/createId';
 
 export default function Home() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
 	const LIST = CONSTANTS.LIST;
 	const UNTITLED = CONSTANTS.UNTITLED;
-
-	const updateData = (data) => {
-		const updatedData = data.map((list) => {
-			return { ...list, listId: list.listId.toLowerCase() };
-		});
-
-		setLocalStorage(LIST, updatedData);
-
-		return updatedData;
-	};
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
@@ -61,7 +52,6 @@ export default function Home() {
 					title: newTitle,
 					listId: createId({
 						title: newTitle,
-						lastId: prev[prev.length - 1].listId,
 					}),
 					items: [],
 				},
@@ -80,13 +70,9 @@ export default function Home() {
 			const newItemList = [
 				...listToUpdate.items,
 				{
-					itemId: listToUpdate.items.length
-						? createId({
-								title: listToUpdate.title,
-								lastId:
-									listToUpdate.items[listToUpdate.items.length - 1].itemId,
-						  })
-						: listToUpdate.title + 1,
+					itemId: createId({
+						title: `${listToUpdate.title}_${item}`,
+					}),
 					data: item,
 					checked: false,
 				},

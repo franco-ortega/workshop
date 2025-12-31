@@ -1,10 +1,9 @@
 import { removeSpaces } from './removeSpaces';
 
 export function createId(idData) {
-	const { title, lastId } = idData;
+	const { title } = idData;
 
-	const titleLength = title.length;
-	const lastIdNumber = Number(lastId.slice(titleLength));
-	const newId = title + (lastIdNumber + 1);
-	return removeSpaces(newId);
+	const randomIdNum = (Math.random() * 100000000).toFixed(0);
+
+	return removeSpaces(randomIdNum + title.toLowerCase());
 }
