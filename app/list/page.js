@@ -21,7 +21,6 @@ export default function Home() {
 		if (storedList) {
 			// if (storedList[0]?.title) {
 			// 	const updatedList = updateData(storedList);
-
 			// 	setLists(updatedList);
 			// }
 
