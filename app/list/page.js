@@ -4,27 +4,21 @@ import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import { createId } from '@/utils/createId';
-import { updateData } from '@/utils/updateData';
 import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
-import styles from './page.module.css';
 import Loading from '@/components/Loading/Loading';
+import styles from './page.module.css';
 
 export default function Home() {
+	const { LIST, UNTITLED } = CONSTANTS;
+
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
-	const LIST = CONSTANTS.LIST;
-	const UNTITLED = CONSTANTS.UNTITLED;
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 
 		if (storedList) {
-			// if (storedList[0]?.title) {
-			// 	const updatedList = updateData(storedList);
-			// 	setLists(updatedList);
-			// }
-
 			setLists(storedList);
 			setIsLoading(false);
 		}
