@@ -51,7 +51,7 @@ export default function Home() {
 				{
 					title: newTitle,
 					listId: createId({
-						title: newTitle,
+						idName: newTitle,
 					}),
 					items: [],
 				},
@@ -71,7 +71,7 @@ export default function Home() {
 				...listToUpdate.items,
 				{
 					itemId: createId({
-						title: `${listToUpdate.title}_${item}`,
+						idName: `${listToUpdate.title}_${item}`,
 					}),
 					data: item,
 					checked: false,
