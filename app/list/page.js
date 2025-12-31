@@ -47,28 +47,28 @@ export default function Home() {
 
 	const addListItem = (listId, item) => {
 		setLists((prev) => {
-			const listToUpdate = prev.find((list) => list.listId === listId);
-
-			const newItemList = [
-				...listToUpdate.items,
-				{
-					itemId: createId({
-						idName: `${listToUpdate.title}_${item}`,
-					}),
-					data: item,
-					checked: false,
-				},
-			];
-
-			const newListofLists = prev.map((list) => {
+			const updatedList = prev.map((list) => {
 				if (list.listId === listId) {
-					return { ...list, items: newItemList };
+					return {
+						...list,
+						items: [
+							...list.items,
+							{
+								itemId: createId({
+									idName: `${list.title}_${item}`,
+								}),
+								data: item,
+								checked: false,
+							},
+						],
+					};
 				}
 				return list;
 			});
 
-			setLocalStorage(LIST, newListofLists);
-			return newListofLists;
+			setLocalStorage(LIST, updatedList);
+
+			return updatedList;
 		});
 	};
 
