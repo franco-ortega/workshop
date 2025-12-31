@@ -19,12 +19,13 @@ export default function Home() {
 		const storedList = getLocalStorage(LIST);
 
 		if (storedList) {
-			if (storedList[0]?.title) {
-				const updatedList = updateData(storedList);
+			// if (storedList[0]?.title) {
+			// 	const updatedList = updateData(storedList);
 
-				setLists(updatedList);
-			}
+			// 	setLists(updatedList);
+			// }
 
+			setLists(storedList);
 			setIsLoading(false);
 		}
 	}, [LIST]);
