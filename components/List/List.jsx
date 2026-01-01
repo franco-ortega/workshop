@@ -6,6 +6,7 @@ import styles from './List.module.css';
 
 export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
+	const { listId } = list;
 
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
@@ -44,13 +45,21 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
-	// STILL NEED TO UPDATE THIS
 	const checkListItem = (id) => {
-		setList((prev) => {
-			const updatedList = prev.map((item) => {
-				if (item.itemId === id) {
-					return { ...item, checked: !item.checked };
-				} else return item;
+		setLists((prev) => {
+			const updatedList = prev.map((list) => {
+				if (list.listId === listId) {
+					const updatedItems = list.items.map((item) => {
+						if (item.itemId === id) {
+							return { ...item, checked: !item.checked };
+						}
+						return item;
+					});
+
+					return { ...list, items: updatedItems };
+				}
+
+				return list;
 			});
 
 			setLocalStorage(LIST, updatedList);
