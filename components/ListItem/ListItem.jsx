@@ -9,7 +9,7 @@ export default function ListItem({
 	checkListItem,
 }) {
 	const [edit, setEdit] = useState(false);
-	const [editedItem, setEditedItem] = useState('');
+	const [editedItem, setEditedItem] = useState(item.data);
 
 	const onCheckItem = () => checkListItem(item.itemId);
 
