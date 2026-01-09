@@ -10,9 +10,15 @@
 }
 
 .header {
-	/* outline: dashed 2px rgb(9, 58, 9); */
-	/* display: flex; */
+	display: flex;
 	/* justify-content: space-between; */
+	align-items: center;
+
+	/* outline: dashed 2px rgb(9, 58, 9); */
+}
+
+.header h1 {
+	margin-right: auto;
 }
 
 .formWrapper {

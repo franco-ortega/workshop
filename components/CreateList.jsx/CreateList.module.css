@@ -1,9 +1,59 @@
 .CreateList {
 	background-color: hsl(208, 100%, 97%, 0.25);
-	padding: 1rem;
+	border-radius: 4px;
+
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
+	margin-inline: -1rem;
 }
 
 .CreateList form {
+	/* background-color: hsl(208, 100%, 97%, 0.25); */
+	border-radius: 4px;
+
+	/* padding: 0.5rem; */
 	display: flex;
-	gap: 1rem;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	/* outline: 2px dashed red; */
+}
+
+.CreateList form > * {
+	/* outline: 2px dotted lightblue; */
+	/* padding-block: 0.5rem; */
+	/* padding-inline: 0.5rem; */
+}
+
+.radioWrapper {
+	/* background-color: hsl(350, 65%, 54%); */
+	/* padding-inline: 0.5rem; */
+	/* padding-block: 0.5rem; */
+	/* background-color: green; */
+	/* height: 2rem; */
+	line-height: 2;
+}
+
+.radioWrapper label + label {
+	margin-left: 0.5rem;
+}
+
+.radioWrapper label input[type='text'] {
+	max-width: 65%;
+	max-height: 1.75rem;
+	padding-left: 0.25rem;
+}
+
+.buttonWrapper {
+	/* outline: dashed 2px yellow; */
+	/* padding: 1rem; */
+	/* background-color: blue; */
+
+	/* display: flex; */
+	/* text-align: center; */
+}
+
+.buttonWrapper button:first-child {
+	/* background-color: green; */
+	margin-right: 1rem;
 }

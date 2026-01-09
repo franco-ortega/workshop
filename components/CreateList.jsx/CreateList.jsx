@@ -6,6 +6,8 @@ function CreateList({ createList }) {
 	const [isChecked, setIsChecked] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 
+	const [isNewList, setIsNewList] = useState(false);
+
 	const toggleTitleOn = () => {
 		setIsTitle(true);
 		setIsChecked(true);
@@ -24,46 +26,73 @@ function CreateList({ createList }) {
 		setListTitle('');
 		toggleTitleOff();
 		setIsChecked(false);
+		setIsNewList(false);
+	};
+
+	const onCancelNewList = () => {
+		setIsNewList(false);
+		setIsChecked(false);
+		setIsTitle(false);
 	};
 
 	return (
 		<div className={styles.CreateList}>
-			<p>Would you like your list to have a title?</p>
-			<form action='' onSubmit={onCreateList}>
-				<label htmlFor='yes'>
-					<input
-						type='radio'
-						id='yes'
-						name='title'
-						value={true}
-						checked={isTitle && isChecked}
-						onChange={toggleTitleOn}
-					/>
-					Yes
-				</label>
-				<label htmlFor='no'>
-					<input
-						type='radio'
-						id='no'
-						name='title'
-						value={false}
-						checked={!isTitle && isChecked}
-						onChange={toggleTitleOff}
-					/>
-					No
-				</label>
-				<button>Create List</button>
+			{!isNewList && (
+				<button
+					onClick={() => {
+						setIsNewList(true);
+					}}
+				>
+					New List
+				</button>
+			)}
 
-				{isTitle && (
-					<label htmlFor='list-title'>
-						<input
-							id={'list-title'}
-							placeholder='list title'
-							onChange={onTitleChange}
-						/>
-					</label>
-				)}
-			</form>
+			{isNewList && (
+				<>
+					<form action='' onSubmit={onCreateList}>
+						<p>Would you like your list to have a title?</p>
+						<div className={styles.radioWrapper}>
+							<label htmlFor='yes'>
+								<input
+									type='radio'
+									id='yes'
+									name='title'
+									value={true}
+									checked={isTitle && isChecked}
+									onChange={toggleTitleOn}
+								/>
+								Yes
+							</label>
+							<label htmlFor='no'>
+								<input
+									type='radio'
+									id='no'
+									name='title'
+									value={false}
+									checked={!isTitle && isChecked}
+									onChange={toggleTitleOff}
+								/>
+								No
+							</label>
+							{isTitle && (
+								<label htmlFor='list-title'>
+									<input
+										type='text'
+										id={'list-title'}
+										placeholder='list title'
+										onChange={onTitleChange}
+									/>
+								</label>
+							)}
+						</div>
+
+						<div className={styles.buttonWrapper}>
+							<button>Create List</button>
+							<button onClick={onCancelNewList}>Cancel</button>
+						</div>
+					</form>
+				</>
+			)}
 		</div>
 	);
 }
