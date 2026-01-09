@@ -99,28 +99,3 @@ export default function Home() {
 		</div>
 	);
 }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// this component only needs to render when I want to create sample data
-function SampleData() {
-	return (
-		<div className={styles.sampleData}>
-			<button
-				onClick={() => {
-					setLists(sampleList);
-					setLocalStorage(LIST, sampleList);
-				}}
-			>
-				Load Sample List
-			</button>
-		</div>
-	);
-}
