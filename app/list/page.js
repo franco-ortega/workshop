@@ -8,6 +8,7 @@ import CreateList from '@/components/CreateList.jsx/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import Loading from '@/components/Loading/Loading';
 import styles from './page.module.css';
+import Message from '@/components/Message/Message';
 
 export default function Home() {
 	const { LIST, UNTITLED } = CONSTANTS;
@@ -18,10 +19,9 @@ export default function Home() {
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 
-		if (storedList) {
-			setLists(storedList);
-			setIsLoading(false);
-		}
+		if (storedList) setLists(storedList);
+
+		setIsLoading(false);
 	}, [LIST]);
 
 	const createList = (title) => {
@@ -80,11 +80,11 @@ export default function Home() {
 			</header>
 			<main>
 				{!isLoading && !lists.length && (
-					<div>No list yet. Why not create one?</div>
+					<Message message={'No list yet. Why not create one?'} />
 				)}
 				<div>
 					{isLoading ? (
-						<Loading message={'Retrieving list...'} />
+						<Loading message={'Retrieving lists...'} />
 					) : (
 						lists && (
 							<ListWrapper
