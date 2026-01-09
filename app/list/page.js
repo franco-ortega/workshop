@@ -84,7 +84,7 @@ export default function Home() {
 				)}
 				<div>
 					{isLoading ? (
-						<Loading message={'Retrieving lists...'} />
+						<Loading />
 					) : (
 						lists && (
 							<ListWrapper
