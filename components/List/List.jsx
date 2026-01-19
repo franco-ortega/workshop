@@ -6,7 +6,7 @@ import styles from './List.module.css';
 
 export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
-	const { listId } = list;
+	const { listId, title } = list;
 
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
@@ -73,7 +73,17 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 				<section className={styles.List}>
 					{list.title && (
 						<h2>
-							<span>{list.title}</span>
+							<span
+								style={
+									title === 'untitled'
+										? {
+												visibility: 'hidden',
+										  }
+										: { visibility: 'visible' }
+								}
+							>
+								{list.title}
+							</span>
 						</h2>
 					)}
 					<div>
