@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './CreateList.module.css';
+import ListButton from '../NavLink/ListButton';
 
 function CreateList({ createList }) {
 	const [isTitle, setIsTitle] = useState(false);
@@ -38,13 +39,12 @@ function CreateList({ createList }) {
 	return (
 		<div className={styles.CreateList}>
 			{!isNewList && (
-				<button
-					onClick={() => {
+				<ListButton
+					text='New List'
+					handler={() => {
 						setIsNewList(true);
 					}}
-				>
-					New List
-				</button>
+				/>
 			)}
 
 			{isNewList && (
@@ -86,11 +86,13 @@ function CreateList({ createList }) {
 							)}
 						</div>
 
-						<div className={styles.buttonWrapper}>
-							<button>Create List</button>
-							<button onClick={onCancelNewList}>Cancel</button>
-						</div>
+						{/* <div className={styles.buttonWrapper}> */}
+						{/* <button>Create List</button> */}
+						{/* <button onClick={onCancelNewList}>Cancel</button> */}
+						{/* </div> */}
+						<ListButton text={'Create List'} handler={() => {}} />
 					</form>
+					<ListButton text={'Cancel'} handler={onCancelNewList} />
 				</>
 			)}
 		</div>

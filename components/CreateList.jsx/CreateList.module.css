@@ -44,15 +44,6 @@
 	padding-left: 0.25rem;
 }
 
-.buttonWrapper {
-	/* outline: dashed 2px yellow; */
-	/* padding: 1rem; */
-	/* background-color: blue; */
-
-	/* display: flex; */
-	/* text-align: center; */
-}
-
 .buttonWrapper button:first-child {
 	/* background-color: green; */
 	margin-right: 1rem;

@@ -1,5 +1,9 @@
-import Button from '../Button/Button';
+import styles from './ListButton.module.css';
 
 export default function ListButton({ text, handler }) {
-	return <Button text={text} handler={handler} />;
+	return (
+		<button className={styles.ListButton} onClick={handler}>
+			{text}
+		</button>
+	);
 }
