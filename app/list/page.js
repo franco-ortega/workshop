@@ -46,6 +46,11 @@ export default function Home() {
 	};
 
 	const addListItem = (listId, item) => {
+		if (!item) {
+			alert('Please add a list item to continue');
+			return;
+		}
+
 		setLists((prev) => {
 			const updatedList = prev.map((list) => {
 				if (list.listId === listId) {
@@ -76,13 +81,13 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>List App</h1>
-				<CreateList createList={createList} />
 			</header>
 			<main>
-				{!isLoading && !lists.length && (
-					<Message message={'No list yet. Why not create one?'} />
-				)}
 				<div>
+					<CreateList createList={createList} />
+					{!isLoading && !lists.length && (
+						<Message message={'No list yet. Why not create one?'} />
+					)}
 					{isLoading ? (
 						<Loading />
 					) : (
