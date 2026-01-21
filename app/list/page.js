@@ -46,6 +46,11 @@ export default function Home() {
 	};
 
 	const addListItem = (listId, item) => {
+		if (!item) {
+			alert('Please add a list item to continue');
+			return;
+		}
+
 		setLists((prev) => {
 			const updatedList = prev.map((list) => {
 				if (list.listId === listId) {
