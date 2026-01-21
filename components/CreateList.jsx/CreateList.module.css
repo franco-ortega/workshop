@@ -38,13 +38,20 @@
 	margin-left: 0.5rem;
 }
 
+.radioWrapper label input[type='radio'] {
+	margin-right: 0.25rem;
+}
+
 .radioWrapper label input[type='text'] {
 	max-width: 65%;
 	max-height: 1.75rem;
 	padding-left: 0.25rem;
 }
 
-.buttonWrapper button:first-child {
-	/* background-color: green; */
-	margin-right: 1rem;
+.buttonWrapper {
+	/* text-align: center; */
+}
+
+.buttonWrapper button + button {
+	margin-left: 0.5rem;
 }

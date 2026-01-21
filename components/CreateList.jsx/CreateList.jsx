@@ -86,9 +86,11 @@ function CreateList({ createList }) {
 							)}
 						</div>
 
-						<ListButton text={'Create List'} handler={() => {}} />
+						<div className={styles.buttonWrapper}>
+							<ListButton text={'Create List'} handler={() => {}} />
+							<ListButton text={'Cancel'} handler={onCancelNewList} />
+						</div>
 					</form>
-					<ListButton text={'Cancel'} handler={onCancelNewList} />
 				</>
 			)}
 		</div>
