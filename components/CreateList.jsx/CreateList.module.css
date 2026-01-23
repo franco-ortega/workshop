@@ -8,34 +8,22 @@
 }
 
 .CreateList form {
-	/* background-color: hsl(208, 100%, 97%, 0.25); */
 	border-radius: 4px;
-
-	/* padding: 0.5rem; */
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-
-	/* outline: 2px dashed red; */
-}
-
-.CreateList form > * {
-	/* outline: 2px dotted lightblue; */
-	/* padding-block: 0.5rem; */
-	/* padding-inline: 0.5rem; */
 }
 
 .radioWrapper {
-	/* background-color: hsl(350, 65%, 54%); */
-	/* padding-inline: 0.5rem; */
-	/* padding-block: 0.5rem; */
-	/* background-color: green; */
-	/* height: 2rem; */
 	line-height: 2;
 }
 
 .radioWrapper label + label {
 	margin-left: 0.5rem;
+}
+
+.radioWrapper label input[type='radio'] {
+	margin-right: 0.25rem;
 }
 
 .radioWrapper label input[type='text'] {
@@ -44,7 +32,21 @@
 	padding-left: 0.25rem;
 }
 
-.buttonWrapper button:first-child {
-	/* background-color: green; */
-	margin-right: 1rem;
+.buttonWrapper button + button {
+	margin-left: 0.5rem;
+}
+
+@media (hover: hover) {
+	/* when hover is supported */
+	.CreateList button:hover {
+		background-color: rgb(103, 38, 103);
+		border-color: rgb(26, 255, 0);
+		color: white;
+		transition:
+			background-color 0.75s,
+			border-color 0.75s,
+			color 0.25s;
+
+		cursor: pointer;
+	}
 }

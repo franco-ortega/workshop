@@ -13,8 +13,6 @@
 	div {
 		display: flex;
 		gap: 0.625rem;
-
-		/* outline: yellow dotted 1px; */
 	}
 }
 

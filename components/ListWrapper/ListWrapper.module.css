@@ -1,13 +1,8 @@
 .ListWrapper {
 	background-color: hsl(60, 100%, 10%, 0.25);
 	display: flex;
-	/* flex-wrap: wrap; */
 	gap: 1rem;
 	align-items: flex-start;
 
 	overflow-x: auto;
-}
-
-.ListWrapper * {
-	/* outline: 2px dashed black; */
 }

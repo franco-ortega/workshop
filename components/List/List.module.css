@@ -8,25 +8,17 @@ maybe add option to have a narrow or wide list
 	border: 2px solid hsl(0, 0%, 90%);
 	border-radius: 5px;
 
-	/* padding-block: 1rem; */
-	/* padding-inline: 1rem; */
 	line-height: 1.5;
 
 	min-width: 15rem;
 	max-width: 20rem;
-
-	/* margin-inline: auto; */
-
-	/* background-color: hsl(60, 100%, 50%, 0.1); */
-	/* box-shadow: 20px 20px 5px 5px hsl(0, 0%, 0%, 0.5); */
 }
 
 .List h2 {
-	/* background-color: hsl(60, 100%, 50%, 0.1); */
 	border-bottom: solid 1px white;
 
 	color: hsl(0, 0%, 90%);
-	/* text-decoration: underline; */
+
 	text-align: center;
 
 	padding-block: 0.5rem;

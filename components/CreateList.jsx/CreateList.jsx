@@ -79,20 +79,18 @@ function CreateList({ createList }) {
 									<input
 										type='text'
 										id={'list-title'}
-										placeholder='list title'
+										placeholder='List Title'
 										onChange={onTitleChange}
 									/>
 								</label>
 							)}
 						</div>
 
-						{/* <div className={styles.buttonWrapper}> */}
-						{/* <button>Create List</button> */}
-						{/* <button onClick={onCancelNewList}>Cancel</button> */}
-						{/* </div> */}
-						<ListButton text={'Create List'} handler={() => {}} />
+						<div className={styles.buttonWrapper}>
+							<ListButton text={'Create List'} handler={() => {}} />
+							<ListButton text={'Cancel'} handler={onCancelNewList} />
+						</div>
 					</form>
-					<ListButton text={'Cancel'} handler={onCancelNewList} />
 				</>
 			)}
 		</div>

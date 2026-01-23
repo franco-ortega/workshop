@@ -8,7 +8,9 @@ NOTES
 
 ### Current Task
 
-1. add error handling to prevent empty items from being added to a list
+1. add error handling to prevent empty items from being added to a list - v1 complete
+1. create display for New List area on mobile
+1. add hover effects for New List area on desktop
 
 ## Dependencies
 
