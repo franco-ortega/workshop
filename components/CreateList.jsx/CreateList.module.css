@@ -1,9 +1,52 @@
 .CreateList {
 	background-color: hsl(208, 100%, 97%, 0.25);
-	padding: 1rem;
+	border-radius: 4px;
+
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
+	margin-inline: -1rem;
 }
 
 .CreateList form {
+	border-radius: 4px;
 	display: flex;
-	gap: 1rem;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.radioWrapper {
+	line-height: 2;
+}
+
+.radioWrapper label + label {
+	margin-left: 0.5rem;
+}
+
+.radioWrapper label input[type='radio'] {
+	margin-right: 0.25rem;
+}
+
+.radioWrapper label input[type='text'] {
+	max-width: 65%;
+	max-height: 1.75rem;
+	padding-left: 0.25rem;
+}
+
+.buttonWrapper button + button {
+	margin-left: 0.5rem;
+}
+
+@media (hover: hover) {
+	/* when hover is supported */
+	.CreateList button:hover {
+		background-color: rgb(103, 38, 103);
+		border-color: rgb(26, 255, 0);
+		color: white;
+		transition:
+			background-color 0.75s,
+			border-color 0.75s,
+			color 0.25s;
+
+		cursor: pointer;
+	}
 }
