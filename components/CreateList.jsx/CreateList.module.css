@@ -35,3 +35,18 @@
 .buttonWrapper button + button {
 	margin-left: 0.5rem;
 }
+
+@media (hover: hover) {
+	/* when hover is supported */
+	.CreateList button:hover {
+		background-color: rgb(103, 38, 103);
+		border-color: rgb(26, 255, 0);
+		color: white;
+		transition:
+			background-color 0.75s,
+			border-color 0.75s,
+			color 0.25s;
+
+		cursor: pointer;
+	}
+}
