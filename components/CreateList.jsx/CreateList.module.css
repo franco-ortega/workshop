@@ -8,29 +8,13 @@
 }
 
 .CreateList form {
-	/* background-color: hsl(208, 100%, 97%, 0.25); */
 	border-radius: 4px;
-
-	/* padding: 0.5rem; */
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-
-	/* outline: 2px dashed red; */
-}
-
-.CreateList form > * {
-	/* outline: 2px dotted lightblue; */
-	/* padding-block: 0.5rem; */
-	/* padding-inline: 0.5rem; */
 }
 
 .radioWrapper {
-	/* background-color: hsl(350, 65%, 54%); */
-	/* padding-inline: 0.5rem; */
-	/* padding-block: 0.5rem; */
-	/* background-color: green; */
-	/* height: 2rem; */
 	line-height: 2;
 }
 
@@ -46,10 +30,6 @@
 	max-width: 65%;
 	max-height: 1.75rem;
 	padding-left: 0.25rem;
-}
-
-.buttonWrapper {
-	/* text-align: center; */
 }
 
 .buttonWrapper button + button {
