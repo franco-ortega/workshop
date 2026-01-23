@@ -79,7 +79,7 @@ function CreateList({ createList }) {
 									<input
 										type='text'
 										id={'list-title'}
-										placeholder='list title'
+										placeholder='List Title'
 										onChange={onTitleChange}
 									/>
 								</label>
