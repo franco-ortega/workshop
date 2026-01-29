@@ -3,18 +3,14 @@
 	--button-secondary-hover: #f2f2f2;
 	--button-secondary-border: #ebebeb;
 
-	height: var(--page-height);
-
 	font-family: var(--font-geist-sans);
 
-	background: var(--bkgd-gradient);
 	color: hsl(300, 80%, 90%);
 
 	padding: 1rem;
 }
 
 .main {
-	/* outline: 1px dashed black; */
 	display: flex;
 	align-content: center;
 	text-align: center;
