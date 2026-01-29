@@ -5,6 +5,8 @@ maybe add option to have a narrow or wide list
 */
 
 .List {
+	background-color: hsl(60, 100%, 20%, 0.25);
+
 	border: 2px solid hsl(0, 0%, 90%);
 	border-radius: 5px;
 
@@ -12,6 +14,8 @@ maybe add option to have a narrow or wide list
 
 	min-width: 15rem;
 	max-width: 20rem;
+
+	margin-inline: auto;
 }
 
 .List h2 {
