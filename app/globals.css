@@ -1,6 +1,4 @@
 :root {
-	/* --background: #ffffff; */
-	/* --foreground: #171717; */
 	--background-gradient-1: hsl(290, 75%, 35%);
 	--background-gradient-2: hsl(320, 85%, 45%);
 	--background-gradient-3: hsl(350, 100%, 85%);
@@ -22,10 +20,6 @@
 		var(--background-gradient-island-2),
 		var(--background-gradient-island-3)
 	);
-
-	/* --nav-height: 3rem; */
-
-	/* --page-height: calc(100% - var(--nav-height)); */
 }
 
 /*
