@@ -1,22 +1,22 @@
 .page {
-	background: var(--bkgd-gradient);
 	color: hsl(300, 80%, 90%);
 
 	padding: 1rem;
 
-	height: var(--page-height);
+	/* height: var(--page-height); */
 
 	font-family: var(--font-geist-sans);
 
 	/* height: 100%; */
+	/* overflow: auto; */
+
+	outline: 2px yellow dotted;
 }
 
 .header {
 	display: flex;
-	/* justify-content: space-between; */
-	align-items: center;
 
-	/* outline: dashed 2px rgb(9, 58, 9); */
+	align-items: center;
 }
 
 .header h1 {
