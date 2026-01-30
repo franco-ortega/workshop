@@ -81,10 +81,10 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>List App</h1>
+				<CreateList createList={createList} />
 			</header>
 			<main>
 				<div>
-					<CreateList createList={createList} />
 					{!isLoading && !lists.length && (
 						<Message message={'No list yet. Why not create one?'} />
 					)}
