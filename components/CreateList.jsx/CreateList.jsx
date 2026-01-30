@@ -38,14 +38,14 @@ function CreateList({ createList }) {
 
 	return (
 		<div className={styles.CreateList}>
-			{!isNewList && (
-				<ListButton
-					text='New List'
-					handler={() => {
-						setIsNewList(true);
-					}}
-				/>
-			)}
+			{/* {!isNewList && ( */}
+			<ListButton
+				text='New List'
+				handler={() => {
+					setIsNewList(true);
+				}}
+			/>
+			{/* )} */}
 
 			{isNewList && (
 				<>

@@ -3,15 +3,35 @@
 
 	padding: 1rem;
 	text-align: center;
+
+	isolation: isolate;
 }
 
 .CreateList form {
 	border-radius: 4px;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* gap: 0.5rem; */
 
-	text-align: initial;
+	/* text-align: initial; */
+
+	padding-block: 1rem;
+
+	position: fixed;
+
+	/* bottom: 50%; */
+	/* left: 50%; */
+	inset: 0;
+
+	top: 25%;
+	margin-inline: auto;
+
+	/* top: 10px; */
+	/* bottom: -100%; */
+	/* width: fit-content; */
+	height: fit-content;
+
+	background-color: hsla(60, 51%, 12%, 0.5);
 }
 
 .radioWrapper {

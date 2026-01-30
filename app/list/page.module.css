@@ -2,6 +2,10 @@
 	color: hsl(300, 80%, 90%);
 
 	font-family: var(--font-geist-sans);
+
+	isolation: isolate;
+
+	outline: 2px dotted yellow;
 }
 
 .header {
