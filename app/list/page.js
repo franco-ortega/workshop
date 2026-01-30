@@ -80,7 +80,7 @@ export default function Home() {
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
-				<h1>List App</h1>
+				<h1>Listee</h1>
 				<CreateList createList={createList} />
 			</header>
 			<main>

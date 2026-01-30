@@ -15,6 +15,7 @@
 }
 
 .header h1 {
+	padding-left: 1rem;
 	margin-right: auto;
 	background-color: hsl(350, 56%, 60%, 0.5);
 	width: 100%;
