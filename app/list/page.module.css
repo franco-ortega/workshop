@@ -5,6 +5,8 @@
 
 	isolation: isolate;
 
+	min-height: 100%;
+
 	outline: 2px dotted yellow;
 }
 
@@ -15,7 +17,7 @@
 
 	display: flex;
 
-	/* outline: 2px dotted yellow; */
+	outline: 2px dashed black;
 }
 
 .header h1 {
@@ -23,26 +25,4 @@
 	margin-right: auto;
 	background-color: hsl(350, 56%, 60%, 0.5);
 	width: 100%;
-}
-
-.formWrapper {
-	background-color: hsl(0, 0%, 0%, 10%);
-	border-radius: 5px;
-	padding: 2rem 2rem;
-
-	max-width: fit-content;
-	margin-block: 1rem;
-}
-
-.sampleData {
-	position: absolute;
-	right: 0;
-
-	padding: 0.5rem;
-
-	button {
-		background-color: hsl(350, 100%, 88%, 0.5);
-		border-radius: 10px;
-		padding: 0.5rem;
-	}
 }
