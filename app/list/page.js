@@ -91,7 +91,7 @@ export default function Home() {
 					{isLoading ? (
 						<Loading />
 					) : (
-						lists && (
+						lists.length > 0 && (
 							<ListWrapper
 								lists={lists}
 								setLists={setLists}
