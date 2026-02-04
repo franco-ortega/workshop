@@ -7,7 +7,7 @@
 
 	min-height: 100%;
 
-	outline: 2px dotted yellow;
+	/* outline: 2px dotted yellow; */
 }
 
 .header {
@@ -17,7 +17,7 @@
 
 	display: flex;
 
-	outline: 2px dashed black;
+	/* outline: 2px dashed black; */
 }
 
 .header h1 {
