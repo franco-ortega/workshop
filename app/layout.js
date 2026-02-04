@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from 'next/font/google';
+import Layout from '@/components/Layout/Layout';
 import Nav from '@/components/Nav/Nav';
 import './globals.css';
 
@@ -21,8 +22,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<Nav />
-				{children}
+				<Layout>{children}</Layout>
 			</body>
 		</html>
 	);

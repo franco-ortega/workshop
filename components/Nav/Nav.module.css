@@ -4,7 +4,6 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	height: var(--nav-height);
 }
 
 .Nav ul {

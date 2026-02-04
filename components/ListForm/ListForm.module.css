@@ -4,6 +4,8 @@
 	padding-inline: 0.5rem;
 
 	--add-item-btn-width: 1.75rem;
+
+	text-align: center;
 }
 
 .ListForm input {

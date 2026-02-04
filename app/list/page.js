@@ -80,18 +80,18 @@ export default function Home() {
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
-				<h1>List App</h1>
+				<h1>Listee</h1>
+				<CreateList createList={createList} />
 			</header>
 			<main>
 				<div>
-					<CreateList createList={createList} />
 					{!isLoading && !lists.length && (
 						<Message message={'No list yet. Why not create one?'} />
 					)}
 					{isLoading ? (
 						<Loading />
 					) : (
-						lists && (
+						lists.length > 0 && (
 							<ListWrapper
 								lists={lists}
 								setLists={setLists}
