@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from '../Button/Button';
-import CreateList from '../CreateList.jsx/CreateList';
+// import CreateList from '../CreateList.jsx/CreateList';
 import styles from './NewList.module.css';
 
-export default function NewList({ createList }) {
-	const [isNewList, setIsNewList] = useState(false);
+export default function NewList({ setIsNewList }) {
+	// const [isNewList, setIsNewList] = useState(false);
 
 	return (
 		<div className={styles.NewList}>
@@ -15,9 +15,9 @@ export default function NewList({ createList }) {
 				}}
 			/>
 
-			{isNewList && (
+			{/* {isNewList && (
 				<CreateList createList={createList} setIsNewList={setIsNewList} />
-			)}
+			)} */}
 		</div>
 	);
 }
