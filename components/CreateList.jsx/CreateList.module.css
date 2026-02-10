@@ -51,6 +51,16 @@
 	margin-left: 0.5rem;
 }
 
+.buttonWrapper button {
+	background-color: hsl(300, 85%, 45%);
+	border: 1px solid hsl(300, 85%, 30%);
+	border-radius: 5px;
+
+	padding-inline: 2rem;
+
+	text-wrap: nowrap;
+}
+
 @media (hover: hover) {
 	/* when hover is supported */
 	.CreateList button:hover {
