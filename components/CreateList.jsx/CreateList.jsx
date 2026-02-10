@@ -3,7 +3,6 @@ import ListButton from '../NavLink/ListButton';
 import styles from './CreateList.module.css';
 
 function CreateList({ createList, setIsNewList }) {
-	// const [isNewList, setIsNewList] = useState(false);
 	const [isTitle, setIsTitle] = useState(false);
 	const [isChecked, setIsChecked] = useState(false);
 	const [listTitle, setListTitle] = useState('');
@@ -37,15 +36,6 @@ function CreateList({ createList, setIsNewList }) {
 
 	return (
 		<div className={styles.CreateList}>
-			{/* <ListButton
-				text='New List'
-				handler={() => {
-					setIsNewList(true);
-				}}
-			/> */}
-
-			{/* {isNewList && (
-				<> */}
 			<form action='' onSubmit={onCreateList}>
 				<p>Would you like your list to have a title?</p>
 				<div className={styles.radioWrapper}>

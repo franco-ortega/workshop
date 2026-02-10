@@ -7,6 +7,7 @@
 	text-align: center;
 
 	isolation: isolate;
+	position: relative;
 }
 
 .NewList button {
