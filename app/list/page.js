@@ -9,6 +9,7 @@ import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import Loading from '@/components/Loading/Loading';
 import styles from './page.module.css';
 import Message from '@/components/Message/Message';
+import NewList from '@/components/NewList/NewList';
 
 export default function Home() {
 	const { LIST, UNTITLED } = CONSTANTS;
@@ -81,7 +82,8 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>Listee</h1>
-				<CreateList createList={createList} />
+				{/* <CreateList createList={createList} /> */}
+				<NewList createList={createList} />
 			</header>
 			<main>
 				<div>

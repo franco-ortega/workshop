@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import styles from './CreateList.module.css';
 import ListButton from '../NavLink/ListButton';
+import styles from './CreateList.module.css';
 
-function CreateList({ createList }) {
+function CreateList({ createList, setIsNewList }) {
+	// const [isNewList, setIsNewList] = useState(false);
 	const [isTitle, setIsTitle] = useState(false);
 	const [isChecked, setIsChecked] = useState(false);
 	const [listTitle, setListTitle] = useState('');
-
-	const [isNewList, setIsNewList] = useState(false);
 
 	const toggleTitleOn = () => {
 		setIsTitle(true);
@@ -38,61 +37,59 @@ function CreateList({ createList }) {
 
 	return (
 		<div className={styles.CreateList}>
-			{/* {!isNewList && ( */}
-			<ListButton
+			{/* <ListButton
 				text='New List'
 				handler={() => {
 					setIsNewList(true);
 				}}
-			/>
-			{/* )} */}
+			/> */}
 
-			{isNewList && (
-				<>
-					<form action='' onSubmit={onCreateList}>
-						<p>Would you like your list to have a title?</p>
-						<div className={styles.radioWrapper}>
-							<label htmlFor='yes'>
-								<input
-									type='radio'
-									id='yes'
-									name='title'
-									value={true}
-									checked={isTitle && isChecked}
-									onChange={toggleTitleOn}
-								/>
-								Yes
-							</label>
-							<label htmlFor='no'>
-								<input
-									type='radio'
-									id='no'
-									name='title'
-									value={false}
-									checked={!isTitle && isChecked}
-									onChange={toggleTitleOff}
-								/>
-								No
-							</label>
-							{isTitle && (
-								<label htmlFor='list-title'>
-									<input
-										type='text'
-										id={'list-title'}
-										placeholder='List Title'
-										onChange={onTitleChange}
-									/>
-								</label>
-							)}
-						</div>
+			{/* {isNewList && (
+				<> */}
+			<form action='' onSubmit={onCreateList}>
+				<p>Would you like your list to have a title?</p>
+				<div className={styles.radioWrapper}>
+					<label htmlFor='yes'>
+						<input
+							type='radio'
+							id='yes'
+							name='title'
+							value={true}
+							checked={isTitle && isChecked}
+							onChange={toggleTitleOn}
+						/>
+						Yes
+					</label>
+					<label htmlFor='no'>
+						<input
+							type='radio'
+							id='no'
+							name='title'
+							value={false}
+							checked={!isTitle && isChecked}
+							onChange={toggleTitleOff}
+						/>
+						No
+					</label>
+					{isTitle && (
+						<label htmlFor='list-title'>
+							<input
+								type='text'
+								id={'list-title'}
+								placeholder='List Title'
+								onChange={onTitleChange}
+							/>
+						</label>
+					)}
+				</div>
 
-						<div className={styles.buttonWrapper}>
-							<ListButton text={'Create List'} handler={() => {}} />
-							<ListButton text={'Cancel'} handler={onCancelNewList} />
-						</div>
-					</form>
-				</>
-			)}
+				<div className={styles.buttonWrapper}>
+					<ListButton text={'Create List'} handler={() => {}} />
+					<ListButton text={'Cancel'} handler={onCancelNewList} />
+				</div>
+			</form>
+			{/* </>
+			)} */}
 		</div>
 	);
 }
