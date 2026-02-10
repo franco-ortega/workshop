@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ListButton from '../NavLink/ListButton';
+import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 
 function CreateList({ createList, setIsNewList }) {
@@ -74,8 +74,8 @@ function CreateList({ createList, setIsNewList }) {
 				</div>
 
 				<div className={styles.buttonWrapper}>
-					<ListButton text={'Create List'} handler={() => {}} />
-					<ListButton text={'Cancel'} handler={onCancelNewList} />
+					<Button text={'Create List'} handler={() => {}} />
+					<Button text={'Cancel'} handler={onCancelNewList} />
 				</div>
 			</form>
 			{/* </>
