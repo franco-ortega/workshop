@@ -18,6 +18,7 @@ export default function Home() {
 	const [lists, setLists] = useState([]);
 
 	const [isNewList, setIsNewList] = useState(false);
+	const [isCreateListVisible, setIsCreateListVisible] = useState(false);
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
@@ -84,14 +85,17 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>Listee</h1>
-				<NewList setIsNewList={setIsNewList} />
-				{isNewList && (
-					<CreateList createList={createList} setIsNewList={setIsNewList} />
-				)}
+				<NewList setIsCreateListVisible={setIsCreateListVisible} />
 			</header>
 			<main>
+				{isCreateListVisible && (
+					<CreateList
+						createList={createList}
+						setIsCreateListVisible={setIsCreateListVisible}
+					/>
+				)}
 				<div>
-					{!isLoading && !lists.length && !isNewList && (
+					{!isLoading && !lists.length && !isCreateListVisible && (
 						<Message message={'No list yet. Why not create one?'} />
 					)}
 					{isLoading ? (

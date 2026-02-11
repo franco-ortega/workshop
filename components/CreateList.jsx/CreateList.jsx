@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 
-function CreateList({ createList, setIsNewList }) {
+function CreateList({ createList, setIsCreateListVisible }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [isChecked, setIsChecked] = useState(false);
 	const [listTitle, setListTitle] = useState('');
@@ -25,11 +25,11 @@ function CreateList({ createList, setIsNewList }) {
 		setListTitle('');
 		toggleTitleOff();
 		setIsChecked(false);
-		setIsNewList(false);
+		setIsCreateListVisible(false);
 	};
 
 	const onCancelNewList = () => {
-		setIsNewList(false);
+		setIsCreateListVisible(false);
 		setIsChecked(false);
 		setIsTitle(false);
 	};

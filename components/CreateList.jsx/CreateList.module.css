@@ -4,17 +4,17 @@
 	/* padding: 1rem; */
 	/* text-align: center; */
 
-	isolation: isolate;
+	/* isolation: isolate; */
 
 	position: absolute;
-	top: 100%;
+	/* top: 100%; */
 	/* top: 0; */
-	left: -300%;
+
 	left: 0;
 	right: 0;
 	/* width: 100%; */
 
-	/* outline: dashed 1px hsl(91, 85%, 45%); */
+	outline: dashed 1px hsl(91, 85%, 45%);
 }
 
 .CreateList form {
@@ -27,6 +27,10 @@
 	/* height: fit-content; */
 
 	/* background-color: hsla(60, 51%, 12%, 0.5); */
+
+	transition: all 0.25s;
+
+	opacity: 0.75;
 }
 
 .radioWrapper {

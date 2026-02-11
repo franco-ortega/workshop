@@ -3,12 +3,12 @@
 
 	font-family: var(--font-geist-sans);
 
-	isolation: isolate;
-	position: relative;
+	/* isolation: isolate; */
+	/* position: relative; */
 
 	min-height: 100%;
 
-	/* outline: 2px dotted yellow; */
+	outline: 2px dotted yellow;
 }
 
 .header {
