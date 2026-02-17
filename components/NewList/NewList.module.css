@@ -9,7 +9,7 @@
 	isolation: isolate;
 	position: relative;
 
-	outline: dashed 1px hsl(91, 85%, 75%);
+	/* outline: dashed 1px hsl(91, 85%, 75%); */
 }
 
 .NewList button {
