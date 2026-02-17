@@ -1,44 +1,29 @@
 .page {
-	background: var(--bkgd-gradient);
 	color: hsl(300, 80%, 90%);
 
-	padding: 1rem;
-
-	height: var(--page-height);
-
 	font-family: var(--font-geist-sans);
+
+	/* isolation: isolate; */
+	/* position: relative; */
+
+	min-height: 100%;
+
+	/* outline: 2px dotted yellow; */
 }
 
 .header {
-	display: flex;
-	/* justify-content: space-between; */
-	align-items: center;
+	/* text-align: center; */
+	/* line-height: 1; */
+	/* padding-block: 1rem; */
 
-	/* outline: dashed 2px rgb(9, 58, 9); */
+	display: flex;
+
+	/* outline: 2px dashed black; */
 }
 
 .header h1 {
+	padding-left: 1rem;
 	margin-right: auto;
-}
-
-.formWrapper {
-	background-color: hsl(0, 0%, 0%, 10%);
-	border-radius: 5px;
-	padding: 2rem 2rem;
-
-	max-width: fit-content;
-	margin-block: 1rem;
-}
-
-.sampleData {
-	position: absolute;
-	right: 0;
-
-	padding: 0.5rem;
-
-	button {
-		background-color: hsl(350, 100%, 88%, 0.5);
-		border-radius: 10px;
-		padding: 0.5rem;
-	}
+	background-color: hsl(350, 56%, 60%, 0.5);
+	width: 100%;
 }

@@ -1,7 +1,7 @@
 import { CONSTANTS } from '@/utils/constants';
 import { setLocalStorage } from '@/utils/localStorage';
 import ListItem from '../ListItem/ListItem';
-import ListForm from '../Form/ListForm';
+import ListForm from '../ListForm/ListForm';
 import styles from './List.module.css';
 
 export default function List({ list, addListItem, setLists, listIndex }) {
@@ -11,7 +11,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
 			prev[listIndex].items = prev[listIndex].items.filter(
-				(item) => item.itemId !== itemId
+				(item) => item.itemId !== itemId,
 			);
 
 			setLocalStorage(LIST, prev);
@@ -78,7 +78,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 									title === 'untitled'
 										? {
 												visibility: 'hidden',
-										  }
+											}
 										: { visibility: 'visible' }
 								}
 							>

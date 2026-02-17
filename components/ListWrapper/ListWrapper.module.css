@@ -1,8 +1,8 @@
 .ListWrapper {
-	background-color: hsl(60, 100%, 10%, 0.25);
-	display: flex;
-	gap: 1rem;
-	align-items: flex-start;
+	padding-block: 1rem;
+	padding-inline: 1rem;
+}
 
-	overflow-x: auto;
+.ListWrapper > * + * {
+	margin-top: 1rem;
 }

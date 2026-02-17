@@ -9,12 +9,16 @@ import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import Loading from '@/components/Loading/Loading';
 import styles from './page.module.css';
 import Message from '@/components/Message/Message';
+import NewList from '@/components/NewList/NewList';
 
 export default function Home() {
 	const { LIST, UNTITLED } = CONSTANTS;
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
+
+	const [isNewList, setIsNewList] = useState(false);
+	const [isCreateListVisible, setIsCreateListVisible] = useState(false);
 
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
@@ -80,18 +84,24 @@ export default function Home() {
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
-				<h1>List App</h1>
+				<h1>Listee</h1>
+				<NewList setIsCreateListVisible={setIsCreateListVisible} />
 			</header>
 			<main>
+				{isCreateListVisible && (
+					<CreateList
+						createList={createList}
+						setIsCreateListVisible={setIsCreateListVisible}
+					/>
+				)}
 				<div>
-					<CreateList createList={createList} />
-					{!isLoading && !lists.length && (
+					{!isLoading && !lists.length && !isCreateListVisible && (
 						<Message message={'No list yet. Why not create one?'} />
 					)}
 					{isLoading ? (
 						<Loading />
 					) : (
-						lists && (
+						lists.length > 0 && (
 							<ListWrapper
 								lists={lists}
 								setLists={setLists}
