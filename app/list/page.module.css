@@ -3,7 +3,8 @@
 
 	font-family: var(--font-geist-sans);
 
-	isolation: isolate;
+	/* isolation: isolate; */
+	/* position: relative; */
 
 	min-height: 100%;
 
