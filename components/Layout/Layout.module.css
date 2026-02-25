@@ -2,5 +2,8 @@
 	background: var(--bkgd-gradient);
 	min-height: 100%;
 
+	/* position: relative; */
+	isolation: isolate;
+
 	/* border: dotted 3px hsl(259, 77%, 14%); */
 }
