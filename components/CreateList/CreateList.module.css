@@ -1,19 +1,18 @@
 .CreateList {
 	/* background-color: hsl(208, 100%, 97%, 0.25); */
-
-	/* padding: 1rem; */
-	/* text-align: center; */
+	/* background-color: hsl(0, 0%, 0%); */
 
 	/* isolation: isolate; */
-
-	position: absolute;
+	/* position: absolute; */
 	/* top: 0; */
 
 	/* left: 0; */
 	/* right: 0; */
 	width: 100%;
 
-	/* outline: dashed 1px hsl(91, 85%, 45%); */
+	animation: slideInDown 2s forwards;
+	/* position: relative; */
+	z-index: 1;
 }
 
 .CreateList form {
@@ -26,10 +25,7 @@
 
 	margin-inline: auto;
 
-	transition: all 2s;
-
 	/* transform: translateX(50%) translateY(10%); */
-	/* animation: slideInUp 0.5s forwards; */
 
 	/* outline: dotted 1px hsl(91, 48%, 81%); */
 }
@@ -81,11 +77,11 @@
 	}
 }
 
-/* @keyframes slideInUp {
+@keyframes slideInDown {
 	from {
-		transform: translateX(-50%) translateY(-100%);
+		transform: translateX(0%) translateY(-200%);
 	}
 	to {
-		transform: translateX(-50%) translateY(0);
+		transform: translateX(0%) translateY(0%);
 	}
-} */
+}
