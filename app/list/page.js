@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import { createId } from '@/utils/createId';
-import CreateList from '@/components/CreateList.jsx/CreateList';
+import CreateList from '@/components/CreateList/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
 import Loading from '@/components/Loading/Loading';
 import styles from './page.module.css';

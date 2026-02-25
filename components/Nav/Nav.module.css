@@ -4,6 +4,9 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+
+	position: relative;
+	z-index: 2;
 }
 
 .Nav ul {

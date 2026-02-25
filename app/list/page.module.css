@@ -4,7 +4,7 @@
 	font-family: var(--font-geist-sans);
 
 	/* isolation: isolate; */
-	/* position: relative; */
+	position: relative;
 
 	min-height: 100%;
 
@@ -15,8 +15,9 @@
 	/* text-align: center; */
 	/* line-height: 1; */
 	/* padding-block: 1rem; */
-
+	position: relative;
 	display: flex;
+	z-index: 2;
 
 	/* outline: 2px dashed black; */
 }
@@ -24,6 +25,7 @@
 .header h1 {
 	padding-left: 1rem;
 	margin-right: auto;
-	background-color: hsl(350, 56%, 60%, 0.5);
+	/* background-color: hsl(350, 56%, 60%, 0.5); */
+	background-color: hsl(350, 56%, 60%);
 	width: 100%;
 }
