@@ -68,46 +68,40 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	};
 
 	return (
-		<>
-			{list && (
-				<section className={styles.List}>
-					{list.title && (
-						<h2>
-							<span
-								style={
-									title === 'untitled'
-										? {
-												visibility: 'hidden',
-											}
-										: { visibility: 'visible' }
-								}
-							>
-								{list.title}
-							</span>
-						</h2>
-					)}
-					<div>
-						<ListForm addListItem={addListItem} listId={list.listId} />
-					</div>
-					<ul>
-						{list.items.map((item) => (
-							<ListItem
-								key={item ? item.itemId : 1}
-								item={item || 'missing data'}
-								deleteItemHandler={deleteItem}
-								editListItem={editItem}
-								checkListItem={checkListItem}
-								listId={list.listId}
-							/>
-						))}
-						<div>
-							<button onClick={() => deleteList(list.listId)}>
-								Delete List
-							</button>
-						</div>
-					</ul>
-				</section>
+		<section className={styles.List}>
+			{list.title && (
+				<h2>
+					<span
+						style={
+							title === 'untitled'
+								? {
+										visibility: 'hidden',
+									}
+								: { visibility: 'visible' }
+						}
+					>
+						{list.title}
+					</span>
+				</h2>
 			)}
-		</>
+			<div>
+				<ListForm addListItem={addListItem} listId={list.listId} />
+			</div>
+			<ul>
+				{list.items.map((item) => (
+					<ListItem
+						key={item ? item.itemId : 1}
+						item={item || 'missing data'}
+						deleteItemHandler={deleteItem}
+						editListItem={editItem}
+						checkListItem={checkListItem}
+						listId={list.listId}
+					/>
+				))}
+				<div>
+					<button onClick={() => deleteList(list.listId)}>Delete List</button>
+				</div>
+			</ul>
+		</section>
 	);
 }
