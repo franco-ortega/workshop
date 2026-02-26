@@ -3,7 +3,7 @@ import styles from './ListWrapper.module.css';
 
 function ListWrapper({ addListItem, lists, setLists }) {
 	return (
-		<section className={styles.ListWrapper}>
+		<ul className={styles.ListWrapper}>
 			{lists &&
 				lists.map((list, i) => (
 					<List
@@ -14,7 +14,7 @@ function ListWrapper({ addListItem, lists, setLists }) {
 						listIndex={i}
 					/>
 				))}
-		</section>
+		</ul>
 	);
 }
 export default ListWrapper;
