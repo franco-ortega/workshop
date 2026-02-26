@@ -39,14 +39,14 @@ maybe add option to have a narrow or wide list
 	scrollbar-color: hsl(0, 0%, 75%) hsl(0, 0%, 95%);
 }
 
-.List ul > div > button {
-	background-color: white;
+.List ul button {
+	background-color: hsl(0, 0%, 100%);
 	border: transparent;
 	width: 100%;
 	text-align: center;
 	cursor: pointer;
 }
 
-.List ul > div > button:hover {
+.List ul button:hover {
 	background-color: hsl(0, 0%, 100%, 0.9);
 }

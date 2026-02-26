@@ -4,20 +4,18 @@ import { useEffect, useState } from 'react';
 import { CONSTANTS } from '../../utils/constants';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import { createId } from '@/utils/createId';
+import Loading from '@/components/Loading/Loading';
 import CreateList from '@/components/CreateList/CreateList';
 import ListWrapper from '@/components/ListWrapper/ListWrapper';
-import Loading from '@/components/Loading/Loading';
-import styles from './page.module.css';
 import Message from '@/components/Message/Message';
 import NewList from '@/components/NewList/NewList';
+import styles from './page.module.css';
 
 export default function Home() {
 	const { LIST, UNTITLED } = CONSTANTS;
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
-
-	const [isNewList, setIsNewList] = useState(false);
 	const [isCreateListVisible, setIsCreateListVisible] = useState(false);
 
 	useEffect(() => {
@@ -94,22 +92,19 @@ export default function Home() {
 						setIsCreateListVisible={setIsCreateListVisible}
 					/>
 				)}
-				<div>
-					{!isLoading && !lists.length && !isCreateListVisible && (
-						<Message message={'No list yet. Why not create one?'} />
-					)}
+				<>
 					{isLoading ? (
 						<Loading />
+					) : lists.length > 0 ? (
+						<ListWrapper
+							lists={lists}
+							setLists={setLists}
+							addListItem={addListItem}
+						/>
 					) : (
-						lists.length > 0 && (
-							<ListWrapper
-								lists={lists}
-								setLists={setLists}
-								addListItem={addListItem}
-							/>
-						)
+						<Message message={'No list yet. Why not create one?'} />
 					)}
-				</div>
+				</>
 			</main>
 		</div>
 	);
