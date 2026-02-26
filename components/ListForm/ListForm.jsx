@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import styles from './ListForm.module.css';
 
 export default function ListForm({ addListItem, listId }) {
-	const [item, setItem] = useState('');
+	const inputRef = useRef(null);
 
 	const onListItemSubmit = (e) => {
 		e.preventDefault();
-		addListItem(listId, item);
-		setItem('');
+		addListItem(listId, e.target[0].value);
+
+		if (inputRef.current) inputRef.current.value = '';
 	};
 
 	return (
@@ -17,9 +18,8 @@ export default function ListForm({ addListItem, listId }) {
 					<input
 						type={'text'}
 						id={'list-item'}
-						value={item}
+						ref={inputRef}
 						placeholder={'add item'}
-						onChange={(e) => setItem(e.target.value)}
 					/>
 				</label>
 				<button>+</button>
