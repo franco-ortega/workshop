@@ -16,8 +16,6 @@ export default function Home() {
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [lists, setLists] = useState([]);
-
-	const [isNewList, setIsNewList] = useState(false);
 	const [isCreateListVisible, setIsCreateListVisible] = useState(false);
 
 	useEffect(() => {
