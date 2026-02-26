@@ -68,7 +68,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	};
 
 	return (
-		<section className={styles.List}>
+		<li className={styles.List}>
 			{list.title && (
 				<h2>
 					<span
@@ -84,9 +84,9 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 					</span>
 				</h2>
 			)}
-			<div>
-				<ListForm addListItem={addListItem} listId={list.listId} />
-			</div>
+
+			<ListForm addListItem={addListItem} listId={list.listId} />
+
 			<ul>
 				{list.items.map((item) => (
 					<ListItem
@@ -98,10 +98,9 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 						listId={list.listId}
 					/>
 				))}
-				<div>
-					<button onClick={() => deleteList(list.listId)}>Delete List</button>
-				</div>
+
+				<button onClick={() => deleteList(list.listId)}>Delete List</button>
 			</ul>
-		</section>
+		</li>
 	);
 }
