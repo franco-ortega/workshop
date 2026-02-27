@@ -13,9 +13,7 @@
 	animation: slideInDown 2s forwards;
 	/* position: relative; */
 	z-index: 1;
-}
 
-.CreateList form {
 	border-radius: 4px;
 	width: fit-content;
 
@@ -24,10 +22,6 @@
 	padding: 2rem;
 
 	margin-inline: auto;
-
-	/* transform: translateX(50%) translateY(10%); */
-
-	/* outline: dotted 1px hsl(91, 48%, 81%); */
 }
 
 .radioWrapper {

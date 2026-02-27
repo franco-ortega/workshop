@@ -92,19 +92,18 @@ export default function Home() {
 						setIsCreateListVisible={setIsCreateListVisible}
 					/>
 				)}
-				<>
-					{isLoading ? (
-						<Loading />
-					) : lists.length > 0 ? (
-						<ListWrapper
-							lists={lists}
-							setLists={setLists}
-							addListItem={addListItem}
-						/>
-					) : (
-						<Message message={'No list yet. Why not create one?'} />
-					)}
-				</>
+
+				{isLoading ? (
+					<Loading />
+				) : lists.length > 0 ? (
+					<ListWrapper
+						lists={lists}
+						setLists={setLists}
+						addListItem={addListItem}
+					/>
+				) : (
+					<Message message={'No list yet. Why not create one?'} />
+				)}
 			</main>
 		</div>
 	);

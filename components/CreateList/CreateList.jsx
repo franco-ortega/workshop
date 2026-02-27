@@ -35,52 +35,48 @@ function CreateList({ createList, setIsCreateListVisible }) {
 	};
 
 	return (
-		<div className={styles.CreateList}>
-			<form action='' onSubmit={onCreateList}>
-				<p>Would you like your list to have a title?</p>
-				<div className={styles.radioWrapper}>
-					<label htmlFor='yes'>
+		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
+			<p>Would you like your list to have a title?</p>
+			<div className={styles.radioWrapper}>
+				<label htmlFor='yes'>
+					<input
+						type='radio'
+						id='yes'
+						name='title'
+						value={true}
+						checked={isTitle && isChecked}
+						onChange={toggleTitleOn}
+					/>
+					Yes
+				</label>
+				<label htmlFor='no'>
+					<input
+						type='radio'
+						id='no'
+						name='title'
+						value={false}
+						checked={!isTitle && isChecked}
+						onChange={toggleTitleOff}
+					/>
+					No
+				</label>
+				{isTitle && (
+					<label htmlFor='list-title'>
 						<input
-							type='radio'
-							id='yes'
-							name='title'
-							value={true}
-							checked={isTitle && isChecked}
-							onChange={toggleTitleOn}
+							type='text'
+							id={'list-title'}
+							placeholder='List Title'
+							onChange={onTitleChange}
 						/>
-						Yes
 					</label>
-					<label htmlFor='no'>
-						<input
-							type='radio'
-							id='no'
-							name='title'
-							value={false}
-							checked={!isTitle && isChecked}
-							onChange={toggleTitleOff}
-						/>
-						No
-					</label>
-					{isTitle && (
-						<label htmlFor='list-title'>
-							<input
-								type='text'
-								id={'list-title'}
-								placeholder='List Title'
-								onChange={onTitleChange}
-							/>
-						</label>
-					)}
-				</div>
+				)}
+			</div>
 
-				<div className={styles.buttonWrapper}>
-					<Button text={'Create List'} handler={() => {}} />
-					<Button text={'Cancel'} handler={onCancelNewList} />
-				</div>
-			</form>
-			{/* </>
-			)} */}
-		</div>
+			<div className={styles.buttonWrapper}>
+				<Button text={'Create List'} handler={() => {}} />
+				<Button text={'Cancel'} handler={onCancelNewList} />
+			</div>
+		</form>
 	);
 }
 export default CreateList;
