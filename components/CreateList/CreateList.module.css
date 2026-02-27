@@ -15,10 +15,10 @@
 	z-index: 1;
 
 	border-radius: 4px;
+	border: 2px black solid;
 	width: fit-content;
 
-	box-shadow: 0px 0cqb 2px 2px black;
-	margin-block: 2rem;
+	/* box-shadow: 0px 0px 2px 2px black; */
 	padding: 2rem;
 
 	margin-inline: auto;

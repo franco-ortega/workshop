@@ -93,17 +93,19 @@ export default function Home() {
 					/>
 				)}
 
-				{isLoading ? (
-					<Loading />
-				) : lists.length > 0 ? (
-					<ListWrapper
-						lists={lists}
-						setLists={setLists}
-						addListItem={addListItem}
-					/>
-				) : (
-					<Message message={'No list yet. Why not create one?'} />
-				)}
+				<div className={isCreateListVisible ? styles.slideWrapper : null}>
+					{isLoading ? (
+						<Loading />
+					) : lists.length > 0 ? (
+						<ListWrapper
+							lists={lists}
+							setLists={setLists}
+							addListItem={addListItem}
+						/>
+					) : (
+						<Message message={'No list yet. Why not create one?'} />
+					)}
+				</div>
 			</main>
 		</div>
 	);
