@@ -29,3 +29,18 @@
 	background-color: hsl(350, 56%, 60%);
 	width: 100%;
 }
+
+.slideWrapper {
+	animation: slideDown 2s forwards;
+
+	/* outline: 2px yellow dashed; */
+}
+
+@keyframes slideDown {
+	from {
+		transform: translateX(0%) translateY(-150px);
+	}
+	to {
+		transform: translateX(0%) translateY(25px);
+	}
+}

@@ -92,7 +92,8 @@ export default function Home() {
 						setIsCreateListVisible={setIsCreateListVisible}
 					/>
 				)}
-				<>
+
+				<div className={isCreateListVisible ? styles.slideWrapper : null}>
 					{isLoading ? (
 						<Loading />
 					) : lists.length > 0 ? (
@@ -104,7 +105,7 @@ export default function Home() {
 					) : (
 						<Message message={'No list yet. Why not create one?'} />
 					)}
-				</>
+				</div>
 			</main>
 		</div>
 	);
