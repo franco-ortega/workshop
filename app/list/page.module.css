@@ -30,8 +30,12 @@
 	width: 100%;
 }
 
+.page main {
+	padding-block: 2rem;
+}
+
 .slideWrapper {
-	animation: slideDown 2s forwards;
+	animation: slideDown 1s forwards;
 
 	/* outline: 2px yellow dashed; */
 }

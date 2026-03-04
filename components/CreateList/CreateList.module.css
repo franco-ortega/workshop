@@ -10,7 +10,7 @@
 	/* right: 0; */
 	width: 100%;
 
-	animation: slideInDown 2s forwards;
+	animation: slideInDown 1s forwards;
 	/* position: relative; */
 	z-index: 1;
 
