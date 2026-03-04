@@ -2,41 +2,47 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 
-function CreateList({ createList, setIsCreateListVisible, isDown, setIsDown }) {
+function CreateList({ createList, setIsCreateListVisible, setIsDown }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [isChecked, setIsChecked] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 
-	const toggleTitleOn = () => {
-		setIsTitle(true);
-		setIsChecked(true);
-	};
-	const toggleTitleOff = () => {
-		setIsTitle(false);
+	const toggleTitle = (e) => {
+		const yesOrNo = e.target.id;
+
+		if (yesOrNo === 'yes') setIsTitle(true);
+		else setIsTitle(false);
+
 		setIsChecked(true);
 	};
 
-	const onTitleChange = (e) => setListTitle(e.target.value);
+	const onTitleChange = (e) => {
+		setListTitle(e.target.value);
+	};
+
+	const reset = () => {
+		setIsChecked(false);
+		setIsTitle(false);
+
+		setIsCreateListVisible(false);
+		setTimeout(() => {
+			setIsDown(false);
+		}, 2000);
+	};
 
 	const onCreateList = (e) => {
 		e.preventDefault();
 
 		createList(listTitle);
 		setListTitle('');
-		toggleTitleOff();
-		setIsChecked(false);
-		setIsCreateListVisible(false);
-
-		setIsDown(true);
+		reset();
 	};
 
 	const onCancelNewList = () => {
-		setIsCreateListVisible(false);
-		setIsChecked(false);
-		setIsTitle(false);
-
-		setIsDown(true);
+		reset();
 	};
+
+	console.log({ isTitle, isChecked, listTitle });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -49,7 +55,7 @@ function CreateList({ createList, setIsCreateListVisible, isDown, setIsDown }) {
 						name='title'
 						value={true}
 						checked={isTitle && isChecked}
-						onChange={toggleTitleOn}
+						onChange={toggleTitle}
 					/>
 					Yes
 				</label>
@@ -60,7 +66,7 @@ function CreateList({ createList, setIsCreateListVisible, isDown, setIsDown }) {
 						name='title'
 						value={false}
 						checked={!isTitle && isChecked}
-						onChange={toggleTitleOff}
+						onChange={toggleTitle}
 					/>
 					No
 				</label>

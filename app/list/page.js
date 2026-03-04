@@ -81,18 +81,24 @@ export default function Home() {
 		});
 	};
 
+	const displayCreateList = () => {
+		setIsCreateListVisible(true);
+		setIsDown(true);
+	};
+
+	console.log({ isDown });
+
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>Listee</h1>
-				<NewList setIsCreateListVisible={setIsCreateListVisible} />
+				<NewList displayCreateList={displayCreateList} />
 			</header>
 			<main>
 				{isCreateListVisible && (
 					<CreateList
 						createList={createList}
 						setIsCreateListVisible={setIsCreateListVisible}
-						isDown={isDown}
 						setIsDown={setIsDown}
 					/>
 				)}
