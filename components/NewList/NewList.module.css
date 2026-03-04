@@ -1,16 +1,11 @@
 .NewList {
-	/* background-color: lightgreen; */
-
-	background-color: hsl(208, 100%, 97%, 0.25);
-	/* background-color: hsl(208, 100%, 97%); */
+	background-color: hsl(318, 70%, 54%);
 
 	padding: 1rem;
 	text-align: center;
 
 	isolation: isolate;
 	position: relative;
-
-	/* outline: dashed 1px hsl(91, 85%, 75%); */
 }
 
 .NewList button {
