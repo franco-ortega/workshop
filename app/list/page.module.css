@@ -7,19 +7,12 @@
 	position: relative;
 
 	min-height: 100%;
-
-	/* outline: 2px dotted yellow; */
 }
 
 .header {
-	/* text-align: center; */
-	/* line-height: 1; */
-	/* padding-block: 1rem; */
 	position: relative;
 	display: flex;
 	z-index: 2;
-
-	/* outline: 2px dashed black; */
 }
 
 .header h1 {
@@ -34,8 +27,6 @@
 	);
 
 	width: 100%;
-
-	/* height: 500px; */
 }
 
 .page main {
@@ -44,8 +35,6 @@
 
 .slideDown {
 	animation: slideDown 1.5s forwards;
-
-	/* outline: 2px yellow dashed; */
 }
 
 .slideUp {
