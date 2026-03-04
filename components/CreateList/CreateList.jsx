@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 
-function CreateList({ createList, setIsCreateListVisible, setIsDown }) {
-	const [isTitle, setIsTitle] = useState(false);
+function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
+	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
+		console.log({ yesOrNo });
 
 		if (yesOrNo === 'yes') setIsTitle(true);
 		else setIsTitle(false);
@@ -16,18 +17,12 @@ function CreateList({ createList, setIsCreateListVisible, setIsDown }) {
 		setIsChecked(true);
 	};
 
-	const onTitleChange = (e) => {
-		setListTitle(e.target.value);
-	};
+	const onTitleChange = (e) => setListTitle(e.target.value);
 
 	const reset = () => {
 		setIsChecked(false);
 		setIsTitle(false);
-
-		setIsCreateListVisible(false);
-		setTimeout(() => {
-			setIsDown(false);
-		}, 2000);
+		closeCreateList();
 	};
 
 	const onCreateList = (e) => {
@@ -38,9 +33,7 @@ function CreateList({ createList, setIsCreateListVisible, setIsDown }) {
 		reset();
 	};
 
-	const onCancelNewList = () => {
-		reset();
-	};
+	const onCancelNewList = () => reset();
 
 	console.log({ isTitle, isChecked, listTitle });
 

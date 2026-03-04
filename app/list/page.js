@@ -81,9 +81,16 @@ export default function Home() {
 		});
 	};
 
-	const displayCreateList = () => {
+	const openCreateList = () => {
 		setIsCreateListVisible(true);
 		setIsDown(true);
+	};
+
+	const closeCreateList = () => {
+		setIsCreateListVisible(false);
+		setTimeout(() => {
+			setIsDown(false);
+		}, 2000);
 	};
 
 	console.log({ isDown });
@@ -92,14 +99,13 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>Listee</h1>
-				<NewList displayCreateList={displayCreateList} />
+				<NewList openCreateList={openCreateList} />
 			</header>
 			<main>
 				{isCreateListVisible && (
 					<CreateList
 						createList={createList}
-						setIsCreateListVisible={setIsCreateListVisible}
-						setIsDown={setIsDown}
+						closeCreateList={closeCreateList}
 					/>
 				)}
 
