@@ -25,7 +25,7 @@
 .header h1 {
 	padding-left: 1rem;
 	margin-right: auto;
-	/* background-color: hsl(350, 56%, 60%, 0.5); */
+	background-color: hsl(350, 56%, 60%, 0.5);
 	background-color: hsl(350, 56%, 60%);
 	width: 100%;
 }
@@ -34,10 +34,14 @@
 	padding-block: 2rem;
 }
 
-.slideWrapper {
-	animation: slideDown 1s forwards;
+.slideDown {
+	animation: slideDown 1.5s forwards;
 
 	/* outline: 2px yellow dashed; */
+}
+
+.slideUp {
+	animation: slideUp 1.5s forwards;
 }
 
 @keyframes slideDown {
@@ -45,6 +49,15 @@
 		transform: translateX(0%) translateY(-150px);
 	}
 	to {
-		transform: translateX(0%) translateY(25px);
+		transform: translateX(0%) translateY(32px);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateX(0%) translateY(182px);
+	}
+	to {
+		transform: translateX(0%) translateY(0rem);
 	}
 }
