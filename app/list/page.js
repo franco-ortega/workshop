@@ -103,7 +103,9 @@ export default function Home() {
 							addListItem={addListItem}
 						/>
 					) : (
-						<Message message={'No list yet. Why not create one?'} />
+						!isCreateListVisible && (
+							<Message message={'No list yet. Why not create one?'} />
+						)
 					)}
 				</div>
 			</main>
