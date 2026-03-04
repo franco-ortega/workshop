@@ -93,8 +93,6 @@ export default function Home() {
 		}, 2000);
 	};
 
-	console.log({ isDown });
-
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>

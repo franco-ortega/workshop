@@ -9,7 +9,6 @@ function CreateList({ createList, closeCreateList }) {
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
-		console.log({ yesOrNo });
 
 		if (yesOrNo === 'yes') setIsTitle(true);
 		else setIsTitle(false);
@@ -34,8 +33,6 @@ function CreateList({ createList, closeCreateList }) {
 	};
 
 	const onCancelNewList = () => reset();
-
-	console.log({ isTitle, isChecked, listTitle });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
