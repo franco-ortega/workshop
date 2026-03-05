@@ -18,6 +18,8 @@ export default function Home() {
 	const [lists, setLists] = useState([]);
 	const [isCreateListVisible, setIsCreateListVisible] = useState(false);
 
+	const [isDown, setIsDown] = useState(false);
+
 	useEffect(() => {
 		const storedList = getLocalStorage(LIST);
 
@@ -79,21 +81,41 @@ export default function Home() {
 		});
 	};
 
+	const openCreateList = () => {
+		setIsCreateListVisible(true);
+		setIsDown(true);
+	};
+
+	const closeCreateList = () => {
+		setIsCreateListVisible(false);
+		setTimeout(() => {
+			setIsDown(false);
+		}, 2000);
+	};
+
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1>Listee</h1>
-				<NewList setIsCreateListVisible={setIsCreateListVisible} />
+				<NewList openCreateList={openCreateList} />
 			</header>
 			<main>
 				{isCreateListVisible && (
 					<CreateList
 						createList={createList}
-						setIsCreateListVisible={setIsCreateListVisible}
+						closeCreateList={closeCreateList}
 					/>
 				)}
 
-				<div className={isCreateListVisible ? styles.slideWrapper : null}>
+				<div
+					className={
+						isCreateListVisible
+							? styles.slideDown
+							: isDown
+								? styles.slideUp
+								: null
+					}
+				>
 					{isLoading ? (
 						<Loading />
 					) : lists.length > 0 ? (
@@ -103,7 +125,9 @@ export default function Home() {
 							addListItem={addListItem}
 						/>
 					) : (
-						<Message message={'No list yet. Why not create one?'} />
+						!isCreateListVisible && (
+							<Message message={'No list yet. Why not create one?'} />
+						)
 					)}
 				</div>
 			</main>

@@ -2,37 +2,37 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 
-function CreateList({ createList, setIsCreateListVisible }) {
-	const [isTitle, setIsTitle] = useState(false);
+function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
+	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 
-	const toggleTitleOn = () => {
-		setIsTitle(true);
-		setIsChecked(true);
-	};
-	const toggleTitleOff = () => {
-		setIsTitle(false);
+	const toggleTitle = (e) => {
+		const yesOrNo = e.target.id;
+
+		if (yesOrNo === 'yes') setIsTitle(true);
+		else setIsTitle(false);
+
 		setIsChecked(true);
 	};
 
 	const onTitleChange = (e) => setListTitle(e.target.value);
+
+	const reset = () => {
+		setIsChecked(false);
+		setIsTitle(false);
+		closeCreateList();
+	};
 
 	const onCreateList = (e) => {
 		e.preventDefault();
 
 		createList(listTitle);
 		setListTitle('');
-		toggleTitleOff();
-		setIsChecked(false);
-		setIsCreateListVisible(false);
+		reset();
 	};
 
-	const onCancelNewList = () => {
-		setIsCreateListVisible(false);
-		setIsChecked(false);
-		setIsTitle(false);
-	};
+	const onCancelNewList = () => reset();
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -45,7 +45,7 @@ function CreateList({ createList, setIsCreateListVisible }) {
 						name='title'
 						value={true}
 						checked={isTitle && isChecked}
-						onChange={toggleTitleOn}
+						onChange={toggleTitle}
 					/>
 					Yes
 				</label>
@@ -56,7 +56,7 @@ function CreateList({ createList, setIsCreateListVisible }) {
 						name='title'
 						value={false}
 						checked={!isTitle && isChecked}
-						onChange={toggleTitleOff}
+						onChange={toggleTitle}
 					/>
 					No
 				</label>

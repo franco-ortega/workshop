@@ -1,27 +1,13 @@
 .CreateList {
-	/* background-color: hsl(208, 100%, 97%, 0.25); */
-	/* background-color: hsl(0, 0%, 0%); */
-
-	/* isolation: isolate; */
-	/* position: absolute; */
-	/* top: 0; */
-
-	/* left: 0; */
-	/* right: 0; */
-	width: 100%;
-
-	animation: slideInDown 2s forwards;
-	/* position: relative; */
-	z-index: 1;
-
 	border-radius: 4px;
 	border: 2px black solid;
+
 	width: fit-content;
 
-	/* box-shadow: 0px 0px 2px 2px black; */
+	margin-inline: auto;
 	padding: 2rem;
 
-	margin-inline: auto;
+	animation: slideInDown 1.5s forwards;
 }
 
 .radioWrapper {

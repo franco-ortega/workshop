@@ -7,33 +7,38 @@
 	position: relative;
 
 	min-height: 100%;
-
-	/* outline: 2px dotted yellow; */
 }
 
 .header {
-	/* text-align: center; */
-	/* line-height: 1; */
-	/* padding-block: 1rem; */
 	position: relative;
 	display: flex;
 	z-index: 2;
-
-	/* outline: 2px dashed black; */
 }
 
 .header h1 {
 	padding-left: 1rem;
 	margin-right: auto;
-	/* background-color: hsl(350, 56%, 60%, 0.5); */
-	background-color: hsl(350, 56%, 60%);
+
+	background: linear-gradient(
+		90deg,
+		hsl(325, 60%, 45%),
+		hsl(325, 65%, 47%),
+		hsl(325, 69%, 50%)
+	);
+
 	width: 100%;
 }
 
-.slideWrapper {
-	animation: slideDown 2s forwards;
+.page main {
+	padding-block: 2rem;
+}
 
-	/* outline: 2px yellow dashed; */
+.slideDown {
+	animation: slideDown 1.5s forwards;
+}
+
+.slideUp {
+	animation: slideUp 1.5s forwards;
 }
 
 @keyframes slideDown {
@@ -41,6 +46,15 @@
 		transform: translateX(0%) translateY(-150px);
 	}
 	to {
-		transform: translateX(0%) translateY(25px);
+		transform: translateX(0%) translateY(32px);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateX(0%) translateY(182px);
+	}
+	to {
+		transform: translateX(0%) translateY(0rem);
 	}
 }
