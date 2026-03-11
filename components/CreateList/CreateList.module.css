@@ -10,11 +10,20 @@
 
 	animation: slideInDown 1.5s forwards;
 
-	transition: width 0.5s ease;
+	/* transition: width 0.5s ease; */
+
+	/* display: flex;
+	flex-direction: column;
+	gap: 0.5rem; */
 }
 
-.CreateList * {
-	/* outline: 2px dotted yellow; */
+.CreateList > p,
+.CreateList > div {
+	margin-bottom: 0.5rem;
+}
+
+.CreateList > * {
+	outline: 2px dotted yellow;
 }
 
 .radioWrapper {
@@ -23,7 +32,7 @@
 	width: 150px;
 	/* width: 100%; */
 
-	transition: all 1.5s;
+	/* transition: all 1.5s; */
 
 	/* background-color: hsla(104, 85%, 75%, 0.5); */
 }
