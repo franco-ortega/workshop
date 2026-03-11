@@ -16,3 +16,7 @@ NOTES
 
 1. NextJS
 1. Feather Icons
+
+### Timeline
+
+- Session start on Wed, Mar 11, 2026
