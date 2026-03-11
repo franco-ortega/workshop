@@ -37,7 +37,7 @@ function CreateList({ createList, closeCreateList }) {
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
 			<p>Would you like your list to have a title?</p>
-			<div className={styles.radioWrapper}>
+			<div className={`${styles.radioWrapper} ${isTitle && styles.widen}`}>
 				<label htmlFor='yes'>
 					<input
 						type='radio'

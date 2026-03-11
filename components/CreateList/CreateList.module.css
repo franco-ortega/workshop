@@ -8,10 +8,25 @@
 	padding: 2rem;
 
 	animation: slideInDown 1.5s forwards;
+
+	transition: width 0.5s ease;
 }
 
 .radioWrapper {
 	line-height: 2;
+
+	width: 150px;
+	/* width: 100%; */
+
+	transition: all 1.5s;
+
+	/* background-color: hsla(104, 85%, 75%, 0.5); */
+}
+
+.widen {
+	/* animation: widen 1.5s forwards; */
+	/* transition: all 1.5s; */
+	width: 300px;
 }
 
 .radioWrapper label + label {
@@ -26,6 +41,8 @@
 	max-width: 65%;
 	max-height: 1.75rem;
 	padding-left: 0.25rem;
+
+	animation: widen 3s forwards;
 }
 
 .buttonWrapper button + button {
@@ -63,5 +80,14 @@
 	}
 	to {
 		transform: translateX(0%) translateY(0%);
+	}
+}
+
+@keyframes widen {
+	from {
+		width: 10%;
+	}
+	to {
+		width: 100%;
 	}
 }
