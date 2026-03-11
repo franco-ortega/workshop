@@ -6,15 +6,12 @@
 	width: fit-content;
 
 	margin-inline: auto;
-	padding: 2rem;
+	padding-block: 2rem;
+	padding-inline: 0.5rem;
 
 	animation: slideInDown 1.5s forwards;
 
 	/* transition: width 0.5s ease; */
-
-	/* display: flex;
-	flex-direction: column;
-	gap: 0.5rem; */
 }
 
 .CreateList > p,
