@@ -37,7 +37,13 @@ function CreateList({ createList, closeCreateList }) {
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
 			<p>Would you like your list to have a title?</p>
-			<div className={`${styles.radioWrapper} ${isTitle && styles.widen}`}>
+			<div
+				className={`
+        ${styles.radioWrapper} 
+        ${isTitle && styles.widen}
+        `}
+			>
+				{/* <div> */}
 				<label htmlFor='yes'>
 					<input
 						type='radio'
@@ -60,7 +66,9 @@ function CreateList({ createList, closeCreateList }) {
 					/>
 					No
 				</label>
+				{/* </div> */}
 				{isTitle && (
+					// <div>
 					<label htmlFor='list-title'>
 						<input
 							type='text'
@@ -69,6 +77,7 @@ function CreateList({ createList, closeCreateList }) {
 							onChange={onTitleChange}
 						/>
 					</label>
+					// </div>
 				)}
 			</div>
 

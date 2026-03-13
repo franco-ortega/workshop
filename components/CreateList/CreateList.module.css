@@ -10,13 +10,17 @@
 	padding-inline: 2rem;
 	padding-inline: 0;
 
-	/* padding-inline: max(min(0.25rem), 2rem); */
-	/* padding-inline: clamp(0.25rem, 1rem, 1rem); */
-
 	animation: slideInDown 1.5s forwards;
 
 	transition: width 0.5s ease;
+
+	/* padding-right: 0; */
 }
+
+/* .CreateList * {
+	margin: 0;
+	padding: 0;
+} */
 
 .CreateList > p,
 .CreateList > div {
@@ -24,23 +28,42 @@
 }
 
 .CreateList > * {
-	outline: 2px dotted yellow;
+	/* outline: 2px dotted yellow; */
 }
 
 .radioWrapper {
 	line-height: 2;
 
-	width: 150px;
+	/* width: 150px; */
 	/* width: 100%; */
 
-	transition: all 1.5s;
+	/* width: fit-content; */
 
-	max-width: 100%;
+	/* transition: all 1.5s; */
 
-	/* padding: 0rem; */
-	/* margin: 0; */
+	/* max-width: 100%; */
 
 	/* background-color: hsla(104, 85%, 75%, 0.5); */
+
+	/* display: flex; */
+	/* flex-direction: column; */
+}
+
+.CreateList p {
+	/* display: none; */
+}
+
+.buttonWrapper {
+	/* display: none; */
+}
+
+.CreateList input[type='radio'] {
+	/* display: none; */
+}
+
+.radioWrapper label input {
+	/* padding: 0; */
+	/* margin: 0; */
 }
 
 .radioWrapper label + label {
@@ -53,17 +76,16 @@
 
 /* testing property */
 .radioWrapper label:has(input[type='text']) {
-	outline: red 2px dashed;
+	/* outline: red 2px dashed; */
 }
 
 .radioWrapper label input[type='text'] {
-	max-width: 60%;
+	max-width: 170px;
 	max-height: 1.75rem;
-	padding-left: 0.25rem;
+	/* padding-left: 0.25rem; */
+	/* padding: 0.25rem; */
 
 	animation: widen 3s forwards;
-
-	/* max-width: 100%; */
 }
 
 .buttonWrapper {
@@ -98,7 +120,7 @@
 .widen {
 	/* animation: widen 1.5s forwards; */
 	/* transition: all 1.5s; */
-	width: 300px;
+	/* width: 300px; */
 }
 
 @media (hover: hover) {
