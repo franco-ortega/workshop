@@ -19,4 +19,4 @@ NOTES
 
 ### Timeline
 
-- Session start on Fri, Mar 13, 2026
+- Session start on Mon, Mar 16, 2026

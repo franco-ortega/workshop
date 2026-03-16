@@ -5,22 +5,14 @@
 	width: fit-content;
 
 	margin-inline: auto;
-	padding-block: 2rem;
 
-	padding-inline: 2rem;
-	padding-inline: 0;
+	padding-block: 1rem;
+	padding-inline: 1.5rem;
 
 	animation: slideInDown 1.5s forwards;
 
 	transition: width 0.5s ease;
-
-	/* padding-right: 0; */
 }
-
-/* .CreateList * {
-	margin: 0;
-	padding: 0;
-} */
 
 .CreateList > p,
 .CreateList > div {
@@ -28,7 +20,7 @@
 }
 
 .CreateList > * {
-	/* outline: 2px dotted yellow; */
+	outline: 2px dotted yellow;
 }
 
 .radioWrapper {
