@@ -14,48 +14,9 @@
 	transition: width 0.5s ease;
 }
 
-.CreateList > p,
-.CreateList > div {
-	margin-bottom: 0.5rem;
-}
-
-.CreateList > * {
-	outline: 2px dotted yellow;
-}
-
 .radioWrapper {
+	max-width: 100%;
 	line-height: 2;
-
-	/* width: 150px; */
-	/* width: 100%; */
-
-	/* width: fit-content; */
-
-	/* transition: all 1.5s; */
-
-	/* max-width: 100%; */
-
-	/* background-color: hsla(104, 85%, 75%, 0.5); */
-
-	/* display: flex; */
-	/* flex-direction: column; */
-}
-
-.CreateList p {
-	/* display: none; */
-}
-
-.buttonWrapper {
-	/* display: none; */
-}
-
-.CreateList input[type='radio'] {
-	/* display: none; */
-}
-
-.radioWrapper label input {
-	/* padding: 0; */
-	/* margin: 0; */
 }
 
 .radioWrapper label + label {
@@ -66,53 +27,29 @@
 	margin-right: 0.25rem;
 }
 
-/* testing property */
-.radioWrapper label:has(input[type='text']) {
-	/* outline: red 2px dashed; */
-}
-
 .radioWrapper label input[type='text'] {
-	max-width: 170px;
+	max-width: 175px;
 	max-height: 1.75rem;
-	/* padding-left: 0.25rem; */
-	/* padding: 0.25rem; */
+	padding-left: 0.25rem;
 
-	animation: widen 3s forwards;
+	animation: widenOnDisplay 2s forwards;
 }
 
 .buttonWrapper {
-	/* text-align: center; */
+	margin-top: 0.5rem;
 	/* white-space: nowrap; */
 
-	/* display: grid;
+	display: grid;
 	grid-template-columns: 1fr 1fr;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem; */
+	gap: 0.5rem;
 }
 
-.buttonWrapper button + button {
-	/* margin-left: 0.5rem; */
-}
-
-.buttonWrapper button {
+.buttonWrapper > button {
 	background-color: hsl(300, 85%, 45%);
 	border: 1px solid hsl(300, 85%, 30%);
 	border-radius: 5px;
 
-	/* padding-inline: 2rem; */
-	max-width: 7rem;
-	width: 100%;
-
-	text-wrap: nowrap;
-
-	/* max-width: 7rem; */
-}
-
-.widen {
-	/* animation: widen 1.5s forwards; */
-	/* transition: all 1.5s; */
-	/* width: 300px; */
+	/* text-wrap: nowrap; */
 }
 
 @media (hover: hover) {
@@ -139,7 +76,7 @@
 	}
 }
 
-@keyframes widen {
+@keyframes widenOnDisplay {
 	from {
 		width: 10%;
 	}
