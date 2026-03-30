@@ -18,21 +18,24 @@ function CreateList({ createList, closeCreateList }) {
 
 	const onTitleChange = (e) => setListTitle(e.target.value);
 
-	const reset = () => {
+	const resetCreateList = () => {
 		setIsChecked(false);
 		setIsTitle(false);
-		closeCreateList();
+		setListTitle('');
 	};
 
 	const onCreateList = (e) => {
 		e.preventDefault();
 
 		createList(listTitle);
-		setListTitle('');
-		reset();
+		resetCreateList();
+		closeCreateList();
 	};
 
-	const onCancelNewList = () => reset();
+	const onCancelNewList = () => {
+		resetCreateList();
+		closeCreateList();
+	};
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
