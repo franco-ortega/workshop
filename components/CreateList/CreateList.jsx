@@ -19,9 +19,9 @@ function CreateList({ createList, closeCreateList }) {
 	const onTitleChange = (e) => setListTitle(e.target.value);
 
 	const resetCreateList = () => {
-		setIsChecked(false);
-		setIsTitle(false);
 		setListTitle('');
+		setIsTitle(false);
+		setIsChecked(false);
 	};
 
 	const onCreateList = (e) => {
@@ -76,8 +76,8 @@ function CreateList({ createList, closeCreateList }) {
 				)}
 			</div>
 			<div className={styles.buttonWrapper}>
-				<Button text={'Create List'} handler={() => {}} />
-				<Button text={'Cancel'} handler={onCancelNewList} />
+				<button>Create List</button>
+				<button onClick={onCancelNewList}>Cancel</button>
 			</div>
 		</form>
 	);
