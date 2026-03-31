@@ -37,7 +37,6 @@
 
 .buttonWrapper {
 	margin-top: 0.5rem;
-	/* white-space: nowrap; */
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -49,7 +48,8 @@
 	border: 1px solid hsl(300, 85%, 30%);
 	border-radius: 5px;
 
-	/* text-wrap: nowrap; */
+	text-wrap: nowrap;
+	min-width: 6rem;
 }
 
 @media (hover: hover) {
