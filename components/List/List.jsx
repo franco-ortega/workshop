@@ -68,7 +68,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	};
 
 	return (
-		<li className={styles.List}>
+		<li className={styles.List} style={{ backgroundColor: list.color }}>
 			{list.title && (
 				<h2>
 					<span

@@ -40,6 +40,7 @@ export default function Home() {
 						idName: newTitle,
 					}),
 					items: [],
+					color: `hsl(${Math.floor(Math.random() * 360)}, 70%, 80%)`,
 				},
 			];
 
