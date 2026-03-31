@@ -1,16 +1,21 @@
 .CreateList {
 	border-radius: 4px;
-	border: 2px black solid;
+	border: 2px rgb(77, 11, 11) solid;
 
 	width: fit-content;
 
 	margin-inline: auto;
-	padding: 2rem;
+
+	padding-block: 1rem;
+	padding-inline: 1.5rem;
 
 	animation: slideInDown 1.5s forwards;
+
+	transition: width 0.5s ease;
 }
 
 .radioWrapper {
+	max-width: 100%;
 	line-height: 2;
 }
 
@@ -23,23 +28,28 @@
 }
 
 .radioWrapper label input[type='text'] {
-	max-width: 65%;
+	max-width: 175px;
 	max-height: 1.75rem;
 	padding-left: 0.25rem;
+
+	animation: widenOnDisplay 2s forwards;
 }
 
-.buttonWrapper button + button {
-	margin-left: 0.5rem;
+.buttonWrapper {
+	margin-top: 0.5rem;
+	/* white-space: nowrap; */
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
 }
 
-.buttonWrapper button {
+.buttonWrapper > button {
 	background-color: hsl(300, 85%, 45%);
 	border: 1px solid hsl(300, 85%, 30%);
 	border-radius: 5px;
 
-	padding-inline: 2rem;
-
-	text-wrap: nowrap;
+	/* text-wrap: nowrap; */
 }
 
 @media (hover: hover) {
@@ -63,5 +73,14 @@
 	}
 	to {
 		transform: translateX(0%) translateY(0%);
+	}
+}
+
+@keyframes widenOnDisplay {
+	from {
+		width: 10%;
+	}
+	to {
+		width: 100%;
 	}
 }

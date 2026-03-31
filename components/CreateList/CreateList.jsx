@@ -18,21 +18,24 @@ function CreateList({ createList, closeCreateList }) {
 
 	const onTitleChange = (e) => setListTitle(e.target.value);
 
-	const reset = () => {
-		setIsChecked(false);
+	const resetCreateList = () => {
+		setListTitle('');
 		setIsTitle(false);
-		closeCreateList();
+		setIsChecked(false);
 	};
 
 	const onCreateList = (e) => {
 		e.preventDefault();
 
 		createList(listTitle);
-		setListTitle('');
-		reset();
+		resetCreateList();
+		closeCreateList();
 	};
 
-	const onCancelNewList = () => reset();
+	const onCancelNewList = () => {
+		resetCreateList();
+		closeCreateList();
+	};
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -60,6 +63,7 @@ function CreateList({ createList, closeCreateList }) {
 					/>
 					No
 				</label>
+
 				{isTitle && (
 					<label htmlFor='list-title'>
 						<input
@@ -71,10 +75,9 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
-
 			<div className={styles.buttonWrapper}>
-				<Button text={'Create List'} handler={() => {}} />
-				<Button text={'Cancel'} handler={onCancelNewList} />
+				<button>Create List</button>
+				<button onClick={onCancelNewList}>Cancel</button>
 			</div>
 		</form>
 	);
