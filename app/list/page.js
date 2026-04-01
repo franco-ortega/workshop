@@ -28,7 +28,7 @@ export default function Home() {
 		setIsLoading(false);
 	}, [LIST]);
 
-	const createList = (title) => {
+	const createList = (title, color) => {
 		const newTitle = title.length ? title : UNTITLED;
 
 		setLists((prev) => {
@@ -40,7 +40,7 @@ export default function Home() {
 						idName: newTitle,
 					}),
 					items: [],
-					color: `hsl(${Math.floor(Math.random() * 360)}, 70%, 80%)`,
+					color: color,
 				},
 			];
 
