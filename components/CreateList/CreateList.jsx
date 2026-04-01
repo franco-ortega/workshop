@@ -6,6 +6,7 @@ function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
+	const [listColor, setListColor] = useState('');
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
@@ -27,7 +28,7 @@ function CreateList({ createList, closeCreateList }) {
 	const onCreateList = (e) => {
 		e.preventDefault();
 
-		createList(listTitle);
+		createList(listTitle, listColor);
 		resetCreateList();
 		closeCreateList();
 	};
@@ -36,6 +37,8 @@ function CreateList({ createList, closeCreateList }) {
 		resetCreateList();
 		closeCreateList();
 	};
+
+	console.log(listColor);
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -75,6 +78,12 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
+			<select name='' id='' onChange={(e) => setListColor(e.target.value)}>
+				<option value=''>Default</option>
+				<option value='hsl(0, 50%, 50%)'>Red</option>
+				<option value='hsl(120, 20%, 40%)'>Green</option>
+				<option value='hsl(240, 50%, 60%)'>Blue</option>
+			</select>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>
 				<button onClick={onCancelNewList}>Cancel</button>
