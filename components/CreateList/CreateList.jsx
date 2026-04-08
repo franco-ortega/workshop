@@ -38,8 +38,6 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	console.log(listColor);
-
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
 			<p>Would you like your list to have a title?</p>
@@ -80,14 +78,14 @@ function CreateList({ createList, closeCreateList }) {
 			</div>
 			<select name='' id='' onChange={(e) => setListColor(e.target.value)}>
 				<option value=''>Default</option>
-				<option value='hsl(0, 50%, 50%)'>Red</option>
-				<option value='hsl(40, 79%, 46%)'>Orange</option>
-				<option value='hsl(60, 80%, 55%)'>Yellow</option>
-				<option value='hsl(120, 20%, 40%)'>Green</option>
-				<option value='hsl(240, 50%, 60%)'>Blue</option>
-				<option value='hsl(0, 0%, 0%)'>Black</option>
-				<option value='hsl(170, 10%, 60%)'>Gray</option>
-				<option value='hsl(0, 100%, 100%)'>White</option>
+				<option value='hsl(0, 50%, 50%, 0.8)'>Red</option>
+				<option value='hsl(40, 79%, 46%, 0.8)'>Orange</option>
+				<option value='hsl(60, 80%, 55%, 0.8)'>Yellow</option>
+				<option value='hsl(120, 20%, 40%, 0.8)'>Green</option>
+				<option value='hsl(240, 50%, 60%, 0.8)'>Blue</option>
+				<option value='hsl(0, 0%, 0%, 0.8)'>Black</option>
+				<option value='hsl(170, 10%, 60%, 0.8)'>Gray</option>
+				<option value='hsl(0, 100%, 100%, 0.8)'>White</option>
 			</select>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>
