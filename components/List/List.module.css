@@ -51,10 +51,10 @@ maybe add option to have a narrow or wide list
 	background-color: hsl(0, 0%, 100%, 0.9);
 }
 
-.lightText {
-	color: hsl(0, 10%, 95%);
-}
-
 .darkText {
 	color: hsl(0, 0%, 5%);
+}
+
+.lightText {
+	color: hsl(0, 10%, 95%);
 }

@@ -67,28 +67,18 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
-	console.log(list);
-
-	// slice info after last comma and before closing parenthesis to get the color value without the alpha value
-	const listColor = list.color?.slice(
-		list.color.lastIndexOf(',') + 1,
-		list.color.lastIndexOf(')') - 1,
-	);
-
-	console.log({ listColor });
-
-	// create function to get the light value of a color in hsl format and return true if the light value is less than 50 and false if it is greater than 50
-	const isDarkColor = (color) => {
-		const lightValue = parseInt(color.split(',')[2]);
-		return lightValue < 50;
-	};
+	const isLightBackground =
+		list.color?.slice(
+			list.color.lastIndexOf(',') + 1,
+			list.color.lastIndexOf(')') - 1,
+		) > 50;
 
 	return (
 		<li className={styles.List} style={{ backgroundColor: list.color }}>
 			{list.title && (
 				<h2>
 					<span
-						className={listColor > 50 ? styles.darkText : styles.lightText}
+						className={isLightBackground ? styles.darkText : styles.lightText}
 						style={
 							title === 'untitled'
 								? {
