@@ -67,12 +67,12 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
-	const lightnessValue = list.color?.slice(
-		list.color.lastIndexOf('%') - 3,
+	const lightValue = list.color?.slice(
+		list.color.indexOf('%') + 2,
 		list.color.lastIndexOf('%'),
 	);
 
-	const isLightBackground = lightnessValue > 50;
+	const isLightBackground = lightValue > 50;
 
 	return (
 		<li className={styles.List} style={{ backgroundColor: list.color }}>
