@@ -3,6 +3,7 @@ import { setLocalStorage } from '@/utils/localStorage';
 import ListItem from '../ListItem/ListItem';
 import ListForm from '../ListForm/ListForm';
 import styles from './List.module.css';
+import { lightValue } from '@/utils/lightValue';
 
 export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
@@ -67,12 +68,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		});
 	};
 
-	const lightValue = list.color?.slice(
-		list.color.indexOf('%') + 3,
-		list.color.lastIndexOf('%'),
-	);
-
-	const isLightBackground = Number(lightValue) > 50;
+	const isLightBackground = lightValue(list.color) > 50;
 
 	return (
 		<li className={styles.List} style={{ backgroundColor: list.color }}>
