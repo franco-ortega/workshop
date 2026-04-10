@@ -72,9 +72,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 		list.color.lastIndexOf('%'),
 	);
 
-	console.log({ lightValue });
-
-	const isLightBackground = lightValue > 50;
+	const isLightBackground = Number(lightValue) > 50;
 
 	return (
 		<li className={styles.List} style={{ backgroundColor: list.color }}>
