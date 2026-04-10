@@ -9,6 +9,8 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
 	const { listId, title } = list;
 
+	const isLightBackground = lightValue(list.color) > 50;
+
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
 			prev[listIndex].items = prev[listIndex].items.filter(
@@ -67,8 +69,6 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 			return updatedList;
 		});
 	};
-
-	const isLightBackground = lightValue(list.color) > 50;
 
 	return (
 		<li className={styles.List} style={{ backgroundColor: list.color }}>
