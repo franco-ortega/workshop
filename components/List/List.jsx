@@ -68,9 +68,11 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 	};
 
 	const lightValue = list.color?.slice(
-		list.color.indexOf('%') + 2,
+		list.color.indexOf('%') + 3,
 		list.color.lastIndexOf('%'),
 	);
+
+	console.log({ lightValue });
 
 	const isLightBackground = lightValue > 50;
 
