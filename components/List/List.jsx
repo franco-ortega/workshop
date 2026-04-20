@@ -3,10 +3,13 @@ import { setLocalStorage } from '@/utils/localStorage';
 import ListItem from '../ListItem/ListItem';
 import ListForm from '../ListForm/ListForm';
 import styles from './List.module.css';
+import { lightValue } from '@/utils/lightValue';
 
 export default function List({ list, addListItem, setLists, listIndex }) {
 	const LIST = CONSTANTS.LIST;
 	const { listId, title } = list;
+
+	const isLightBackground = lightValue(list.color) > 50;
 
 	const deleteItem = (itemId) => {
 		setLists((prev) => {
@@ -72,6 +75,7 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 			{list.title && (
 				<h2>
 					<span
+						className={isLightBackground ? styles.darkText : styles.lightText}
 						style={
 							title === 'untitled'
 								? {
