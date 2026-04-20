@@ -88,7 +88,7 @@ function CreateList({ createList, closeCreateList }) {
 			>
 				<select
 					style={{
-						color: isLightBackground ? 'hsl(0, 0%, 0)' : 'hsl(0, 0%, 100%)',
+						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
 					}}
 					name=''
 					id=''
