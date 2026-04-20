@@ -84,3 +84,18 @@
 		width: 100%;
 	}
 }
+
+.customSelect {
+	border: 1px black solid;
+	border-radius: 5px;
+	width: 100%;
+	padding-left: 5px;
+}
+
+.customSelect select {
+	/* background: linear-gradient(90deg, red, green); */
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	font-weight: 500;
+}
