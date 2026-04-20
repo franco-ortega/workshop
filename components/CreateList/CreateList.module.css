@@ -93,9 +93,7 @@
 }
 
 .customSelect select {
-	/* background: linear-gradient(90deg, red, green); */
 	background-color: transparent;
 	border: none;
 	width: 100%;
-	font-weight: 500;
 }

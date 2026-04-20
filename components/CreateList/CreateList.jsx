@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
+import { lightValue } from '@/utils/lightValue';
 
 function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
@@ -37,6 +38,11 @@ function CreateList({ createList, closeCreateList }) {
 		resetCreateList();
 		closeCreateList();
 	};
+
+	const test = lightValue(listColor);
+	const isLightBackground = lightValue(listColor) > 50;
+
+	console.log(test);
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -78,9 +84,16 @@ function CreateList({ createList, closeCreateList }) {
 			</div>
 			<div
 				className={styles.customSelect}
-				style={{ backgroundColor: listColor }}
+				style={{ backgroundColor: listColor, color: 'white' }}
 			>
-				<select name='' id='' onChange={(e) => setListColor(e.target.value)}>
+				<select
+					style={{
+						color: isLightBackground ? 'hsl(0, 0%, 0)' : 'hsl(0, 0%, 100%)',
+					}}
+					name=''
+					id=''
+					onChange={(e) => setListColor(e.target.value)}
+				>
 					<option value=''>Default</option>
 					<option value='hsl(0, 50%, 50%, 0.85)'>Red</option>
 					<option value='hsl(40, 79%, 46%, 0.85)'>Orange</option>
