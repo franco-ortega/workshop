@@ -130,6 +130,8 @@
 
 	transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
 
+	pointer-events: none;
+
 	font-weight: 200;
 	line-height: 1.1;
 
