@@ -152,13 +152,7 @@ function CreateList({ createList, closeCreateList }) {
 				</select>
 			</div>
 			<br />
-			<div
-				className={styles.selectWrapper}
-				// style={{
-				// 	backgroundColor: listColor,
-				// 	color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
-				// }}
-			>
+			<div className={styles.selectWrapper}>
 				<select
 					className={styles.selectHidden}
 					style={{
@@ -168,16 +162,6 @@ function CreateList({ createList, closeCreateList }) {
 					id=''
 					onChange={onSelectColor}
 				>
-					{/* <option value=''>Select a color</option>
-					<option value=''>None</option>
-					<option value='hsl(0, 50%, 50%, 0.85)'>Red</option>
-					<option value='hsl(40, 79%, 46%, 0.85)'>Orange</option>
-					<option value='hsl(60, 80%, 55%, 0.85)'>Yellow</option>
-					<option value='hsl(120, 20%, 40%, 0.85)'>Green</option>
-					<option value='hsl(240, 50%, 60%, 0.85)'>Blue</option>
-					<option value='hsl(0, 0%, 0%, 0.85)'>Black</option>
-					<option value='hsl(170, 10%, 60%, 0.85)'>Gray</option>
-					<option value='hsl(0, 100%, 100%, 0.85)'>White</option> */}
 					{colorOptions}
 				</select>
 

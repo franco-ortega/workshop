@@ -124,19 +124,9 @@
 	padding-right: 150px;
 }
 
-.caretWrapper {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
 .selectCaret {
-	/* width: 30px; */
-	/* outline: solid yellow 1px; */
 	position: absolute;
 	right: 20px;
-
-	/* z-index: -1; */
 
 	transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
 
