@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import colorData from '../../data/listColors.json';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 import { lightValue } from '@/utils/lightValue';
@@ -53,38 +54,12 @@ function CreateList({ createList, closeCreateList }) {
 		return selectedChild ? selectedChild.props.children : 'None';
 	};
 
-	const colorOptions = [
-		<option key='default' value=''>
-			Select a color
-		</option>,
-		<option key='none' value=''>
-			None
-		</option>,
-		<option key='red' value='hsl(0, 50%, 50%, 0.85)'>
-			Red
-		</option>,
-		<option key='orange' value='hsl(40, 79%, 46%, 0.85)'>
-			Orange
-		</option>,
-		<option key='yellow' value='hsl(60, 80%, 55%, 0.85)'>
-			Yellow
-		</option>,
-		<option key='green' value='hsl(120, 20%, 40%, 0.85)'>
-			Green
-		</option>,
-		<option key='blue' value='hsl(240, 50%, 60%, 0.85)'>
-			Blue
-		</option>,
-		<option key='black' value='hsl(0, 0%, 0%, 0.85)'>
-			Black
-		</option>,
-		<option key='gray' value='hsl(170, 10%, 60%, 0.85)'>
-			Gray
-		</option>,
-		<option key='white' value='hsl(0, 100%, 100%, 0.85)'>
-			White
-		</option>,
-	];
+	// update colorOptions to be generated from the colorData array or object instead of hardcoded
+	const colorOptions = colorData.map((color) => (
+		<option key={color.value} value={color.value}>
+			{color.label}
+		</option>
+	));
 
 	const displayedColor = getDisplayedColor(listColor, colorOptions);
 
