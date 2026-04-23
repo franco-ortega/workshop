@@ -95,7 +95,7 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
-			<div
+			{/* <div
 				className={styles.customSelect}
 				style={{ backgroundColor: listColor, color: 'white' }}
 			>
@@ -118,7 +118,7 @@ function CreateList({ createList, closeCreateList }) {
 					<option value='hsl(0, 100%, 100%, 0.85)'>White</option>
 				</select>
 			</div>
-			<br />
+			<br /> */}
 			<div className={styles.selectWrapper}>
 				<select
 					className={styles.selectHidden}
