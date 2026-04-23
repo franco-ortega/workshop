@@ -9,7 +9,6 @@ function CreateList({ createList, closeCreateList }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
-	const [selectedColor, setSelectedColor] = useState('');
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
@@ -43,7 +42,6 @@ function CreateList({ createList, closeCreateList }) {
 
 	const onSelectColor = (e) => {
 		setListColor(e.target.value);
-		setSelectedColor(e.target.children[e.target.selectedIndex].text);
 	};
 
 	const colorOptions = colorData.map((color) => (
@@ -94,30 +92,7 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
-			{/* <div
-				className={styles.customSelect}
-				style={{ backgroundColor: listColor, color: 'white' }}
-			>
-				<select
-					style={{
-						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
-					}}
-					name=''
-					id=''
-					onChange={(e) => setListColor(e.target.value)}
-				>
-					<option value=''>Default</option>
-					<option value='hsl(0, 50%, 50%, 0.85)'>Red</option>
-					<option value='hsl(40, 79%, 46%, 0.85)'>Orange</option>
-					<option value='hsl(60, 80%, 55%, 0.85)'>Yellow</option>
-					<option value='hsl(120, 20%, 40%, 0.85)'>Green</option>
-					<option value='hsl(240, 50%, 60%, 0.85)'>Blue</option>
-					<option value='hsl(0, 0%, 0%, 0.85)'>Black</option>
-					<option value='hsl(170, 10%, 60%, 0.85)'>Gray</option>
-					<option value='hsl(0, 100%, 100%, 0.85)'>White</option>
-				</select>
-			</div>
-			<br /> */}
+
 			<div className={styles.selectWrapper}>
 				<select
 					className={styles.selectHidden}
