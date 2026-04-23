@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import colorData from '../../data/listColors.json';
 import Button from '../Button/Button';
 import styles from './CreateList.module.css';
 import { lightValue } from '@/utils/lightValue';
+import getDisplayedColor from '@/utils/getDisplayedColor';
 
 function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
@@ -46,15 +47,14 @@ function CreateList({ createList, closeCreateList }) {
 		setSelectedColor(e.target.children[e.target.selectedIndex].text);
 	};
 
-	const getDisplayedColor = (color, children) => {
-		const childArray = React.Children.toArray(children);
-		const selectedChild = childArray.find(
-			(child) => child.props.value === color,
-		);
-		return selectedChild ? selectedChild.props.children : 'None';
-	};
+	// const getDisplayedColor = (color, children) => {
+	// 	const childArray = React.Children.toArray(children);
+	// 	const selectedChild = childArray.find(
+	// 		(child) => child.props.value === color,
+	// 	);
+	// 	return selectedChild ? selectedChild.props.children : 'No Color Selected';
+	// };
 
-	// update colorOptions to be generated from the colorData array or object instead of hardcoded
 	const colorOptions = colorData.map((color) => (
 		<option key={color.value} value={color.value}>
 			{color.label}
@@ -130,11 +130,8 @@ function CreateList({ createList, closeCreateList }) {
 			<div className={styles.selectWrapper}>
 				<select
 					className={styles.selectHidden}
-					style={{
-						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
-					}}
-					name=''
-					id=''
+					name='colorList'
+					id='colorList'
 					onChange={onSelectColor}
 				>
 					{colorOptions}
