@@ -40,9 +40,7 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	const onSelectColor = (e) => {
-		setListColor(e.target.value);
-	};
+	const onSelectColor = (e) => setListColor(e.target.value);
 
 	const colorOptions = colorData.map((color) => (
 		<option key={color.value} value={color.value}>
@@ -94,10 +92,11 @@ function CreateList({ createList, closeCreateList }) {
 			</div>
 
 			<div className={styles.selectWrapper}>
+				<label htmlFor='color-list'>Select a color (optional):</label>
 				<select
 					className={styles.selectHidden}
-					name='colorList'
-					id='colorList'
+					name='color list'
+					id='color-list'
 					onChange={onSelectColor}
 				>
 					{colorOptions}

@@ -1,5 +1,4 @@
 [
-	{ "value": "", "label": "Select a color" },
 	{ "value": "transparent", "label": "None" },
 	{ "value": "hsl(0, 50%, 50%, 0.85)", "label": "Red" },
 	{ "value": "hsl(40, 79%, 46%, 0.85)", "label": "Orange" },
