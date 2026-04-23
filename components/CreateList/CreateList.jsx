@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import colorData from '../../data/listColors.json';
-import Button from '../Button/Button';
-import styles from './CreateList.module.css';
 import { lightValue } from '@/utils/lightValue';
 import getDisplayedColor from '@/utils/getDisplayedColor';
+import styles from './CreateList.module.css';
 
 function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
