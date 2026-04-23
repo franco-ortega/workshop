@@ -47,14 +47,6 @@ function CreateList({ createList, closeCreateList }) {
 		setSelectedColor(e.target.children[e.target.selectedIndex].text);
 	};
 
-	// const getDisplayedColor = (color, children) => {
-	// 	const childArray = React.Children.toArray(children);
-	// 	const selectedChild = childArray.find(
-	// 		(child) => child.props.value === color,
-	// 	);
-	// 	return selectedChild ? selectedChild.props.children : 'No Color Selected';
-	// };
-
 	const colorOptions = colorData.map((color) => (
 		<option key={color.value} value={color.value}>
 			{color.label}
