@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
-import styles from './CreateList.module.css';
+import colorData from '../../data/listColors.json';
 import { lightValue } from '@/utils/lightValue';
+import getDisplayedColor from '@/utils/getDisplayedColor';
+import styles from './CreateList.module.css';
 
 function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
@@ -39,10 +40,17 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	const test = lightValue(listColor);
-	const isLightBackground = lightValue(listColor) > 50;
+	const onSelectColor = (e) => setListColor(e.target.value);
 
-	console.log(test);
+	const colorOptions = colorData.map((color) => (
+		<option key={color.value} value={color.value}>
+			{color.label}
+		</option>
+	));
+
+	const displayedColor = getDisplayedColor(listColor, colorOptions);
+
+	const isLightBackground = lightValue(listColor) > 50;
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -82,28 +90,28 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
-			<div
-				className={styles.customSelect}
-				style={{ backgroundColor: listColor, color: 'white' }}
-			>
+
+			<div className={styles.selectWrapper}>
+				<label htmlFor='color-list'>Select a color:</label>
 				<select
-					style={{
-						color: isLightBackground ? 'hsl(0, 0%, 0)' : 'hsl(0, 0%, 100%)',
-					}}
-					name=''
-					id=''
-					onChange={(e) => setListColor(e.target.value)}
+					className={styles.selectHidden}
+					name='color list'
+					id='color-list'
+					onChange={onSelectColor}
 				>
-					<option value=''>Default</option>
-					<option value='hsl(0, 50%, 50%, 0.85)'>Red</option>
-					<option value='hsl(40, 79%, 46%, 0.85)'>Orange</option>
-					<option value='hsl(60, 80%, 55%, 0.85)'>Yellow</option>
-					<option value='hsl(120, 20%, 40%, 0.85)'>Green</option>
-					<option value='hsl(240, 50%, 60%, 0.85)'>Blue</option>
-					<option value='hsl(0, 0%, 0%, 0.85)'>Black</option>
-					<option value='hsl(170, 10%, 60%, 0.85)'>Gray</option>
-					<option value='hsl(0, 100%, 100%, 0.85)'>White</option>
+					{colorOptions}
 				</select>
+
+				<div
+					className={styles.selectPresentational}
+					style={{
+						backgroundColor: listColor,
+						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
+					}}
+				>
+					{displayedColor}
+					<span className={styles.selectCaret}>^</span>
+				</div>
 			</div>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>

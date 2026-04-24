@@ -35,8 +35,43 @@
 	animation: widenOnDisplay 2s forwards;
 }
 
+.selectWrapper {
+	position: relative;
+	isolation: isolate;
+}
+
+.selectHidden {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.selectPresentational {
+	border: 1px black solid;
+	border-radius: 5px;
+	width: 100%;
+
+	padding-block: 2px;
+	padding-inline: 8px;
+}
+
+.selectCaret {
+	position: absolute;
+	right: 20px;
+
+	transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
+
+	pointer-events: none;
+
+	font-weight: 200;
+	line-height: 1.1;
+}
+
 .buttonWrapper {
-	margin-top: 0.5rem;
+	margin-top: 0.75rem;
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -83,17 +118,4 @@
 	to {
 		width: 100%;
 	}
-}
-
-.customSelect {
-	border: 1px black solid;
-	border-radius: 5px;
-	width: 100%;
-	padding-left: 5px;
-}
-
-.customSelect select {
-	background-color: transparent;
-	border: none;
-	width: 100%;
 }
