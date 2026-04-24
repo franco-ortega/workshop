@@ -52,6 +52,66 @@ function CreateList({ createList, closeCreateList }) {
 
 	const isLightBackground = lightValue(listColor) > 50;
 
+	const lighterColor = (e) => {
+		e.preventDefault();
+		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
+
+		console.log('Lighter button clicked');
+
+		const currentLightness = lightValue(listColor);
+		const newLightness = Math.min(100, currentLightness + 10);
+
+		const getHue = () => {
+			const hueStart = listColor.indexOf('hsl(') + 4;
+			const hueEnd = listColor.indexOf(',');
+			return listColor.slice(hueStart, hueEnd);
+		};
+
+		const getSaturation = () => {
+			const saturationStart = listColor.indexOf(',') + 2;
+			const saturationEnd = listColor.indexOf('%');
+			return listColor.slice(saturationStart, saturationEnd);
+		};
+
+		const hue = getHue();
+		const saturation = getSaturation();
+
+		console.log({ hue, saturation, newLightness });
+
+		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%)`);
+	};
+
+	const darkerColor = (e) => {
+		e.preventDefault();
+		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
+
+		console.log('Lighter button clicked');
+
+		const currentLightness = lightValue(listColor);
+		const newLightness = Math.min(100, currentLightness - 10);
+
+		const getHue = () => {
+			const hueStart = listColor.indexOf('hsl(') + 4;
+			const hueEnd = listColor.indexOf(',');
+			return listColor.slice(hueStart, hueEnd);
+		};
+
+		const getSaturation = () => {
+			const saturationStart = listColor.indexOf(',') + 2;
+			const saturationEnd = listColor.indexOf('%');
+			return listColor.slice(saturationStart, saturationEnd);
+		};
+
+		const hue = getHue();
+		const saturation = getSaturation();
+
+		console.log({ hue, saturation, newLightness });
+
+		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%)`);
+	};
+
+	console.log({ listColor });
+
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
 			<p>Would you like your list to have a title?</p>
@@ -111,6 +171,11 @@ function CreateList({ createList, closeCreateList }) {
 				>
 					{displayedColor}
 					<span className={styles.selectCaret}>^</span>
+				</div>
+
+				<div className={styles.selectButtonsWrapper}>
+					<button onClick={lighterColor}>Lighter</button>
+					<button onClick={darkerColor}>Darker</button>
 				</div>
 			</div>
 			<div className={styles.buttonWrapper}>
