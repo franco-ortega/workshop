@@ -35,23 +35,6 @@
 	animation: widenOnDisplay 2s forwards;
 }
 
-.buttonWrapper {
-	margin-top: 0.5rem;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.5rem;
-}
-
-.buttonWrapper > button {
-	background-color: hsl(300, 85%, 45%);
-	border: 1px solid hsl(300, 85%, 30%);
-	border-radius: 5px;
-
-	text-wrap: nowrap;
-	min-width: 6rem;
-}
-
 .selectWrapper {
 	position: relative;
 	isolation: isolate;
@@ -85,6 +68,23 @@
 
 	font-weight: 200;
 	line-height: 1.1;
+}
+
+.buttonWrapper {
+	margin-top: 0.75rem;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
+}
+
+.buttonWrapper > button {
+	background-color: hsl(300, 85%, 45%);
+	border: 1px solid hsl(300, 85%, 30%);
+	border-radius: 5px;
+
+	text-wrap: nowrap;
+	min-width: 6rem;
 }
 
 @media (hover: hover) {
