@@ -92,7 +92,7 @@ function CreateList({ createList, closeCreateList }) {
 			</div>
 
 			<div className={styles.selectWrapper}>
-				<label htmlFor='color-list'>Select a color (optional):</label>
+				<label htmlFor='color-list'>Select a color:</label>
 				<select
 					className={styles.selectHidden}
 					name='color list'
