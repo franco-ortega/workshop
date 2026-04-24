@@ -83,19 +83,28 @@
 	right: 0;
 	/* display: flex; */
 	/* gap: 0.5rem; */
-	background-color: hsl(300, 76%, 72%, 0.5);
-	border: 1px solid hsl(71, 65%, 51%);
+	/* background-color: hsl(300, 76%, 72%, 0.5); */
+	/* border: 1px solid hsl(71, 65%, 51%); */
 	width: 50%;
 
 	text-align: center;
 }
 
+.selectButtonsWrapper button {
+	border: 1px solid hsl(0, 0%, 10%);
+	border-radius: 5px;
+}
+
 .selectWrapper button:first-of-type {
+	background-color: hsl(0, 100%, 100%, 0.75);
+
 	width: 45%;
 	margin-right: 5%;
 }
 
 .selectWrapper button:last-of-type {
+	background-color: hsl(0, 0%, 10%, 0.9);
+	color: white;
 	width: 45%;
 }
 

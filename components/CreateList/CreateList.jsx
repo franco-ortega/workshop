@@ -52,14 +52,14 @@ function CreateList({ createList, closeCreateList }) {
 
 	const isLightBackground = lightValue(listColor) > 50;
 
-	const lighterColor = (e) => {
+	const lightenColor = (e) => {
 		e.preventDefault();
 		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
 
 		console.log('Lighter button clicked');
 
 		const currentLightness = lightValue(listColor);
-		const newLightness = Math.min(100, currentLightness + 10);
+		const newLightness = Math.min(100, currentLightness + 5);
 
 		const getHue = () => {
 			const hueStart = listColor.indexOf('hsl(') + 4;
@@ -81,14 +81,14 @@ function CreateList({ createList, closeCreateList }) {
 		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%)`);
 	};
 
-	const darkerColor = (e) => {
+	const darkenColor = (e) => {
 		e.preventDefault();
 		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
 
 		console.log('Lighter button clicked');
 
 		const currentLightness = lightValue(listColor);
-		const newLightness = Math.min(100, currentLightness - 10);
+		const newLightness = Math.min(100, currentLightness - 5);
 
 		const getHue = () => {
 			const hueStart = listColor.indexOf('hsl(') + 4;
@@ -174,8 +174,8 @@ function CreateList({ createList, closeCreateList }) {
 				</div>
 
 				<div className={styles.selectButtonsWrapper}>
-					<button onClick={lighterColor}>Lighter</button>
-					<button onClick={darkerColor}>Darker</button>
+					<button onClick={lightenColor}>Lighten</button>
+					<button onClick={darkenColor}>Darken</button>
 				</div>
 			</div>
 			<div className={styles.buttonWrapper}>
