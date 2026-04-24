@@ -21,4 +21,11 @@ NOTES
 
 - Session start on Mon, Mar 16, 2026
 - Session start on Mon, Mar 30, 2026
-- Session start on Mon, Mar 31, 2026
+- Session start on Tue, Mar 31, 2026
+- Session start on Mon, Apr 06, 2026
+- Session start on Tue, Apr 07, 2026 - end session
+- Session start on Thu, Apr 09, 2026 - end session
+- Session start on Wed, Apr 15, 2026
+- Session start on Mon, Apr 20, 2026
+- Session start on Wed, Apr 22, 2026
+- Session start on Thursday, Apr 23, 2026

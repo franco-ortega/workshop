@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
+import colorData from '../../data/listColors.json';
+import { lightValue } from '@/utils/lightValue';
+import getDisplayedColor from '@/utils/getDisplayedColor';
 import styles from './CreateList.module.css';
 
 function CreateList({ createList, closeCreateList }) {
@@ -38,7 +40,17 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	console.log(listColor);
+	const onSelectColor = (e) => setListColor(e.target.value);
+
+	const colorOptions = colorData.map((color) => (
+		<option key={color.value} value={color.value}>
+			{color.label}
+		</option>
+	));
+
+	const displayedColor = getDisplayedColor(listColor, colorOptions);
+
+	const isLightBackground = lightValue(listColor) > 50;
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -78,12 +90,29 @@ function CreateList({ createList, closeCreateList }) {
 					</label>
 				)}
 			</div>
-			<select name='' id='' onChange={(e) => setListColor(e.target.value)}>
-				<option value=''>Default</option>
-				<option value='hsl(0, 50%, 50%)'>Red</option>
-				<option value='hsl(120, 20%, 40%)'>Green</option>
-				<option value='hsl(240, 50%, 60%)'>Blue</option>
-			</select>
+
+			<div className={styles.selectWrapper}>
+				<label htmlFor='color-list'>Select a color:</label>
+				<select
+					className={styles.selectHidden}
+					name='color list'
+					id='color-list'
+					onChange={onSelectColor}
+				>
+					{colorOptions}
+				</select>
+
+				<div
+					className={styles.selectPresentational}
+					style={{
+						backgroundColor: listColor,
+						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
+					}}
+				>
+					{displayedColor}
+					<span className={styles.selectCaret}>^</span>
+				</div>
+			</div>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>
 				<button onClick={onCancelNewList}>Cancel</button>
