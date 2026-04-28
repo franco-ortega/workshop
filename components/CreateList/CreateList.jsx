@@ -173,10 +173,12 @@ function CreateList({ createList, closeCreateList }) {
 					<span className={styles.selectCaret}>^</span>
 				</div>
 
-				<div className={styles.selectButtonsWrapper}>
-					<button onClick={lightenColor}>Lighten</button>
-					<button onClick={darkenColor}>Darken</button>
-				</div>
+				{listColor && (
+					<div className={styles.selectButtonsWrapper}>
+						<button onClick={lightenColor}>Lighten</button>
+						<button onClick={darkenColor}>Darken</button>
+					</div>
+				)}
 			</div>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>
