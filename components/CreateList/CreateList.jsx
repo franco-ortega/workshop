@@ -63,21 +63,13 @@ function CreateList({ createList, closeCreateList }) {
 
 	const lightenColor = (e) => {
 		e.preventDefault();
-
-		console.log('Lighter button clicked');
-
 		adjustLightness(listColor, 5);
 	};
 
 	const darkenColor = (e) => {
 		e.preventDefault();
-
-		console.log('Darken button clicked');
-
 		adjustLightness(listColor, -5);
 	};
-
-	console.log({ listColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
