@@ -61,15 +61,9 @@ function CreateList({ createList, closeCreateList }) {
 		setListColor(`${before}${adjustedLightValue}%${after}`);
 	};
 
-	const lightenColor = (e) => {
-		e.preventDefault();
-		adjustLightness(listColor, 5);
-	};
+	const lightenColor = () => adjustLightness(listColor, 5);
 
-	const darkenColor = (e) => {
-		e.preventDefault();
-		adjustLightness(listColor, -5);
-	};
+	const darkenColor = () => adjustLightness(listColor, -5);
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -134,8 +128,12 @@ function CreateList({ createList, closeCreateList }) {
 
 				{listColor && (
 					<div className={styles.selectButtonsWrapper}>
-						<button onClick={lightenColor}>Lighten</button>
-						<button onClick={darkenColor}>Darken</button>
+						<button type='button' onClick={lightenColor}>
+							Lighten
+						</button>
+						<button type='button' onClick={darkenColor}>
+							Darken
+						</button>
 					</div>
 				)}
 			</div>
