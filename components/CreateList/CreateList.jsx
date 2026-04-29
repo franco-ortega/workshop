@@ -107,8 +107,40 @@ function CreateList({ createList, closeCreateList }) {
 
 		console.log({ hue, saturation, newLightness });
 
-		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%)`);
+		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%, 0.85)`);
 	};
+
+	// const testLightAdjustment = (e) => {
+	// 	e.preventDefault();
+	// 	console.log({ listColor });
+
+	// 	const adjustedLightValue = lightValue(listColor) + 5;
+	// 	const before = listColor.slice(0, listColor.indexOf('%') + 3);
+	// 	const after = listColor.slice(listColor.lastIndexOf(','));
+	// 	// console.log({ before, after, adjustedLightValue });
+
+	// 	const finalColor = `${before}${adjustedLightValue}%${after}`;
+	// 	setListColor(finalColor);
+
+	// 	console.log({ finalColor });
+	// };
+
+	const testLightAdjustment = (e) => {
+		e.preventDefault();
+		console.log({ listColor });
+
+		const adjustedLightValue = lightValue(listColor) + 5;
+		const before = listColor.slice(0, listColor.indexOf('%') + 3);
+		const after = listColor.slice(listColor.lastIndexOf(','));
+		// console.log({ before, after, adjustedLightValue });
+
+		const finalColor = `${before}${adjustedLightValue}%${after}`;
+		setListColor(finalColor);
+
+		console.log({ finalColor });
+	};
+
+	// just a space holder
 
 	console.log({ listColor });
 
@@ -175,7 +207,14 @@ function CreateList({ createList, closeCreateList }) {
 
 				{listColor && (
 					<div className={styles.selectButtonsWrapper}>
-						<button onClick={lightenColor}>Lighten</button>
+						<button
+							onClick={
+								testLightAdjustment
+								// lightenColor
+							}
+						>
+							Lighten
+						</button>
 						<button onClick={darkenColor}>Darken</button>
 					</div>
 				)}
