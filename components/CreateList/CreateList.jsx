@@ -169,7 +169,7 @@ function CreateList({ createList, closeCreateList }) {
 						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
 					}}
 				>
-					{displayedColor}
+					{listColor ? displayedColor : 'None'}
 					<span className={styles.selectCaret}>^</span>
 				</div>
 
