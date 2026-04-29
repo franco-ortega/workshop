@@ -53,15 +53,17 @@ function CreateList({ createList, closeCreateList }) {
 
 	const displayedColor = getDisplayedColor(listColor, colorOptions);
 
-	const isLightBackground = lightValue(listColor) > 50;
-
 	const lightenColor = () =>
 		setListColor(adjustLightness(listColor, adjustLighten));
 
 	const darkenColor = () =>
 		setListColor(adjustLightness(listColor, adjustDarken));
 
-	const textColor = isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
+	const textColor = (color) => {
+		return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
+	};
+
+	console.log({ isChecked, isTitle, listTitle, listColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -117,7 +119,7 @@ function CreateList({ createList, closeCreateList }) {
 					className={styles.selectPresentational}
 					style={{
 						backgroundColor: listColor,
-						color: textColor,
+						color: textColor(listColor),
 					}}
 				>
 					{listColor ? displayedColor : 'None'}
@@ -131,10 +133,7 @@ function CreateList({ createList, closeCreateList }) {
 							onClick={lightenColor}
 							style={{
 								backgroundColor: adjustLightness(listColor, adjustLighten),
-								color:
-									lightValue(adjustLightness(listColor, adjustLighten)) > 50
-										? 'hsl(0, 0%, 0%)'
-										: 'hsl(0, 0%, 100%)',
+								color: textColor(adjustLightness(listColor, adjustLighten)),
 							}}
 						>
 							Lighten
