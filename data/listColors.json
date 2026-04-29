@@ -7,5 +7,5 @@
 	{ "value": "hsl(240, 50%, 60%, 0.85)", "label": "Blue" },
 	{ "value": "hsl(0, 0%, 0%, 0.85)", "label": "Black" },
 	{ "value": "hsl(170, 10%, 60%, 0.85)", "label": "Gray" },
-	{ "value": "hsl(0, 100%, 100%, 0.85)", "label": "White" }
+	{ "value": "hsl(0, 0%, 100%, 0.85)", "label": "White" }
 ]
