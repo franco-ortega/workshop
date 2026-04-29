@@ -38,6 +38,7 @@
 .selectWrapper {
 	position: relative;
 	isolation: isolate;
+	width: 100%;
 }
 
 .selectHidden {
@@ -47,6 +48,8 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0;
+
+	/* width: 50%; */
 }
 
 .selectPresentational {
@@ -56,11 +59,15 @@
 
 	padding-block: 2px;
 	padding-inline: 8px;
+
+	width: 45%;
+
+	/* position: relative; */
 }
 
 .selectCaret {
 	position: absolute;
-	right: 20px;
+	right: 165px;
 
 	transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
 
@@ -68,6 +75,37 @@
 
 	font-weight: 200;
 	line-height: 1.1;
+}
+
+.selectButtonsWrapper {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	/* display: flex; */
+	/* gap: 0.5rem; */
+	/* background-color: hsl(300, 76%, 72%, 0.5); */
+	/* border: 1px solid hsl(71, 65%, 51%); */
+	width: 50%;
+
+	text-align: center;
+}
+
+.selectButtonsWrapper button {
+	border: 1px solid hsl(0, 0%, 10%);
+	border-radius: 5px;
+}
+
+.selectWrapper button:first-of-type {
+	/* background-color: hsl(0, 100%, 100%, 0.9); */
+
+	width: 45%;
+	margin-right: 5%;
+}
+
+.selectWrapper button:last-of-type {
+	/* background-color: hsl(0, 0%, 10%, 0.9); */
+	/* color: white; */
+	width: 45%;
 }
 
 .buttonWrapper {
