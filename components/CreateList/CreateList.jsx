@@ -57,10 +57,8 @@ function CreateList({ createList, closeCreateList }) {
 		const before = color.slice(0, color.indexOf('%') + 3);
 		const after = color.slice(color.lastIndexOf(','));
 
-		const finalColor = `${before}${adjustedLightValue}%${after}`;
-		setListColor(finalColor);
-
-		console.log({ finalColor });
+		// reconstruct the color string with the adjusted lightness value
+		setListColor(`${before}${adjustedLightValue}%${after}`);
 	};
 
 	const lightenColor = (e) => {
