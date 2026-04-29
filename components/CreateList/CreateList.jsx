@@ -2,6 +2,7 @@ import { useState } from 'react';
 import colorData from '../../data/listColors.json';
 import { lightValue } from '@/utils/lightValue';
 import getDisplayedColor from '@/utils/getDisplayedColor';
+import adjustLightness from '@/utils/adjustLightness';
 import styles from './CreateList.module.css';
 
 function CreateList({ createList, closeCreateList }) {
@@ -52,18 +53,11 @@ function CreateList({ createList, closeCreateList }) {
 
 	const isLightBackground = lightValue(listColor) > 50;
 
-	const adjustLightness = (color, adjustment) => {
-		const adjustedLightValue = lightValue(color) + adjustment;
-		const before = color.slice(0, color.indexOf('%') + 3);
-		const after = color.slice(color.lastIndexOf(','));
+	const lightenColor = () => setListColor(adjustLightness(listColor, 5));
 
-		// reconstruct the color string with the adjusted lightness value
-		setListColor(`${before}${adjustedLightValue}%${after}`);
-	};
+	const darkenColor = () => setListColor(adjustLightness(listColor, -5));
 
-	const lightenColor = () => adjustLightness(listColor, 5);
-
-	const darkenColor = () => adjustLightness(listColor, -5);
+	console.log({ listColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
