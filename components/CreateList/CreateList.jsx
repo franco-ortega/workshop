@@ -52,87 +52,10 @@ function CreateList({ createList, closeCreateList }) {
 
 	const isLightBackground = lightValue(listColor) > 50;
 
-	const lightenColor = (e) => {
-		e.preventDefault();
-		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
-
-		console.log('Lighter button clicked');
-
-		const currentLightness = lightValue(listColor);
-		const newLightness = Math.min(100, currentLightness + 5);
-
-		const getHue = () => {
-			const hueStart = listColor.indexOf('hsl(') + 4;
-			const hueEnd = listColor.indexOf(',');
-			return listColor.slice(hueStart, hueEnd);
-		};
-
-		const getSaturation = () => {
-			const saturationStart = listColor.indexOf(',') + 2;
-			const saturationEnd = listColor.indexOf('%');
-			return listColor.slice(saturationStart, saturationEnd);
-		};
-
-		const hue = getHue();
-		const saturation = getSaturation();
-
-		console.log({ hue, saturation, newLightness });
-
-		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%)`);
-	};
-
-	const darkenColor = (e) => {
-		e.preventDefault();
-		// Implement logic to calculate a lighter shade of the selected hsl color by increasing its lightness value by 10%
-
-		console.log('Lighter button clicked');
-
-		const currentLightness = lightValue(listColor);
-		const newLightness = Math.min(100, currentLightness - 5);
-
-		const getHue = () => {
-			const hueStart = listColor.indexOf('hsl(') + 4;
-			const hueEnd = listColor.indexOf(',');
-			return listColor.slice(hueStart, hueEnd);
-		};
-
-		const getSaturation = () => {
-			const saturationStart = listColor.indexOf(',') + 2;
-			const saturationEnd = listColor.indexOf('%');
-			return listColor.slice(saturationStart, saturationEnd);
-		};
-
-		const hue = getHue();
-		const saturation = getSaturation();
-
-		console.log({ hue, saturation, newLightness });
-
-		setListColor(`hsl(${hue}, ${saturation}%, ${newLightness}%, 0.85)`);
-	};
-
-	// const testLightAdjustment = (e) => {
-	// 	e.preventDefault();
-	// 	console.log({ listColor });
-
-	// 	const adjustedLightValue = lightValue(listColor) + 5;
-	// 	const before = listColor.slice(0, listColor.indexOf('%') + 3);
-	// 	const after = listColor.slice(listColor.lastIndexOf(','));
-	// 	// console.log({ before, after, adjustedLightValue });
-
-	// 	const finalColor = `${before}${adjustedLightValue}%${after}`;
-	// 	setListColor(finalColor);
-
-	// 	console.log({ finalColor });
-	// };
-
-	const testLightAdjustment = (e) => {
-		e.preventDefault();
-		console.log({ listColor });
-
-		const adjustedLightValue = lightValue(listColor) + 5;
-		const before = listColor.slice(0, listColor.indexOf('%') + 3);
-		const after = listColor.slice(listColor.lastIndexOf(','));
-		// console.log({ before, after, adjustedLightValue });
+	const adjustLightness = (color, adjustment) => {
+		const adjustedLightValue = lightValue(color) + adjustment;
+		const before = color.slice(0, color.indexOf('%') + 3);
+		const after = color.slice(color.lastIndexOf(','));
 
 		const finalColor = `${before}${adjustedLightValue}%${after}`;
 		setListColor(finalColor);
@@ -140,7 +63,21 @@ function CreateList({ createList, closeCreateList }) {
 		console.log({ finalColor });
 	};
 
-	// just a space holder
+	const lightenColor = (e) => {
+		e.preventDefault();
+
+		console.log('Lighter button clicked');
+
+		adjustLightness(listColor, 5);
+	};
+
+	const darkenColor = (e) => {
+		e.preventDefault();
+
+		console.log('Darken button clicked');
+
+		adjustLightness(listColor, -5);
+	};
 
 	console.log({ listColor });
 
@@ -207,14 +144,7 @@ function CreateList({ createList, closeCreateList }) {
 
 				{listColor && (
 					<div className={styles.selectButtonsWrapper}>
-						<button
-							onClick={
-								testLightAdjustment
-								// lightenColor
-							}
-						>
-							Lighten
-						</button>
+						<button onClick={lightenColor}>Lighten</button>
 						<button onClick={darkenColor}>Darken</button>
 					</div>
 				)}
