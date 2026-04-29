@@ -2,6 +2,7 @@ import { useState } from 'react';
 import colorData from '../../data/listColors.json';
 import { lightValue } from '@/utils/lightValue';
 import getDisplayedColor from '@/utils/getDisplayedColor';
+import adjustLightness from '@/utils/adjustLightness';
 import styles from './CreateList.module.css';
 
 function CreateList({ createList, closeCreateList }) {
@@ -9,6 +10,8 @@ function CreateList({ createList, closeCreateList }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
+	const adjustLighten = 10;
+	const adjustDarken = -10;
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
@@ -50,7 +53,17 @@ function CreateList({ createList, closeCreateList }) {
 
 	const displayedColor = getDisplayedColor(listColor, colorOptions);
 
-	const isLightBackground = lightValue(listColor) > 50;
+	const lightenColor = () =>
+		setListColor(adjustLightness(listColor, adjustLighten));
+
+	const darkenColor = () =>
+		setListColor(adjustLightness(listColor, adjustDarken));
+
+	const textColor = (color) => {
+		return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
+	};
+
+	console.log({ isChecked, isTitle, listTitle, listColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -106,12 +119,40 @@ function CreateList({ createList, closeCreateList }) {
 					className={styles.selectPresentational}
 					style={{
 						backgroundColor: listColor,
-						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
+						color: textColor(listColor),
 					}}
 				>
-					{displayedColor}
+					{listColor ? displayedColor : 'None'}
 					<span className={styles.selectCaret}>^</span>
 				</div>
+
+				{listColor && (
+					<div className={styles.selectButtonsWrapper}>
+						<button
+							type='button'
+							onClick={lightenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustLighten),
+								color: textColor(adjustLightness(listColor, adjustLighten)),
+							}}
+						>
+							Lighten
+						</button>
+						<button
+							type='button'
+							onClick={darkenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustDarken),
+								color:
+									lightValue(adjustLightness(listColor, adjustDarken)) > 50
+										? 'hsl(0, 0%, 0%)'
+										: 'hsl(0, 0%, 100%)',
+							}}
+						>
+							Darken
+						</button>
+					</div>
+				)}
 			</div>
 			<div className={styles.buttonWrapper}>
 				<button>Create List</button>
