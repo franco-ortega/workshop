@@ -10,6 +10,8 @@ function CreateList({ createList, closeCreateList }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
+	const adjustLighten = 10;
+	const adjustDarken = -10;
 
 	const toggleTitle = (e) => {
 		const yesOrNo = e.target.id;
@@ -53,11 +55,13 @@ function CreateList({ createList, closeCreateList }) {
 
 	const isLightBackground = lightValue(listColor) > 50;
 
-	const lightenColor = () => setListColor(adjustLightness(listColor, 5));
+	const lightenColor = () =>
+		setListColor(adjustLightness(listColor, adjustLighten));
 
-	const darkenColor = () => setListColor(adjustLightness(listColor, -5));
+	const darkenColor = () =>
+		setListColor(adjustLightness(listColor, adjustDarken));
 
-	console.log({ listColor });
+	const textColor = isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
@@ -113,7 +117,7 @@ function CreateList({ createList, closeCreateList }) {
 					className={styles.selectPresentational}
 					style={{
 						backgroundColor: listColor,
-						color: isLightBackground ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)',
+						color: textColor,
 					}}
 				>
 					{listColor ? displayedColor : 'None'}
@@ -122,10 +126,30 @@ function CreateList({ createList, closeCreateList }) {
 
 				{listColor && (
 					<div className={styles.selectButtonsWrapper}>
-						<button type='button' onClick={lightenColor}>
+						<button
+							type='button'
+							onClick={lightenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustLighten),
+								color:
+									lightValue(adjustLightness(listColor, adjustLighten)) > 50
+										? 'hsl(0, 0%, 0%)'
+										: 'hsl(0, 0%, 100%)',
+							}}
+						>
 							Lighten
 						</button>
-						<button type='button' onClick={darkenColor}>
+						<button
+							type='button'
+							onClick={darkenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustDarken),
+								color:
+									lightValue(adjustLightness(listColor, adjustDarken)) > 50
+										? 'hsl(0, 0%, 0%)'
+										: 'hsl(0, 0%, 100%)',
+							}}
+						>
 							Darken
 						</button>
 					</div>

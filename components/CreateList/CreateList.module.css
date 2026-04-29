@@ -96,15 +96,15 @@
 }
 
 .selectWrapper button:first-of-type {
-	background-color: hsl(0, 100%, 100%, 0.9);
+	/* background-color: hsl(0, 100%, 100%, 0.9); */
 
 	width: 45%;
 	margin-right: 5%;
 }
 
 .selectWrapper button:last-of-type {
-	background-color: hsl(0, 0%, 10%, 0.9);
-	color: white;
+	/* background-color: hsl(0, 0%, 10%, 0.9); */
+	/* color: white; */
 	width: 45%;
 }
 
