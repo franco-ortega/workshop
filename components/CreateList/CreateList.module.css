@@ -49,9 +49,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 45%;
 	height: 100%;
 	opacity: 0;
+
+	z-index: 1;
 }
 
 .selectPresentational {
@@ -63,11 +65,15 @@
 	padding-inline: 8px;
 
 	width: 45%;
+
+	position: relative;
+	z-index: 0;
 }
 
 .selectCaret {
 	position: absolute;
 	right: 165px;
+	right: 10px;
 
 	transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
 
@@ -155,14 +161,18 @@
 
 /* testing outlines */
 
+.CreateList section {
+	outline: dotted lightgoldenrodyellow 2px;
+}
+
 .selectWrapper {
-	/* outline: dotted black 1px; */
+	outline: dotted black 1px;
 }
 
 .selectWrapper label + div {
-	/* outline: yellow dashed 1px; */
+	outline: yellow dashed 1px;
 }
 
 .selectButtonsWrapper {
-	/* outline: dashed black 1px; */
+	outline: dashed black 1px;
 }
