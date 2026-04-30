@@ -14,27 +14,29 @@
 	transition: width 0.5s ease;
 }
 
+/* RADIO BUTTONS - TITLE */
 .radioWrapper {
 	max-width: 100%;
 	line-height: 2;
+
+	& label + label {
+		margin-left: 0.5rem;
+	}
+
+	& label input[type='radio'] {
+		margin-right: 0.25rem;
+	}
+
+	& label input[type='text'] {
+		max-width: 175px;
+		max-height: 1.75rem;
+		padding-left: 0.25rem;
+
+		animation: widenOnDisplay 2s forwards;
+	}
 }
 
-.radioWrapper label + label {
-	margin-left: 0.5rem;
-}
-
-.radioWrapper label input[type='radio'] {
-	margin-right: 0.25rem;
-}
-
-.radioWrapper label input[type='text'] {
-	max-width: 175px;
-	max-height: 1.75rem;
-	padding-left: 0.25rem;
-
-	animation: widenOnDisplay 2s forwards;
-}
-
+/* SELECT - LIST COLOR */
 .selectWrapper {
 	position: relative;
 	isolation: isolate;
@@ -83,6 +85,7 @@
 	line-height: 1.1;
 }
 
+/* BUTTONS - SUBMIT / CANCEL */
 .selectButtonsWrapper {
 	width: 50%;
 
@@ -126,6 +129,7 @@
 	min-width: 6rem;
 }
 
+/* HOVER EFFECTS */
 @media (hover: hover) {
 	/* when hover is supported */
 	.CreateList button:hover {
@@ -141,6 +145,7 @@
 	}
 }
 
+/* ANIMATIONS */
 @keyframes slideInDown {
 	from {
 		transform: translateX(0%) translateY(-200%);
@@ -159,10 +164,13 @@
 	}
 }
 
-/* testing outlines */
-
+/* TESTING OUTLINES */
 .CreateList section {
 	outline: dotted lightgoldenrodyellow 2px;
+}
+
+.radioWrapper {
+	/* outline: lightgreen dashed 1px; */
 }
 
 .selectWrapper {
