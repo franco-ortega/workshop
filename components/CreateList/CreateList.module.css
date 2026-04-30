@@ -41,6 +41,10 @@
 	width: 100%;
 }
 
+.selectWrapper label + div {
+	position: relative;
+}
+
 .selectHidden {
 	position: absolute;
 	top: 0;
@@ -74,10 +78,13 @@
 }
 
 .selectButtonsWrapper {
-	position: absolute;
-	bottom: 0;
-	right: 0;
 	width: 50%;
+
+	position: absolute;
+	top: 0%;
+	right: 0;
+
+	height: 100%;
 
 	text-align: center;
 }
@@ -85,15 +92,15 @@
 .selectButtonsWrapper button {
 	border: 1px solid hsl(0, 0%, 10%);
 	border-radius: 5px;
+
+	height: 100%;
+	min-width: fit-content;
+
+	width: 45%;
 }
 
-.selectWrapper button:first-of-type {
-	width: 45%;
-	margin-right: 5%;
-}
-
-.selectWrapper button:last-of-type {
-	width: 45%;
+.selectWrapper button + button {
+	margin-left: 5%;
 }
 
 .buttonWrapper {
@@ -144,4 +151,18 @@
 	to {
 		width: 100%;
 	}
+}
+
+/* testing outlines */
+
+.selectWrapper {
+	/* outline: dotted black 1px; */
+}
+
+.selectWrapper label + div {
+	/* outline: yellow dashed 1px; */
+}
+
+.selectButtonsWrapper {
+	/* outline: dashed black 1px; */
 }
