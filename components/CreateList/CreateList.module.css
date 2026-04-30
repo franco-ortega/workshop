@@ -55,7 +55,7 @@
 		outline: yellow dotted 1px;
 	}
 
-	& div {
+	& div:first-of-type {
 		border: 1px black solid;
 		border-radius: 5px;
 		width: 100%;
