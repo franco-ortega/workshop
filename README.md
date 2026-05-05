@@ -33,6 +33,8 @@ NOTES
 - Session start on Wednesday, Apr 29, 2026
 - Session start on Thursday, Apr 30, 2026 - end session
 
+- Session start on Tuesday, May 05, 2026
+
 ### Next Steps:
 
 1. Finish refactoring SELECT wrapper with new section structure
