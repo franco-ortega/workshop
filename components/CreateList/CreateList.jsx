@@ -73,7 +73,44 @@ function CreateList({ createList, closeCreateList }) {
       Section 3: Create/Cancel buttons
       */}
 
-			<section>
+			<section className={styles.radioWrapper}>
+				<p>Would you like your list to have a title?</p>
+				<label htmlFor='yes'>
+					<input
+						type='radio'
+						id='yes'
+						name='title'
+						value={true}
+						checked={isTitle && isChecked}
+						onChange={toggleTitle}
+					/>
+					Yes
+				</label>
+				<label htmlFor='no'>
+					<input
+						type='radio'
+						id='no'
+						name='title'
+						value={false}
+						checked={!isTitle && isChecked}
+						onChange={toggleTitle}
+					/>
+					No
+				</label>
+
+				{isTitle && (
+					<label htmlFor='list-title'>
+						<input
+							type='text'
+							id={'list-title'}
+							placeholder='List Title'
+							onChange={onTitleChange}
+						/>
+					</label>
+				)}
+			</section>
+
+			{/* <section>
 				<p>Would you like your list to have a title?</p>
 				<div className={styles.radioWrapper}>
 					<label htmlFor='yes'>
@@ -110,7 +147,7 @@ function CreateList({ createList, closeCreateList }) {
 						</label>
 					)}
 				</div>
-			</section>
+			</section> */}
 
 			<section>
 				<label htmlFor='color-list'>Select a color:</label>
