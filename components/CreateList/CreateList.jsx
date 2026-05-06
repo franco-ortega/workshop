@@ -4,12 +4,14 @@ import { lightValue } from '@/utils/lightValue';
 import getDisplayedColor from '@/utils/getDisplayedColor';
 import adjustLightness from '@/utils/adjustLightness';
 import styles from './CreateList.module.css';
+import getDisplayedColorById from '@/utils/getDisplayedColorById';
 
 function CreateList({ createList, closeCreateList }) {
 	const [isChecked, setIsChecked] = useState(false);
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
+	const [colorName, setColorName] = useState('');
 	const adjustLighten = 10;
 	const adjustDarken = -10;
 
@@ -43,15 +45,20 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	const onSelectColor = (e) => setListColor(e.target.value);
+	const onSelectColor = (e) => {
+		console.log(e.target.children[e.target.selectedIndex].textContent);
+		setColorId(e.target.id);
+		setColorName(e.target.children[e.target.selectedIndex].textContent);
+		setListColor(e.target.value);
+	};
 
 	const colorOptions = colorData.map((color) => (
-		<option key={color.value} value={color.value}>
+		<option key={color.id} value={color.value}>
 			{color.label}
 		</option>
 	));
 
-	const displayedColor = getDisplayedColor(listColor, colorOptions);
+	const displayedColor = colorName;
 
 	const lightenColor = () =>
 		setListColor(adjustLightness(listColor, adjustLighten));
@@ -62,8 +69,6 @@ function CreateList({ createList, closeCreateList }) {
 	const textColor = (color) => {
 		return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
 	};
-
-	console.log({ isChecked, isTitle, listTitle, listColor, displayedColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
