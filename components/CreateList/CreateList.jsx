@@ -63,7 +63,7 @@ function CreateList({ createList, closeCreateList }) {
 		return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
 	};
 
-	console.log({ isChecked, isTitle, listTitle, listColor });
+	console.log({ isChecked, isTitle, listTitle, listColor, displayedColor });
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
