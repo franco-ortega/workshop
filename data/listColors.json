@@ -2,7 +2,7 @@
 	{ "id": "0", "value": "", "label": "None" },
 	{ "id": "1", "value": "hsl(0, 100%, 45%)", "label": "Red" },
 	{ "id": "2", "value": "hsl(39, 100%, 45%)", "label": "Orange" },
-	{ "id": "3", "value": "hsl(60, 100%, 50%)", "label": "Yellow" },
+	{ "id": "3", "value": "hsl(60, 100%, 51%)", "label": "Yellow" },
 	{ "id": "4", "value": "hsl(120, 100%, 25%)", "label": "Green" },
 	{ "id": "5", "value": "hsl(240, 100%, 50%)", "label": "Blue" },
 	{ "id": "6", "value": "hsl(0, 0%, 0%)", "label": "Black" },
