@@ -151,8 +151,61 @@ function CreateList({ createList, closeCreateList }) {
 
 			<section>
 				<label htmlFor='color-list'>Select a color:</label>
+
 				<div className={styles.selectWrapper}>
-					{/* <div> */}
+					<select
+						className={styles.selectHidden}
+						name='color list'
+						id='color-list'
+						onChange={onSelectColor}
+					>
+						{colorOptions}
+					</select>
+
+					<div
+						className={styles.selectPresentational}
+						style={{
+							backgroundColor: listColor,
+							color: textColor(listColor),
+						}}
+					>
+						{listColor ? displayedColor : 'None'}
+						<span className={styles.selectCaret}>^</span>
+					</div>
+				</div>
+
+				{listColor && (
+					<div className={styles.selectButtonsWrapper}>
+						<button
+							type='button'
+							onClick={lightenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustLighten),
+								color: textColor(adjustLightness(listColor, adjustLighten)),
+							}}
+						>
+							Lighten
+						</button>
+						<button
+							type='button'
+							onClick={darkenColor}
+							style={{
+								backgroundColor: adjustLightness(listColor, adjustDarken),
+								color:
+									lightValue(adjustLightness(listColor, adjustDarken)) > 50
+										? 'hsl(0, 0%, 0%)'
+										: 'hsl(0, 0%, 100%)',
+							}}
+						>
+							Darken
+						</button>
+					</div>
+				)}
+			</section>
+
+			{/* <section>
+				<label htmlFor='color-list'>Select a color:</label>
+				<div className={styles.selectWrapper}>
 					<select
 						className={styles.selectHidden}
 						name='color list'
@@ -200,9 +253,8 @@ function CreateList({ createList, closeCreateList }) {
 							</button>
 						</div>
 					)}
-					{/* </div> */}
 				</div>
-			</section>
+			</section> */}
 
 			<section>
 				<div className={styles.buttonWrapper}>
