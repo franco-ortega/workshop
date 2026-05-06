@@ -9,7 +9,7 @@ function CreateList({ createList, closeCreateList }) {
 	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
-	const [colorName, setColorName] = useState('');
+	const [displayedColor, setDisplayedColor] = useState('');
 	const adjustLighten = 10;
 	const adjustDarken = -10;
 
@@ -44,9 +44,7 @@ function CreateList({ createList, closeCreateList }) {
 	};
 
 	const onSelectColor = (e) => {
-		console.log(e.target.children[e.target.selectedIndex].textContent);
-		setColorId(e.target.id);
-		setColorName(e.target.children[e.target.selectedIndex].textContent);
+		setDisplayedColor(e.target.children[e.target.selectedIndex].textContent);
 		setListColor(e.target.value);
 	};
 
@@ -55,8 +53,6 @@ function CreateList({ createList, closeCreateList }) {
 			{color.label}
 		</option>
 	));
-
-	const displayedColor = colorName;
 
 	const lightenColor = () =>
 		setListColor(adjustLightness(listColor, adjustLighten));
