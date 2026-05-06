@@ -34,6 +34,7 @@ NOTES
 - Session start on Thursday, Apr 30, 2026 - end session
 
 - Session start on Tuesday, May 05, 2026 - end sessions
+- Session start on Wednesday, May 06, 2026
 
 ### Next Steps:
 
