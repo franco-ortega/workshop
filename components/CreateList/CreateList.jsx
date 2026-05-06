@@ -73,7 +73,7 @@ function CreateList({ createList, closeCreateList }) {
       Section 3: Create/Cancel buttons
       */}
 
-			<section className={styles.radioWrapper}>
+			<section className={styles.sectionRadio}>
 				<p>Would you like your list to have a title?</p>
 				<label htmlFor='yes'>
 					<input
@@ -149,7 +149,7 @@ function CreateList({ createList, closeCreateList }) {
 				</div>
 			</section> */}
 
-			<section>
+			<section className={styles.sectionSelect}>
 				<label htmlFor='color-list'>Select a color:</label>
 
 				<div className={styles.selectWrapper}>
