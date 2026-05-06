@@ -16,7 +16,7 @@
 }
 
 /* RADIO BUTTONS - TITLE */
-.radioWrapper {
+.sectionRadio {
 	line-height: 2;
 
 	& label + label {
@@ -36,30 +36,29 @@
 	}
 }
 
-.CreateList section + section {
-	background-color: hsl(300, 85%, 45%);
+.sectionSelect {
+	/* background-color: hsl(300, 85%, 45%); */
 
 	& label {
 		display: block;
 	}
 }
 
-.selectWrapper {
+.selectPresentational {
 	display: inline-block;
 }
 
-.selectPresentational,
 .selectButtonsWrapper {
 	display: inline-block;
 }
 
 /* SELECT - LIST COLOR */
 .selectWrapper {
+	display: inline-block;
+
 	position: relative;
 	isolation: isolate;
-	width: 40%;
-
-	/* outline: black dashed 2px; */
+	width: 45%;
 
 	/* HIDDEN SELECT */
 	& .selectHidden {
@@ -83,8 +82,6 @@
 
 		width: 100%;
 
-		/* outline: orange dashed 2px; */
-
 		& .selectCaret {
 			position: absolute;
 			right: 165px;
@@ -98,35 +95,25 @@
 			line-height: 1.1;
 		}
 	}
-
-	background-color: hsl(300, 85%, 45%);
 }
 
 /* BUTTONS - SUBMIT / CANCEL */
 .selectButtonsWrapper {
-	width: 50%;
+	width: 55%;
 
-	/* position: absolute; */
-	top: 0%;
-	right: 0;
+	text-align: end;
 
-	height: 100%;
+	& button {
+		border: 1px solid hsl(0, 0%, 10%);
+		border-radius: 5px;
 
-	text-align: center;
-}
+		width: 45%;
+		min-width: fit-content;
+	}
 
-.selectButtonsWrapper button {
-	border: 1px solid hsl(0, 0%, 10%);
-	border-radius: 5px;
-
-	/* height: 100%; */
-	min-width: fit-content;
-
-	width: 20%;
-}
-
-.selectWrapper button + button {
-	margin-left: 5%;
+	& button:nth-child(2) {
+		margin-left: 0.25rem;
+	}
 }
 
 .buttonWrapper {
@@ -186,7 +173,7 @@
 	/* outline: dotted lightgoldenrodyellow 2px; */
 }
 
-.radioWrapper {
+.sectionRadio {
 	/* outline: lightgreen dashed 1px; */
 }
 
