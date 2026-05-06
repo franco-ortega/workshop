@@ -2,32 +2,21 @@ import { useState } from 'react';
 import colorData from '../../data/listColors.json';
 import { lightValue } from '@/utils/lightValue';
 import adjustLightness from '@/utils/adjustLightness';
+import CreateTitle from '../CreateTitle/CreateTitle';
 import styles from './CreateList.module.css';
+import SelectColor from '../SelectColor/SelectColor';
 
 function CreateList({ createList, closeCreateList }) {
-	const [isChecked, setIsChecked] = useState(false);
-	const [isTitle, setIsTitle] = useState(false);
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
 	const [displayedColor, setDisplayedColor] = useState('');
 	const adjustLighten = 10;
 	const adjustDarken = -10;
 
-	const toggleTitle = (e) => {
-		const yesOrNo = e.target.id;
-
-		if (yesOrNo === 'yes') setIsTitle(true);
-		else setIsTitle(false);
-
-		setIsChecked(true);
-	};
-
-	const onTitleChange = (e) => setListTitle(e.target.value);
-
 	const resetCreateList = () => {
-		setListTitle('');
-		setIsTitle(false);
-		setIsChecked(false);
+		// setListTitle('');
+		// setIsTitle(false);
+		// setIsChecked(false);
 	};
 
 	const onCreateList = (e) => {
@@ -43,67 +32,32 @@ function CreateList({ createList, closeCreateList }) {
 		closeCreateList();
 	};
 
-	const onSelectColor = (e) => {
-		setDisplayedColor(e.target.children[e.target.selectedIndex].textContent);
-		setListColor(e.target.value);
-	};
+	// const onSelectColor = (e) => {
+	// 	setDisplayedColor(e.target.children[e.target.selectedIndex].textContent);
+	// 	setListColor(e.target.value);
+	// };
 
-	const colorOptions = colorData.map((color) => (
-		<option key={color.id} value={color.value}>
-			{color.label}
-		</option>
-	));
+	// const colorOptions = colorData.map((color) => (
+	// 	<option key={color.id} value={color.value}>
+	// 		{color.label}
+	// 	</option>
+	// ));
 
-	const lightenColor = () =>
-		setListColor(adjustLightness(listColor, adjustLighten));
+	// const lightenColor = () =>
+	// 	setListColor(adjustLightness(listColor, adjustLighten));
 
-	const darkenColor = () =>
-		setListColor(adjustLightness(listColor, adjustDarken));
+	// const darkenColor = () =>
+	// 	setListColor(adjustLightness(listColor, adjustDarken));
 
-	const textColor = (color) => {
-		return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
-	};
+	// const textColor = (color) => {
+	// 	return lightValue(color) > 50 ? 'hsl(0, 0%, 0%)' : 'hsl(0, 0%, 100%)';
+	// };
 
 	return (
 		<form className={styles.CreateList} action='' onSubmit={onCreateList}>
-			<section className={styles.sectionRadio}>
-				<p>Would you like your list to have a title?</p>
-				<label htmlFor='yes'>
-					<input
-						type='radio'
-						id='yes'
-						name='title'
-						value={true}
-						checked={isTitle && isChecked}
-						onChange={toggleTitle}
-					/>
-					Yes
-				</label>
-				<label htmlFor='no'>
-					<input
-						type='radio'
-						id='no'
-						name='title'
-						value={false}
-						checked={!isTitle && isChecked}
-						onChange={toggleTitle}
-					/>
-					No
-				</label>
+			<CreateTitle setListTitle={setListTitle} />
 
-				{isTitle && (
-					<label htmlFor='list-title'>
-						<input
-							type='text'
-							id={'list-title'}
-							placeholder='List Title'
-							onChange={onTitleChange}
-						/>
-					</label>
-				)}
-			</section>
-
-			<section className={styles.sectionSelect}>
+			{/* <section className={styles.sectionSelect}>
 				<label htmlFor='color-list'>Select a color:</label>
 
 				<div className={styles.selectWrapper}>
@@ -155,7 +109,9 @@ function CreateList({ createList, closeCreateList }) {
 						</button>
 					</div>
 				)}
-			</section>
+			</section> */}
+
+			<SelectColor listColor={listColor} setListColor={setListColor} />
 
 			<section>
 				<div className={styles.buttonWrapper}>

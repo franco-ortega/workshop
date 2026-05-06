@@ -2,8 +2,6 @@
 	border-radius: 4px;
 	border: 2px rgb(77, 11, 11) solid;
 
-	color: gray;
-
 	min-width: max-content;
 	max-width: min-content;
 
@@ -99,7 +97,6 @@
 	}
 }
 
-/* BUTTONS - SUBMIT / CANCEL */
 .selectButtonsWrapper {
 	width: 55%;
 
@@ -118,6 +115,7 @@
 	}
 }
 
+/* BUTTONS - SUBMIT / CANCEL */
 .buttonWrapper {
 	margin-top: 0.75rem;
 
