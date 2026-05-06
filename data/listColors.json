@@ -1,11 +1,11 @@
 [
-	{ "value": "", "label": "None" },
-	{ "value": "hsl(0, 50%, 50%, 0.85)", "label": "Red" },
-	{ "value": "hsl(40, 79%, 46%, 0.85)", "label": "Orange" },
-	{ "value": "hsl(60, 80%, 55%, 0.85)", "label": "Yellow" },
-	{ "value": "hsl(120, 20%, 40%, 0.85)", "label": "Green" },
-	{ "value": "hsl(240, 50%, 60%, 0.85)", "label": "Blue" },
-	{ "value": "hsl(0, 0%, 0%, 0.85)", "label": "Black" },
-	{ "value": "hsl(170, 10%, 60%, 0.85)", "label": "Gray" },
-	{ "value": "hsl(0, 0%, 100%, 0.85)", "label": "White" }
+	{ "id": "0", "value": "", "label": "None" },
+	{ "id": "1", "value": "hsl(0, 50%, 50%)", "label": "Red" },
+	{ "id": "2", "value": "hsl(40, 79%, 46%)", "label": "Orange" },
+	{ "id": "3", "value": "hsl(60, 80%, 55%)", "label": "Yellow" },
+	{ "id": "4", "value": "hsl(120, 20%, 40%)", "label": "Green" },
+	{ "id": "5", "value": "hsl(240, 50%, 60%)", "label": "Blue" },
+	{ "id": "6", "value": "hsl(0, 0%, 0%)", "label": "Black" },
+	{ "id": "7", "value": "hsl(170, 10%, 60%)", "label": "Gray" },
+	{ "id": "8", "value": "hsl(0, 0%, 100%)", "label": "White" }
 ]
