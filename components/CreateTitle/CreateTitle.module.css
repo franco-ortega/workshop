@@ -1,0 +1,28 @@
+.CreateTitle {
+	line-height: 2;
+
+	& label + label {
+		margin-left: 0.5rem;
+	}
+
+	& label input[type='radio'] {
+		margin-right: 0.25rem;
+	}
+
+	& label input[type='text'] {
+		max-width: 180px;
+		max-height: 1.75rem;
+		padding-left: 0.25rem;
+
+		animation: widenOnDisplay 2s forwards;
+	}
+}
+
+@keyframes widenOnDisplay {
+	from {
+		width: 10%;
+	}
+	to {
+		width: 100%;
+	}
+}

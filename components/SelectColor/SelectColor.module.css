@@ -1,0 +1,76 @@
+.SelectColor {
+	& label {
+		display: block;
+	}
+
+	& .selectPresentational {
+		display: inline-block;
+	}
+
+	& .selectButtonsWrapper {
+		display: inline-block;
+	}
+
+	/* SELECT - LIST COLOR */
+	& .selectWrapper {
+		display: inline-block;
+
+		position: relative;
+		isolation: isolate;
+		width: 45%;
+
+		/* HIDDEN SELECT */
+		& .selectHidden {
+			position: absolute;
+			inset: 0;
+			opacity: 0;
+
+			z-index: 1;
+		}
+
+		/* PRESENTATIONAL SELECT */
+		& .selectPresentational {
+			border: 1px black solid;
+			border-radius: 5px;
+
+			padding-block: 2px;
+			padding-inline: 8px;
+
+			position: relative;
+			z-index: 0;
+
+			width: 100%;
+
+			& .selectCaret {
+				position: absolute;
+				right: 165px;
+				right: 10px;
+
+				transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
+
+				pointer-events: none;
+
+				font-weight: 200;
+				line-height: 1.1;
+			}
+		}
+	}
+
+	& .selectButtonsWrapper {
+		width: 55%;
+
+		text-align: end;
+
+		& button {
+			border: 1px solid hsl(0, 0%, 10%);
+			border-radius: 5px;
+
+			width: 45%;
+			min-width: fit-content;
+		}
+
+		& button:nth-child(2) {
+			margin-left: 0.25rem;
+		}
+	}
+}
