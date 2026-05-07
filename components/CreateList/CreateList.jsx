@@ -7,22 +7,10 @@ function CreateList({ createList, closeCreateList }) {
 	const [listTitle, setListTitle] = useState('');
 	const [listColor, setListColor] = useState('');
 
-	const resetCreateList = () => {
-		// setListTitle('');
-		// setIsTitle(false);
-		// setIsChecked(false);
-	};
-
 	const onCreateList = (e) => {
 		e.preventDefault();
 
 		createList(listTitle, listColor);
-		resetCreateList();
-		closeCreateList();
-	};
-
-	const onCancelNewList = () => {
-		resetCreateList();
 		closeCreateList();
 	};
 
@@ -32,11 +20,9 @@ function CreateList({ createList, closeCreateList }) {
 
 			<SelectColor listColor={listColor} setListColor={setListColor} />
 
-			<section>
-				<div className={styles.buttonWrapper}>
-					<button>Create List</button>
-					<button onClick={onCancelNewList}>Cancel</button>
-				</div>
+			<section className={styles.buttonWrapper}>
+				<button>Create List</button>
+				<button onClick={closeCreateList}>Cancel</button>
 			</section>
 		</form>
 	);

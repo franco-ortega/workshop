@@ -15,122 +15,19 @@
 	transition: width 0.5s ease;
 }
 
-/* RADIO BUTTONS - TITLE */
-.sectionRadio {
-	line-height: 2;
-
-	& label + label {
-		margin-left: 0.5rem;
-	}
-
-	& label input[type='radio'] {
-		margin-right: 0.25rem;
-	}
-
-	& label input[type='text'] {
-		max-width: 180px;
-		max-height: 1.75rem;
-		padding-left: 0.25rem;
-
-		animation: widenOnDisplay 2s forwards;
-	}
-}
-
-.sectionSelect {
-	/* background-color: hsl(300, 85%, 45%); */
-
-	& label {
-		display: block;
-	}
-}
-
-.selectPresentational {
-	display: inline-block;
-}
-
-.selectButtonsWrapper {
-	display: inline-block;
-}
-
-/* SELECT - LIST COLOR */
-.selectWrapper {
-	display: inline-block;
-
-	position: relative;
-	isolation: isolate;
-	width: 45%;
-
-	/* HIDDEN SELECT */
-	& .selectHidden {
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-
-		z-index: 1;
-	}
-
-	/* PRESENTATIONAL SELECT */
-	& .selectPresentational {
-		border: 1px black solid;
-		border-radius: 5px;
-
-		padding-block: 2px;
-		padding-inline: 8px;
-
-		position: relative;
-		z-index: 0;
-
-		width: 100%;
-
-		& .selectCaret {
-			position: absolute;
-			right: 165px;
-			right: 10px;
-
-			transform: rotate(180deg) scaleX(2.25) scaleY(1.2);
-
-			pointer-events: none;
-
-			font-weight: 200;
-			line-height: 1.1;
-		}
-	}
-}
-
-.selectButtonsWrapper {
-	width: 55%;
-
-	text-align: end;
-
-	& button {
-		border: 1px solid hsl(0, 0%, 10%);
-		border-radius: 5px;
-
-		width: 45%;
-		min-width: fit-content;
-	}
-
-	& button:nth-child(2) {
-		margin-left: 0.25rem;
-	}
-}
-
-/* BUTTONS - SUBMIT / CANCEL */
+/* BUTTONS - SUBMIT + CANCEL */
 .buttonWrapper {
 	margin-top: 0.75rem;
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 0.5rem;
-}
 
-.buttonWrapper > button {
-	background-color: hsl(300, 85%, 45%);
-	border: 1px solid hsl(300, 85%, 30%);
-	border-radius: 5px;
-
-	text-wrap: nowrap;
-	min-width: 6rem;
+	& button {
+		background-color: hsl(300, 85%, 45%);
+		border: 1px solid hsl(300, 85%, 30%);
+		border-radius: 5px;
+	}
 }
 
 /* HOVER EFFECTS */
@@ -166,25 +63,4 @@
 	to {
 		width: 100%;
 	}
-}
-
-/* TESTING OUTLINES */
-.CreateList section {
-	/* outline: dotted lightgoldenrodyellow 2px; */
-}
-
-.sectionRadio {
-	/* outline: lightgreen dashed 1px; */
-}
-
-.selectWrapper {
-	/* outline: dotted black 1px; */
-}
-
-.selectWrapper > div {
-	/* outline: yellow dashed 1px; */
-}
-
-.selectButtonsWrapper {
-	/* outline: dashed black 1px; */
 }
