@@ -13,20 +13,29 @@
 	animation: slideInDown 1.5s forwards;
 
 	transition: width 0.5s ease;
+
+	& .buttonWrapper {
+		margin-top: 0.75rem;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+
+		& button {
+			background-color: hsl(300, 85%, 45%);
+			border: 1px solid hsl(300, 85%, 30%);
+			border-radius: 5px;
+		}
+	}
 }
 
-/* BUTTONS - SUBMIT + CANCEL */
-.buttonWrapper {
-	margin-top: 0.75rem;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.5rem;
-
-	& button {
-		background-color: hsl(300, 85%, 45%);
-		border: 1px solid hsl(300, 85%, 30%);
-		border-radius: 5px;
+/* ANIMATIONS */
+@keyframes slideInDown {
+	from {
+		transform: translateX(0%) translateY(-200%);
+	}
+	to {
+		transform: translateX(0%) translateY(0%);
 	}
 }
 
@@ -43,24 +52,5 @@
 			color 0.25s;
 
 		cursor: pointer;
-	}
-}
-
-/* ANIMATIONS */
-@keyframes slideInDown {
-	from {
-		transform: translateX(0%) translateY(-200%);
-	}
-	to {
-		transform: translateX(0%) translateY(0%);
-	}
-}
-
-@keyframes widenOnDisplay {
-	from {
-		width: 10%;
-	}
-	to {
-		width: 100%;
 	}
 }
