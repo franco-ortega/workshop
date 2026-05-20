@@ -8,7 +8,3 @@
 	gap: 20px;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.625rem), 1fr));
 }
-
-.ListWrapper > * + * {
-	margin-top: 1rem;
-}
