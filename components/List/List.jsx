@@ -102,9 +102,9 @@ export default function List({ list, addListItem, setLists, listIndex }) {
 						listId={list.listId}
 					/>
 				))}
-
-				<button onClick={() => deleteList(list.listId)}>Delete List</button>
 			</ul>
+
+			<button onClick={() => deleteList(list.listId)}>Delete List</button>
 		</li>
 	);
 }

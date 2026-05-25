@@ -3,8 +3,8 @@
 	padding-bottom: 1rem;
 
 	transition: all 2s;
-}
 
-.ListWrapper > * + * {
-	margin-top: 1rem;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.625rem), 1fr));
 }

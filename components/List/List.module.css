@@ -16,6 +16,8 @@ maybe add option to have a narrow or wide list
 	max-width: 20rem;
 
 	margin-inline: auto;
+
+	height: fit-content;
 }
 
 .List h2 {
@@ -39,7 +41,7 @@ maybe add option to have a narrow or wide list
 	scrollbar-color: hsl(0, 0%, 75%) hsl(0, 0%, 95%);
 }
 
-.List ul button {
+.List > button {
 	background-color: hsl(0, 0%, 100%);
 	border: transparent;
 	width: 100%;

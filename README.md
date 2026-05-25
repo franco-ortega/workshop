@@ -19,22 +19,27 @@ NOTES
 
 ### Timeline
 
-- Session start on Mon, Mar 16, 2026
-- Session start on Mon, Mar 30, 2026
-- Session start on Tue, Mar 31, 2026
-- Session start on Mon, Apr 06, 2026
-- Session start on Tue, Apr 07, 2026 - end session
-- Session start on Thu, Apr 09, 2026 - end session
-- Session start on Wed, Apr 15, 2026
-- Session start on Mon, Apr 20, 2026
-- Session start on Wed, Apr 22, 2026
-- Session start on Thursday, Apr 23, 2026
-- Session start on Monday, Apr 27, 2026
-- Session start on Wednesday, Apr 29, 2026
-- Session start on Thursday, Apr 30, 2026 - end session
+- Session start on Monday, May 25, 2026
 
-- Session start on Tuesday, May 05, 2026 - end sessions
 - Session start on Wednesday, May 06, 2026
+- Session start on Tuesday, May 05, 2026 - end sessions
+- Session start on Wednesday, May 20, 2026
+- Session start on Monday, May 18, 2026
+
+- Session start on Thursday, Apr 30, 2026 - end session
+- Session start on Wednesday, Apr 29, 2026
+- Session start on Monday, Apr 27, 2026
+- Session start on Thursday, Apr 23, 2026
+- Session start on Wed, Apr 22, 2026
+- Session start on Mon, Apr 20, 2026
+- Session start on Wed, Apr 15, 2026
+- Session start on Thu, Apr 09, 2026 - end session
+- Session start on Tue, Apr 07, 2026 - end session
+- Session start on Mon, Apr 06, 2026
+
+- Session start on Tue, Mar 31, 2026
+- Session start on Mon, Mar 30, 2026
+- Session start on Mon, Mar 16, 2026
 
 ### Next Steps:
 
