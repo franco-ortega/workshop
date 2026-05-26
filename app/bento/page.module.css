@@ -42,19 +42,19 @@
 		grid-template-areas: 'dog cat' 'bird cat';
 	}
 
-	.bento img {
+	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
+}
 
-	.cat {
-		grid-area: cat;
-	}
-	.dog {
-		grid-area: dog;
-	}
-	.bird {
-		grid-area: bird;
-	}
+.cat {
+	grid-area: cat;
+}
+.dog {
+	grid-area: dog;
+}
+.bird {
+	grid-area: bird;
 }
