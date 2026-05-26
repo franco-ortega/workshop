@@ -8,6 +8,11 @@
 		max-width: 100%;
 		height: auto;
 	}
+
+	header {
+		text-align: center;
+		color: hsl(0, 0%, 90%);
+	}
 }
 
 .wrapper {
