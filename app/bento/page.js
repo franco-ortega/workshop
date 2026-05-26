@@ -9,10 +9,9 @@ export default function Bento() {
 	return (
 		<div className={styles.page}>
 			<header>
-				<h1>Bento Grid</h1>
+				<h1>Bento Animal Grid</h1>
 			</header>
 			<main>
-				Bento images
 				<section className={styles.wrapper}>
 					<div className={`${styles.bento} ${styles.hasBorder}`}>
 						<Image
