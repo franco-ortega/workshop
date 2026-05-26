@@ -1,0 +1,24 @@
+.page {
+	max-width: 62.5rem;
+	margin-inline: auto;
+	padding: 2rem;
+
+	& img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.wrapper {
+	max-width: 62.5rem;
+	margin-inline: auto;
+	padding: 2rem;
+}
+
+.hasBorder {
+	background-color: #fff;
+	border: 6px solid #fff;
+	border-radius: 20px;
+	overflow: hidden;
+}
