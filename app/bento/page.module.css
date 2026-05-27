@@ -4,6 +4,16 @@
 	max-width: 62.5rem;
 	margin-inline: auto;
 	padding: 2rem;
+
+	/* create background with linear gradient of light green to dark green */
+	background: linear-gradient(
+		to bottom,
+		hsl(120, 80%, 30%),
+		hsl(120, 80%, 25%),
+		hsl(120, 80%, 20%),
+		hsl(120, 80%, 15%),
+		hsl(120, 80%, 10%)
+	);
 }
 
 .page img {
