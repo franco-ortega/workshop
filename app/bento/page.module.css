@@ -28,14 +28,20 @@
 }
 
 .buttonWrapper {
-	border: 3px solid var(--border-color);
-	border-radius: 10px;
+	display: none;
 
-	background-color: hsl(120, 80%, 20%);
+	@media (width >= 37.5rem) {
+		display: block;
 
-	padding: 0.5rem;
-	width: fit-content;
-	margin-inline: auto;
+		border: 3px solid var(--border-color);
+		border-radius: 10px;
+
+		background-color: hsl(120, 80%, 20%);
+
+		padding: 0.5rem;
+		width: fit-content;
+		margin-inline: auto;
+	}
 }
 
 .page button {
