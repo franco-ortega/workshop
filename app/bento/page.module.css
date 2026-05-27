@@ -1,7 +1,18 @@
 .page {
+	--border-color: hsl(120, 100%, 40%);
+
 	max-width: 62.5rem;
 	margin-inline: auto;
 	padding: 2rem;
+
+	background: linear-gradient(
+		to bottom,
+		hsl(120, 80%, 30%),
+		hsl(120, 80%, 25%),
+		hsl(120, 80%, 20%),
+		hsl(120, 80%, 15%),
+		hsl(120, 80%, 10%)
+	);
 }
 
 .page img {
@@ -15,7 +26,57 @@
 	color: hsl(0, 0%, 90%);
 }
 
-.wrapper {
+.buttonOnTopWrapper {
+	border: 3px solid var(--border-color);
+	border-radius: 10px;
+
+	background-color: hsl(120, 80%, 20%);
+
+	padding: 0.5rem;
+	width: fit-content;
+	margin-inline: auto;
+
+	@media (width >= 37.5rem) {
+		display: none;
+	}
+}
+
+.buttonOnTopWrapper button {
+	max-width: min-content;
+	line-height: 1;
+}
+
+.buttonWrapper {
+	display: none;
+
+	@media (width >= 37.5rem) {
+		display: block;
+
+		border: 3px solid var(--border-color);
+		border-radius: 10px;
+
+		background-color: hsl(120, 80%, 20%);
+
+		padding: 0.5rem;
+		width: fit-content;
+		margin-inline: auto;
+	}
+}
+
+.page button {
+	background-color: hsl(120, 100%, 25%);
+	border: 2px solid var(--border-color);
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0.25rem;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
+}
+
+.bentoWrapper {
 	max-width: 62.5rem;
 	margin-inline: auto;
 	padding: 2rem;
@@ -32,14 +93,14 @@
 	display: grid;
 	grid-template-rows: repeat(3, 200px);
 	grid-template-areas:
+		'bird'
 		'cat'
-		'dog'
-		'bird';
+		'dog';
 
 	@media (width >= 37.5rem) {
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 400px 400px;
-		grid-template-areas: 'dog cat' 'bird cat';
+		grid-template-rows: 400px 300px;
+		grid-template-areas: 'bird cat' 'dog cat';
 	}
 }
 
@@ -59,4 +120,55 @@
 
 .bird {
 	grid-area: bird;
+}
+
+.birdOnTop {
+	display: grid;
+	grid-template-rows: repeat(3, 200px);
+	grid-template-areas:
+		'bird'
+		'cat'
+		'dog';
+}
+
+.catOnTop {
+	display: grid;
+	grid-template-rows: repeat(3, 200px);
+	grid-template-areas:
+		'cat'
+		'bird'
+		'dog';
+}
+
+.dogOnTop {
+	display: grid;
+	grid-template-rows: repeat(3, 200px);
+	grid-template-areas:
+		'dog'
+		'bird'
+		'cat';
+}
+
+.catOnRight {
+	@media (width >= 37.5rem) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 400px 300px;
+		grid-template-areas: 'bird cat' 'dog cat';
+	}
+}
+
+.birdOnRight {
+	@media (width >= 37.5rem) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 400px 300px;
+		grid-template-areas: 'cat bird' 'dog bird';
+	}
+}
+
+.dogOnRight {
+	@media (width >= 37.5rem) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 400px 300px;
+		grid-template-areas: 'bird dog' 'cat dog';
+	}
 }
