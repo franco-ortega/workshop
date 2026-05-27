@@ -2,17 +2,17 @@
 	max-width: 62.5rem;
 	margin-inline: auto;
 	padding: 2rem;
-}
 
-.page img {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
 
-.page header {
-	text-align: center;
-	color: hsl(0, 0%, 90%);
+	header {
+		text-align: center;
+		color: hsl(0, 0%, 90%);
+	}
 }
 
 .wrapper {
