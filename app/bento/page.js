@@ -18,22 +18,22 @@ export default function Bento() {
 							src={cat}
 							alt='cat'
 							className={styles.cat}
-							width='1000'
-							height='896'
+							// width='1000'
+							// height='896'
 						/>
 						<Image
 							src={dog}
 							alt='dog'
 							className={styles.dog}
-							width='976'
-							height='953'
+							// width='976'
+							// height='953'
 						/>
 						<Image
 							src={bird}
 							alt='bird'
 							className={styles.bird}
-							width='667'
-							height='1000'
+							// width='667'
+							// height='1000'
 						/>
 					</div>
 				</section>
