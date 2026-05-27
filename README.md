@@ -19,6 +19,8 @@ NOTES
 
 ### Timeline
 
+- Session start on Wednesday, May 27, 2026
+- Forgot to log Tuesday, May 26, 2026
 - Session start on Monday, May 25, 2026
 
 - Session start on Wednesday, May 06, 2026
