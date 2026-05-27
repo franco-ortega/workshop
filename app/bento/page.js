@@ -8,7 +8,12 @@ import bird from './bird.webp';
 import styles from './page.module.css';
 
 export default function Bento() {
-	const [imageOnRight, setImageOnRight] = useState('cat');
+	const [imageOnRight, setImageOnRight] = useState('');
+	const [imageOnTop, setImageOnTop] = useState('');
+
+	const handleCatOnTop = () => setImageOnTop('cat');
+	const handleBirdOnTop = () => setImageOnTop('bird');
+	const handleDogOnTop = () => setImageOnTop('dog');
 
 	const handleCatOnRight = () => setImageOnRight('cat');
 	const handleBirdOnRight = () => setImageOnRight('bird');
@@ -20,6 +25,11 @@ export default function Bento() {
 				<h1>Bento Animal Grid</h1>
 			</header>
 			<main>
+				<section className={styles.buttonOnTopWrapper}>
+					<button onClick={handleBirdOnTop}>Bird on Top</button>
+					<button onClick={handleCatOnTop}>Cat on Top</button>
+					<button onClick={handleDogOnTop}>Dog on Top</button>
+				</section>
 				<section className={styles.buttonWrapper}>
 					<button onClick={handleCatOnRight}>Cat on Right</button>
 					<button onClick={handleBirdOnRight}>Bird on Right</button>
@@ -27,7 +37,7 @@ export default function Bento() {
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
-						className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']}`}
+						className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']} ${styles[imageOnTop + 'OnTop']}`}
 					>
 						<Image
 							src={cat}
