@@ -21,11 +21,12 @@ export default function Bento() {
 		}
 	};
 
-	const handleSelectImageOnTop = (animal) => {
-		selectImage(animal, 'top');
+	const handleSelectImageOnTop = (e) => {
+		selectImage(e.target.textContent.toLowerCase(), 'top');
 	};
 
-	const handleSelectImageOnRight = (animal) => {
+	const handleSelectImageOnRight = (e) => {
+		const animal = e.target.textContent.split(' ')[0].toLowerCase();
 		selectImage(animal, 'right');
 	};
 
@@ -37,20 +38,14 @@ export default function Bento() {
 			<main>
 				<section className={styles.buttonOnTopWrapper}>
 					<p>Animal on Top</p>
-					<button onClick={() => handleSelectImageOnTop('bird')}>Bird</button>
-					<button onClick={() => handleSelectImageOnTop('cat')}>Cat</button>
-					<button onClick={() => handleSelectImageOnTop('dog')}>Dog</button>
+					<button onClick={handleSelectImageOnTop}>Bird</button>
+					<button onClick={handleSelectImageOnTop}>Cat</button>
+					<button onClick={handleSelectImageOnTop}>Dog</button>
 				</section>
 				<section className={styles.buttonWrapper}>
-					<button onClick={() => handleSelectImageOnRight('cat')}>
-						Cat on Right
-					</button>
-					<button onClick={() => handleSelectImageOnRight('bird')}>
-						Bird on Right
-					</button>
-					<button onClick={() => handleSelectImageOnRight('dog')}>
-						Dog on Right
-					</button>
+					<button onClick={handleSelectImageOnRight}>Cat on Right</button>
+					<button onClick={handleSelectImageOnRight}>Bird on Right</button>
+					<button onClick={handleSelectImageOnRight}>Dog on Right</button>
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
