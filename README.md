@@ -19,7 +19,12 @@ NOTES
 
 ### Timeline
 
-- Session start on Friday, May 29, 2026
+- notes for next time:
+  - media query for motion no-preference
+  - clean up animation code
+  - keep white border on screen during the animation
+
+- Session start on Friday, May 29, 2026 - end session
 - Session start on Wednesday, May 27, 2026 - end session
 - Forgot to log Tuesday, May 26, 2026
 - Session start on Monday, May 25, 2026
