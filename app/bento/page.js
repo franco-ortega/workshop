@@ -8,8 +8,8 @@ import bird from './bird.webp';
 import styles from './page.module.css';
 
 export default function Bento() {
-	const [imageOnRight, setImageOnRight] = useState('');
-	const [imageOnTop, setImageOnTop] = useState('');
+	const [imageOnRight, setImageOnRight] = useState('cat');
+	const [imageOnTop, setImageOnTop] = useState('bird');
 
 	const handleCatOnTop = () => setImageOnTop('cat');
 	const handleBirdOnTop = () => setImageOnTop('bird');
@@ -26,9 +26,10 @@ export default function Bento() {
 			</header>
 			<main>
 				<section className={styles.buttonOnTopWrapper}>
-					<button onClick={handleBirdOnTop}>Bird on Top</button>
-					<button onClick={handleCatOnTop}>Cat on Top</button>
-					<button onClick={handleDogOnTop}>Dog on Top</button>
+					<p>Animal on Top</p>
+					<button onClick={handleBirdOnTop}>Bird</button>
+					<button onClick={handleCatOnTop}>Cat</button>
+					<button onClick={handleDogOnTop}>Dog</button>
 				</section>
 				<section className={styles.buttonWrapper}>
 					<button onClick={handleCatOnRight}>Cat on Right</button>

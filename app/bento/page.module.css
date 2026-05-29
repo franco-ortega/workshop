@@ -41,6 +41,11 @@
 	}
 }
 
+.buttonOnTopWrapper p {
+	color: hsl(0, 0%, 90%);
+	text-align: center;
+}
+
 .buttonOnTopWrapper button {
 	max-width: min-content;
 	line-height: 1;
