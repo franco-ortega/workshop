@@ -10,6 +10,23 @@ import styles from './page.module.css';
 export default function Bento() {
 	const [imageOnRight, setImageOnRight] = useState('cat');
 	const [imageOnTop, setImageOnTop] = useState('bird');
+	const [isFading, setIsFading] = useState(false);
+
+	// duration must match CSS --fade-duration
+	const FADE_DURATION = 300;
+
+	const swapImage = (animal, position) => {
+		setIsFading(true);
+		setTimeout(() => {
+			if (position === 'top') {
+				setImageOnTop(animal);
+			} else if (position === 'right') {
+				setImageOnRight(animal);
+			}
+			// allow fade-in to run
+			setTimeout(() => setIsFading(false), 20);
+		}, FADE_DURATION);
+	};
 
 	const selectImage = (animal, position) => {
 		if (position === 'top') {
@@ -22,14 +39,16 @@ export default function Bento() {
 	};
 
 	const handleSelectImageOnTop = (e) => {
-		selectImage(e.target.textContent.toLowerCase(), 'top');
+		// selectImage(e.target.textContent.toLowerCase(), 'top');
+		swapImage(e.target.textContent.toLowerCase(), 'top');
 	};
 
 	const handleSelectImageOnRight = (e) => {
 		// takes animal name out of 'ANIMAL on Right' button text
 		const animal = e.target.textContent.split(' ')[0].toLowerCase();
 
-		selectImage(animal, 'right');
+		// selectImage(animal, 'right');
+		swapImage(animal, 'right');
 	};
 
 	return (
@@ -51,7 +70,14 @@ export default function Bento() {
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
-						className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']} ${styles[imageOnTop + 'OnTop']}`}
+						// className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']} ${styles[imageOnTop + 'OnTop']} ${styles.fadeInOut}`}
+						className={[
+							styles.bento,
+							styles.hasBorder,
+							styles[imageOnRight + 'OnRight'],
+							styles[imageOnTop + 'OnTop'],
+							isFading ? styles.fadingOut : styles.fadingIn,
+						].join(' ')}
 					>
 						<Image
 							src={cat}
