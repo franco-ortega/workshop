@@ -86,6 +86,10 @@ svg {
 	max-width: 100%;
 }
 
+img {
+	height: auto;
+}
+
 /*
   7. Remove built-in form typography styles
 */

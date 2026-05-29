@@ -1,19 +1,84 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import { useState } from 'react';
 import cat from './cat.webp';
 import dog from './dog.webp';
 import bird from './bird.webp';
 import styles from './page.module.css';
 
 export default function Bento() {
+	const [imageOnRight, setImageOnRight] = useState('cat');
+	const [imageOnTop, setImageOnTop] = useState('bird');
+	const [isFading, setIsFading] = useState(false);
+
+	// duration must match CSS --fade-duration
+	const FADE_DURATION = 300;
+
+	const swapImage = (animal, position) => {
+		setIsFading(true);
+		setTimeout(() => {
+			if (position === 'top') {
+				setImageOnTop(animal);
+			} else if (position === 'right') {
+				setImageOnRight(animal);
+			}
+			// allow fade-in to run
+			setTimeout(() => setIsFading(false), 20);
+		}, FADE_DURATION);
+	};
+
+	const selectImage = (animal, position) => {
+		if (position === 'top') {
+			setImageOnTop(animal);
+		} else if (position === 'right') {
+			setImageOnRight(animal);
+		} else {
+			console.warn('Invalid position:', position, 'Or invalid animal:', animal);
+		}
+	};
+
+	const handleSelectImageOnTop = (e) => {
+		// selectImage(e.target.textContent.toLowerCase(), 'top');
+		swapImage(e.target.textContent.toLowerCase(), 'top');
+	};
+
+	const handleSelectImageOnRight = (e) => {
+		// takes animal name out of 'ANIMAL on Right' button text
+		const animal = e.target.textContent.split(' ')[0].toLowerCase();
+
+		// selectImage(animal, 'right');
+		swapImage(animal, 'right');
+	};
+
 	return (
 		<div className={styles.page}>
 			<header>
 				<h1>Bento Animal Grid</h1>
 			</header>
 			<main>
-				<section className={styles.wrapper}>
-					<div className={`${styles.bento} ${styles.hasBorder}`}>
+				<section className={styles.buttonOnTopWrapper}>
+					<p>Animal on Top</p>
+					<button onClick={handleSelectImageOnTop}>Bird</button>
+					<button onClick={handleSelectImageOnTop}>Cat</button>
+					<button onClick={handleSelectImageOnTop}>Dog</button>
+				</section>
+				<section className={styles.buttonWrapper}>
+					<button onClick={handleSelectImageOnRight}>Cat on Right</button>
+					<button onClick={handleSelectImageOnRight}>Bird on Right</button>
+					<button onClick={handleSelectImageOnRight}>Dog on Right</button>
+				</section>
+				<section className={styles.bentoWrapper}>
+					<div
+						// className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']} ${styles[imageOnTop + 'OnTop']} ${styles.fadeInOut}`}
+						className={[
+							styles.bento,
+							styles.hasBorder,
+							styles[imageOnRight + 'OnRight'],
+							styles[imageOnTop + 'OnTop'],
+							isFading ? styles.fadingOut : styles.fadingIn,
+						].join(' ')}
+					>
 						<Image
 							src={cat}
 							alt='cat'
@@ -22,18 +87,18 @@ export default function Bento() {
 							height='896'
 						/>
 						<Image
-							src={dog}
-							alt='dog'
-							className={styles.dog}
-							width='976'
-							height='953'
-						/>
-						<Image
 							src={bird}
 							alt='bird'
 							className={styles.bird}
 							width='667'
 							height='1000'
+						/>
+						<Image
+							src={dog}
+							alt='dog'
+							className={styles.dog}
+							width='976'
+							height='953'
 						/>
 					</div>
 				</section>
