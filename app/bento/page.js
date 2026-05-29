@@ -11,13 +11,23 @@ export default function Bento() {
 	const [imageOnRight, setImageOnRight] = useState('cat');
 	const [imageOnTop, setImageOnTop] = useState('bird');
 
-	const handleCatOnTop = () => setImageOnTop('cat');
-	const handleBirdOnTop = () => setImageOnTop('bird');
-	const handleDogOnTop = () => setImageOnTop('dog');
+	const selectImage = (animal, position) => {
+		if (position === 'top') {
+			setImageOnTop(animal);
+		} else if (position === 'right') {
+			setImageOnRight(animal);
+		} else {
+			console.warn('Invalid position:', position, 'Or invalid animal:', animal);
+		}
+	};
 
-	const handleCatOnRight = () => setImageOnRight('cat');
-	const handleBirdOnRight = () => setImageOnRight('bird');
-	const handleDogOnRight = () => setImageOnRight('dog');
+	const handleSelectImageOnTop = (animal) => {
+		selectImage(animal, 'top');
+	};
+
+	const handleSelectImageOnRight = (animal) => {
+		selectImage(animal, 'right');
+	};
 
 	return (
 		<div className={styles.page}>
@@ -27,14 +37,20 @@ export default function Bento() {
 			<main>
 				<section className={styles.buttonOnTopWrapper}>
 					<p>Animal on Top</p>
-					<button onClick={handleBirdOnTop}>Bird</button>
-					<button onClick={handleCatOnTop}>Cat</button>
-					<button onClick={handleDogOnTop}>Dog</button>
+					<button onClick={() => handleSelectImageOnTop('bird')}>Bird</button>
+					<button onClick={() => handleSelectImageOnTop('cat')}>Cat</button>
+					<button onClick={() => handleSelectImageOnTop('dog')}>Dog</button>
 				</section>
 				<section className={styles.buttonWrapper}>
-					<button onClick={handleCatOnRight}>Cat on Right</button>
-					<button onClick={handleBirdOnRight}>Bird on Right</button>
-					<button onClick={handleDogOnRight}>Dog on Right</button>
+					<button onClick={() => handleSelectImageOnRight('cat')}>
+						Cat on Right
+					</button>
+					<button onClick={() => handleSelectImageOnRight('bird')}>
+						Bird on Right
+					</button>
+					<button onClick={() => handleSelectImageOnRight('dog')}>
+						Dog on Right
+					</button>
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
