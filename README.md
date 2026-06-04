@@ -20,11 +20,11 @@ NOTES
 ### Timeline
 
 - notes for next time:
-  - media query for motion no-preference
+  - media query for motion no-preference - DONE
   - clean up animation code
-  - keep white border on screen during the animation
+  - keep white border on screen during the animation - IN PROCESS
 
-- Session start on Thursday, June 04, 2026
+- Session start on Thursday, June 04, 2026 - end
 
 - Session start on Friday, May 29, 2026 - end session
 - Session start on Wednesday, May 27, 2026 - end session
