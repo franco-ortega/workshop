@@ -33,6 +33,13 @@ export default function Bento() {
 			// immediate change without fading
 			if (position === 'top') setImageOnTop(animal);
 			else if (position === 'right') setImageOnRight(animal);
+			else
+				console.warn(
+					'Invalid position:',
+					position,
+					'Or invalid animal:',
+					animal,
+				);
 			setIsFading(false);
 			return;
 		}
@@ -42,6 +49,13 @@ export default function Bento() {
 		const id = setTimeout(() => {
 			if (position === 'top') setImageOnTop(animal);
 			else if (position === 'right') setImageOnRight(animal);
+			else
+				console.warn(
+					'Invalid position:',
+					position,
+					'Or invalid animal:',
+					animal,
+				);
 
 			const id2 = setTimeout(() => setIsFading(false), 20);
 
@@ -49,16 +63,6 @@ export default function Bento() {
 		}, FADE_DURATION);
 
 		timersRef.current.push(id);
-	};
-
-	const selectImage = (animal, position) => {
-		if (position === 'top') {
-			setImageOnTop(animal);
-		} else if (position === 'right') {
-			setImageOnRight(animal);
-		} else {
-			console.warn('Invalid position:', position, 'Or invalid animal:', animal);
-		}
 	};
 
 	const handleSelectImageOnTop = (e) => {
