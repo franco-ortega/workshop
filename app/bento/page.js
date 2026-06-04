@@ -14,7 +14,7 @@ export default function Bento() {
 	const timersRef = useRef([]);
 
 	// duration must match CSS --fade-duration
-	const FADE_DURATION = 300;
+	const FADE_DURATION = 200;
 
 	useEffect(() => {
 		const currentRef = timersRef.current;
