@@ -16,26 +16,6 @@
 	);
 }
 
-/* .bento :global(img) {
-	transition: opacity var(--fade-duration) ease;
-	will-change: opacity;
-} */
-
-/* Wrapper fade states */
-/* fade images out before swap */
-/* .fadingOut {
-	opacity: 0;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: none; 
-} */
-/* avoid clicks while animating */
-
-/* .fadingIn {
-	opacity: 1;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: auto;
-} */
-
 .bento :global(img) {
 	transition:
 		opacity var(--fade-duration) ease,
