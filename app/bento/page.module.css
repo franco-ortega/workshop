@@ -104,6 +104,10 @@
 		color 0.3s;
 }
 
+.page button:hover {
+	background-color: hsl(120, 100%, 30%);
+}
+
 .bentoWrapper {
 	max-width: 62.5rem;
 	margin-inline: auto;
