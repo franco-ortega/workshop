@@ -111,12 +111,9 @@
 .bentoWrapper {
 	max-width: 62.5rem;
 	margin-inline: auto;
-	padding: 2rem;
-}
 
-.hasBorder {
-	background-color: #fff;
-	border: 6px solid #fff;
+	margin-block: 2rem;
+	border: 6px solid hsl(0, 0%, 100%);
 	border-radius: 20px;
 	overflow: hidden;
 }
