@@ -95,10 +95,8 @@ export default function Bento() {
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
-						// className={`${styles.bento} ${styles.hasBorder} ${styles[imageOnRight + 'OnRight']} ${styles[imageOnTop + 'OnTop']} ${styles.fadeInOut}`}
 						className={[
 							styles.bento,
-							// styles.hasBorder,
 							styles[imageOnRight + 'OnRight'],
 							styles[imageOnTop + 'OnTop'],
 							isFading ? styles.fadingOut : styles.fadingIn,
