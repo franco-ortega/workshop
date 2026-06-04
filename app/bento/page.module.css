@@ -1,9 +1,9 @@
 .page {
 	--border-color: hsl(120, 100%, 40%);
-	--fade-duration: 300ms;
+	--fade-duration: 200ms;
 
 	max-width: 100%;
-	margin-inline: auto;
+
 	padding: 2rem;
 
 	background: linear-gradient(
@@ -109,7 +109,7 @@
 }
 
 .bentoWrapper {
-	max-width: 60rem;
+	max-width: 62.5rem;
 	margin-inline: auto;
 
 	margin-block: 2rem;
