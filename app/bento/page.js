@@ -39,19 +39,12 @@ export default function Bento() {
 
 		setIsFading(true);
 
-		// const id = window.setTimeout(() => {
-		// 	if (position === 'top') setImageOnTop(animal);
-		// 	else if (position === 'right') setImageOnRight(animal);
-		// }, FADE_DURATION);
-
 		const id = setTimeout(() => {
 			if (position === 'top') setImageOnTop(animal);
 			else if (position === 'right') setImageOnRight(animal);
 
-			// allow fade-in to run
-			// setTimeout(() => setIsFading(false), 20);
-
 			const id2 = setTimeout(() => setIsFading(false), 20);
+
 			timersRef.current.push(id2);
 		}, FADE_DURATION);
 
