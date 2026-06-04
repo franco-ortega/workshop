@@ -2,7 +2,7 @@
 	--border-color: hsl(120, 100%, 40%);
 	--fade-duration: 300ms;
 
-	max-width: 62.5rem;
+	max-width: 100%;
 	margin-inline: auto;
 	padding: 2rem;
 
