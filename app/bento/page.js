@@ -66,7 +66,6 @@ export default function Bento() {
 	};
 
 	const handleSelectImageOnTop = (e) => {
-		// selectImage(e.target.textContent.toLowerCase(), 'top');
 		swapImage(e.target.textContent.toLowerCase(), 'top');
 	};
 
@@ -74,7 +73,6 @@ export default function Bento() {
 		// takes animal name out of 'ANIMAL on Right' button text
 		const animal = e.target.textContent.split(' ')[0].toLowerCase();
 
-		// selectImage(animal, 'right');
 		swapImage(animal, 'right');
 	};
 
