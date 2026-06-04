@@ -16,24 +16,26 @@
 	);
 }
 
-.bento :global(img) {
-	transition:
-		opacity var(--fade-duration) ease,
-		transform var(--fade-duration) ease;
-	will-change: opacity, transform;
-}
+@media (prefers-reduced-motion: no-preference) {
+	.bento :global(img) {
+		transition:
+			opacity var(--fade-duration) ease,
+			transform var(--fade-duration) ease;
+		will-change: opacity, transform;
+	}
 
-/* wrapper states */
-.fadingOut {
-	opacity: 0;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: none;
-}
+	/* wrapper states */
+	.fadingOut {
+		opacity: 0;
+		transition: opacity var(--fade-duration) ease;
+		pointer-events: none;
+	}
 
-.fadingIn {
-	opacity: 1;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: auto;
+	.fadingIn {
+		opacity: 1;
+		transition: opacity var(--fade-duration) ease;
+		pointer-events: auto;
+	}
 }
 
 .page img {

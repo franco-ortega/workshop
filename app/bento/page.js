@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cat from './cat.webp';
 import dog from './dog.webp';
 import bird from './bird.webp';
@@ -11,12 +11,40 @@ export default function Bento() {
 	const [imageOnRight, setImageOnRight] = useState('cat');
 	const [imageOnTop, setImageOnTop] = useState('bird');
 	const [isFading, setIsFading] = useState(false);
+	const timersRef = useRef([]);
 
 	// duration must match CSS --fade-duration
 	const FADE_DURATION = 300;
 
+	useEffect(() => {
+		const currentRef = timersRef.current;
+		return () => {
+			currentRef.forEach((id) => clearTimeout(id));
+		};
+	}, []);
+
 	const swapImage = (animal, position) => {
+		const prefersReduced =
+			typeof window !== 'undefined' &&
+			window.matchMedia &&
+			window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		if (prefersReduced) {
+			// immediate change without fading
+			if (position === 'top') setImageOnTop(animal);
+			else if (position === 'right') setImageOnRight(animal);
+			setIsFading(false);
+			return;
+		}
+
 		setIsFading(true);
+
+		// const id = window.setTimeout(() => {
+		// 	if (position === 'top') setImageOnTop(animal);
+		// 	else if (position === 'right') setImageOnRight(animal);
+		// }, FADE_DURATION);
+		// timersRef.current.push(id);
+
 		setTimeout(() => {
 			if (position === 'top') {
 				setImageOnTop(animal);
