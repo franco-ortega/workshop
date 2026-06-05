@@ -97,30 +97,28 @@ export default function Bento() {
 				</section>
 				<section className={styles.bentoWrapper}>
 					<div
-						className={[
-							styles.bento,
-							styles[imageOnRight + 'OnRight'],
-							styles[imageOnTop + 'OnTop'],
-						].join(' ')}
+						className={`${styles.bento} 
+							${styles[imageOnRight + 'OnRight']} 
+							${styles[imageOnTop + 'OnTop']}`}
 					>
 						<Image
 							src={cat}
 							alt='cat'
-							className={[styles.cat, fadeEffectStyle].join(' ')}
+							className={`${styles.cat} ${fadeEffectStyle}`}
 							width='1000'
 							height='896'
 						/>
 						<Image
 							src={bird}
 							alt='bird'
-							className={[styles.bird, fadeEffectStyle].join(' ')}
+							className={`${styles.bird} ${fadeEffectStyle}`}
 							width='667'
 							height='1000'
 						/>
 						<Image
 							src={dog}
 							alt='dog'
-							className={[styles.dog, fadeEffectStyle].join(' ')}
+							className={`${styles.dog} ${fadeEffectStyle}`}
 							width='976'
 							height='953'
 						/>
