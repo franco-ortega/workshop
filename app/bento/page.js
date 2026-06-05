@@ -76,6 +76,8 @@ export default function Bento() {
 		swapImage(animal, 'right');
 	};
 
+	const fadeEffectStyle = isFading ? styles.fadingOut : styles.fadingIn;
+
 	return (
 		<div className={styles.page}>
 			<header>
@@ -104,30 +106,21 @@ export default function Bento() {
 						<Image
 							src={cat}
 							alt='cat'
-							className={[
-								styles.cat,
-								isFading ? styles.fadingOut : styles.fadingIn,
-							].join(' ')}
+							className={[styles.cat, fadeEffectStyle].join(' ')}
 							width='1000'
 							height='896'
 						/>
 						<Image
 							src={bird}
 							alt='bird'
-							className={[
-								styles.bird,
-								isFading ? styles.fadingOut : styles.fadingIn,
-							].join(' ')}
+							className={[styles.bird, fadeEffectStyle].join(' ')}
 							width='667'
 							height='1000'
 						/>
 						<Image
 							src={dog}
 							alt='dog'
-							className={[
-								styles.dog,
-								isFading ? styles.fadingOut : styles.fadingIn,
-							].join(' ')}
+							className={[styles.dog, fadeEffectStyle].join(' ')}
 							width='976'
 							height='953'
 						/>
