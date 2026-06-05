@@ -178,6 +178,10 @@
 		grid-template-areas: 'cat bird' 'dog bird';
 	}
 
+	.birdOnRight .bird {
+		object-position: 30%;
+	}
+
 	.dogOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'bird dog' 'cat dog';
