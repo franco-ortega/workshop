@@ -1,9 +1,9 @@
 .page {
 	--border-color: hsl(120, 100%, 40%);
-	--fade-duration: 300ms;
+	--fade-duration: 200ms;
 
-	max-width: 62.5rem;
-	margin-inline: auto;
+	max-width: 100%;
+
 	padding: 2rem;
 
 	background: linear-gradient(
@@ -16,44 +16,26 @@
 	);
 }
 
-/* .bento :global(img) {
-	transition: opacity var(--fade-duration) ease;
-	will-change: opacity;
-} */
+@media (prefers-reduced-motion: no-preference) {
+	.bento :global(img) {
+		transition:
+			opacity var(--fade-duration) ease,
+			transform var(--fade-duration) ease;
+		will-change: opacity, transform;
+	}
 
-/* Wrapper fade states */
-/* fade images out before swap */
-/* .fadingOut {
-	opacity: 0;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: none; 
-} */
-/* avoid clicks while animating */
+	/* wrapper states */
+	.fadingOut {
+		opacity: 0;
+		transition: opacity var(--fade-duration) ease;
+		pointer-events: none;
+	}
 
-/* .fadingIn {
-	opacity: 1;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: auto;
-} */
-
-.bento :global(img) {
-	transition:
-		opacity var(--fade-duration) ease,
-		transform var(--fade-duration) ease;
-	will-change: opacity, transform;
-}
-
-/* wrapper states */
-.fadingOut {
-	opacity: 0;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: none;
-}
-
-.fadingIn {
-	opacity: 1;
-	transition: opacity var(--fade-duration) ease;
-	pointer-events: auto;
+	.fadingIn {
+		opacity: 1;
+		transition: opacity var(--fade-duration) ease;
+		pointer-events: auto;
+	}
 }
 
 .page img {
@@ -65,6 +47,9 @@
 .page header {
 	text-align: center;
 	color: hsl(0, 0%, 90%);
+
+	line-height: 1;
+	margin-bottom: 1rem;
 }
 
 .buttonOnTopWrapper {
@@ -122,20 +107,21 @@
 		color 0.3s;
 }
 
-.bentoWrapper {
-	max-width: 62.5rem;
-	margin-inline: auto;
-	padding: 2rem;
+.page button:hover {
+	background-color: hsl(120, 100%, 30%);
 }
 
-.hasBorder {
-	background-color: #fff;
-	border: 6px solid #fff;
-	border-radius: 20px;
-	overflow: hidden;
+.bentoWrapper {
+	max-width: 62.5rem;
+	margin-block: 2rem;
+	margin-inline: auto;
 }
 
 .bento {
+	border: 6px solid hsl(0, 0%, 100%);
+	border-radius: 20px;
+	overflow: hidden;
+
 	display: grid;
 	grid-template-rows: repeat(3, 200px);
 	grid-template-areas:
@@ -145,8 +131,6 @@
 
 	@media (width >= 37.5rem) {
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 400px 300px;
-		grid-template-areas: 'bird cat' 'dog cat';
 	}
 }
 
@@ -163,8 +147,6 @@
 }
 
 .birdOnTop {
-	display: grid;
-	grid-template-rows: repeat(3, 200px);
 	grid-template-areas:
 		'bird'
 		'cat'
@@ -172,8 +154,6 @@
 }
 
 .catOnTop {
-	display: grid;
-	grid-template-rows: repeat(3, 200px);
 	grid-template-areas:
 		'cat'
 		'bird'
@@ -181,33 +161,28 @@
 }
 
 .dogOnTop {
-	display: grid;
-	grid-template-rows: repeat(3, 200px);
 	grid-template-areas:
 		'dog'
 		'bird'
 		'cat';
 }
 
-.catOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+@media (width >= 37.5rem) {
+	.catOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'bird cat' 'dog cat';
 	}
-}
 
-.birdOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+	.birdOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'cat bird' 'dog bird';
 	}
-}
 
-.dogOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+	.birdOnRight .bird {
+		object-position: 30%;
+	}
+
+	.dogOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'bird dog' 'cat dog';
 	}
