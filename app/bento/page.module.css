@@ -131,8 +131,6 @@
 
 	@media (width >= 37.5rem) {
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 400px 300px;
-		grid-template-areas: 'bird cat' 'dog cat';
 	}
 }
 
@@ -175,25 +173,18 @@
 		'cat';
 }
 
-.catOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+@media (width >= 37.5rem) {
+	.catOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'bird cat' 'dog cat';
 	}
-}
 
-.birdOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+	.birdOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'cat bird' 'dog bird';
 	}
-}
 
-.dogOnRight {
-	@media (width >= 37.5rem) {
-		grid-template-columns: repeat(2, 1fr);
+	.dogOnRight {
 		grid-template-rows: 400px 300px;
 		grid-template-areas: 'bird dog' 'cat dog';
 	}
