@@ -20,9 +20,9 @@ NOTES
 ### Timeline
 
 - notes for next time:
-  - clean up animation code
+  - n/a
 
-- Session start Monday, June 08, 2026
+- Session start Monday, June 08, 2026 - end session
 
 - Session start Friday, June 05, 2026 - end
 - Session start on Thursday, June 04, 2026 - end
