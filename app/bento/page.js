@@ -24,10 +24,6 @@ export default function Bento() {
 		};
 	}, []);
 
-	const wideScreen =
-		typeof window !== 'undefined' &&
-		window.matchMedia('(width >= 37.5rem)').matches;
-
 	const swapImage = (animal, position) => {
 		const prefersReduced =
 			typeof window !== 'undefined' &&
@@ -99,6 +95,7 @@ export default function Bento() {
 					<button onClick={handleSelectImageOnRight}>Bird on Right</button>
 					<button onClick={handleSelectImageOnRight}>Dog on Right</button>
 				</section>
+
 				<section className={styles.bentoWrapper}>
 					<div
 						className={`${styles.bento} 
