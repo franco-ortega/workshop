@@ -18,15 +18,19 @@ export default function Bento() {
 
 	useEffect(() => {
 		const currentRef = timersRef.current;
+
 		return () => {
 			currentRef.forEach((id) => clearTimeout(id));
 		};
 	}, []);
 
+	const wideScreen =
+		typeof window !== 'undefined' &&
+		window.matchMedia('(width >= 37.5rem)').matches;
+
 	const swapImage = (animal, position) => {
 		const prefersReduced =
 			typeof window !== 'undefined' &&
-			window.matchMedia &&
 			window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		if (prefersReduced) {
