@@ -8,13 +8,14 @@ import bird from './bird.webp';
 import styles from './page.module.css';
 
 export default function Bento() {
-	const [imageOnRight, setImageOnRight] = useState('cat');
-	const [imageOnTop, setImageOnTop] = useState('bird');
+	const [featuredImage, setFeaturedImage] = useState('bird');
 	const [isFading, setIsFading] = useState(false);
 	const timersRef = useRef([]);
 
 	// duration must match CSS --fade-duration
 	const FADE_DURATION = 200;
+
+	const fadeEffectStyle = isFading ? styles.fadingOut : styles.fadingIn;
 
 	useEffect(() => {
 		const currentRef = timersRef.current;
@@ -31,31 +32,17 @@ export default function Bento() {
 
 		if (prefersReduced) {
 			// immediate change without fading
-			if (position === 'top') setImageOnTop(animal);
-			else if (position === 'right') setImageOnRight(animal);
-			else
-				console.warn(
-					'Invalid position:',
-					position,
-					'Or invalid animal:',
-					animal,
-				);
-			setIsFading(false);
+			if (featuredImage) setFeaturedImage(animal);
+			else console.warn('Invalid image:', animal);
+
 			return;
 		}
 
 		setIsFading(true);
 
 		const id = setTimeout(() => {
-			if (position === 'top') setImageOnTop(animal);
-			else if (position === 'right') setImageOnRight(animal);
-			else
-				console.warn(
-					'Invalid position:',
-					position,
-					'Or invalid animal:',
-					animal,
-				);
+			if (featuredImage) setFeaturedImage(animal);
+			else console.warn('Invalid image:', animal);
 
 			const id2 = setTimeout(() => setIsFading(false), 20);
 
@@ -65,18 +52,11 @@ export default function Bento() {
 		timersRef.current.push(id);
 	};
 
-	const handleSelectImageOnTop = (e) => {
+	const handleSelectImageOnTop = (e) =>
 		swapImage(e.target.textContent.toLowerCase(), 'top');
-	};
 
-	const handleSelectImageOnRight = (e) => {
-		// takes animal name out of 'ANIMAL on Right' button text
-		const animal = e.target.textContent.split(' ')[0].toLowerCase();
-
-		swapImage(animal, 'right');
-	};
-
-	const fadeEffectStyle = isFading ? styles.fadingOut : styles.fadingIn;
+	const handleSelectImageOnRight = (e) =>
+		swapImage(e.target.textContent.toLowerCase(), 'right');
 
 	return (
 		<div className={styles.page}>
@@ -84,23 +64,27 @@ export default function Bento() {
 				<h1>Bento Animal Grid</h1>
 			</header>
 			<main>
-				<section className={styles.buttonOnTopWrapper}>
+				<section className={styles.imageOnTopButtonWrapper}>
 					<p>Animal on Top</p>
 					<button onClick={handleSelectImageOnTop}>Bird</button>
 					<button onClick={handleSelectImageOnTop}>Cat</button>
 					<button onClick={handleSelectImageOnTop}>Dog</button>
 				</section>
-				<section className={styles.buttonWrapper}>
-					<button onClick={handleSelectImageOnRight}>Cat on Right</button>
-					<button onClick={handleSelectImageOnRight}>Bird on Right</button>
-					<button onClick={handleSelectImageOnRight}>Dog on Right</button>
+
+				<section className={styles.imageOnRightButtonWrapper}>
+					<p>Animal on Right</p>
+					<button onClick={handleSelectImageOnRight}>Bird</button>
+					<button onClick={handleSelectImageOnRight}>Cat</button>
+					<button onClick={handleSelectImageOnRight}>Dog</button>
 				</section>
 
 				<section className={styles.bentoWrapper}>
 					<div
 						className={`${styles.bento} 
-							${styles[imageOnRight + 'OnRight']} 
-							${styles[imageOnTop + 'OnTop']}`}
+							
+							${styles[featuredImage + 'OnRight']} 
+							${styles[featuredImage + 'OnTop']}
+              `}
 					>
 						<Image
 							src={cat}

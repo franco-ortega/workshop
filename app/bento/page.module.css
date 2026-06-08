@@ -52,7 +52,7 @@
 	margin-bottom: 1rem;
 }
 
-.buttonOnTopWrapper {
+.imageOnTopButtonWrapper {
 	border: 3px solid var(--border-color);
 	border-radius: 10px;
 
@@ -67,17 +67,7 @@
 	}
 }
 
-.buttonOnTopWrapper p {
-	color: hsl(0, 0%, 90%);
-	text-align: center;
-}
-
-.buttonOnTopWrapper button {
-	max-width: min-content;
-	line-height: 1;
-}
-
-.buttonWrapper {
+.imageOnRightButtonWrapper {
 	display: none;
 
 	@media (width >= 37.5rem) {
@@ -94,7 +84,17 @@
 	}
 }
 
-.page button {
+.imageOnTopButtonWrapper p,
+.imageOnRightButtonWrapper p {
+	color: hsl(0, 0%, 90%);
+	text-align: center;
+}
+
+.imageOnTopButtonWrapper button,
+.imageOnRightButtonWrapper button {
+	line-height: 1;
+	min-width: 4rem;
+
 	background-color: hsl(120, 100%, 25%);
 	border: 2px solid var(--border-color);
 	color: #fff;
@@ -107,7 +107,8 @@
 		color 0.3s;
 }
 
-.page button:hover {
+.imageOnTopButtonWrapper button:hover,
+.imageOnRightButtonWrapper button:hover {
 	background-color: hsl(120, 100%, 30%);
 }
 
