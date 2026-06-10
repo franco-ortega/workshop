@@ -25,22 +25,44 @@ export default function Layouts() {
 			</header>
 
 			<main className={styles.main}>
-				<section className={styles.textSection}>
+				<section className={styles.flexSection}>
 					<h2>Flex</h2>
-					<p>This is the flex content section.</p>
 
-					<div className={styles.flexParent}>
+					<p>Flex row:</p>
+					<div className={`${styles.flexParent} ${styles.flexParentRow}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
 						<div className={styles.flexChild}>Flex Child 2</div>
 						<div className={styles.flexChild}>Flex Child 3</div>
 						<div className={styles.flexChild}>Flex Child 4</div>
 					</div>
-				</section>
 
-				<section className={styles.imageSection}>
-					<h2>Image Gallery</h2>
-					<Image src='/image1.jpg' alt='Image 1' width={300} height={200} />
-					<Image src='/image2.jpg' alt='Image 2' width={300} height={200} />
+					<p>Flex row reverse:</p>
+					<div
+						className={`${styles.flexParent} ${styles.flexParentRowReverse}`}
+					>
+						<div className={styles.flexChild}>Flex Child 1</div>
+						<div className={styles.flexChild}>Flex Child 2</div>
+						<div className={styles.flexChild}>Flex Child 3</div>
+						<div className={styles.flexChild}>Flex Child 4</div>
+					</div>
+
+					<p>Flex column and Flex column reverse:</p>
+					<div className={styles.flexColumnWrapper}>
+						<div className={`${styles.flexParent} ${styles.flexParentColumn}`}>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>Flex Child 2</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+							<div className={styles.flexChild}>Flex Child 4</div>
+						</div>
+						<div
+							className={`${styles.flexParent} ${styles.flexParentColumnReverse}`}
+						>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>Flex Child 2</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+							<div className={styles.flexChild}>Flex Child 4</div>
+						</div>
+					</div>
 				</section>
 			</main>
 
