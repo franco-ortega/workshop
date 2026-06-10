@@ -1,9 +1,13 @@
 .page {
 	padding: 1rem;
+
+	background-color: hsl(0, 0%, 65%, 0.75);
+
+	color: hsl(0, 0%, 100%);
 }
 
 .header {
-	background-color: hsl(0, 0%, 90%, 0.5);
+	background-color: hsl(0, 0%, 30%);
 	padding: 1rem;
 	text-align: center;
 
@@ -23,18 +27,20 @@
 }
 
 .flexParent {
-	background-color: hsl(85, 76%, 48%);
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
 	display: flex;
+	gap: 20px 10px;
 
 	color: hsl(0, 0%, 100%);
 }
 
 .flexChild {
 	background-color: hsl(240, 100%, 27%);
-	flex: 1;
-	margin: 10px;
 	padding: 20px;
-	text-align: center;
+
+	/* white-space: nowrap; */
 }
 
 .flexParentRow {
@@ -43,6 +49,12 @@
 
 .flexParentRowReverse {
 	flex-direction: row-reverse;
+}
+
+.flexParentRowWrap {
+	flex-wrap: wrap;
+
+	justify-content: center;
 }
 
 .flexColumnWrapper {
@@ -57,4 +69,26 @@
 
 .flexParentColumnReverse {
 	flex-direction: column-reverse;
+}
+
+.flexParentChildren {
+	justify-content: center;
+}
+
+.flexParentChildren > * {
+	flex: 1;
+
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+}
+
+.flexParentChildrenFancy {
+	flex: 1;
+}
+
+.flexParentChildrenFancy > :nth-child(2) {
+	background-color: hsla(240, 33%, 25%);
+	color: hsl(0, 100%, 75%);
+	flex: 2;
 }
