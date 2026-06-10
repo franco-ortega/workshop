@@ -83,6 +83,24 @@
 	flex-basis: 0%;
 }
 
+.flexParentChildren > :nth-child(1) {
+	align-self: center;
+}
+
+.flexParentChildren > :nth-child(2) {
+	background-color: hsl(240, 33%, 35%);
+	color: hsl(0, 100%, 75%);
+	height: 150px;
+}
+
+.flexParentChildren > :nth-child(3) {
+	background-color: hsl(240, 33%, 45%);
+	color: hsl(0, 100%, 90%);
+	height: 100px;
+
+	align-self: flex-end;
+}
+
 .flexParentChildrenFancy {
 	flex: 1;
 }
