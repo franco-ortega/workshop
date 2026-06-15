@@ -1,0 +1,112 @@
+.page {
+	padding: 1rem;
+
+	background-color: hsl(0, 0%, 65%, 0.75);
+
+	color: hsl(0, 0%, 100%);
+}
+
+.header {
+	background-color: hsl(0, 0%, 30%);
+	padding: 1rem;
+	text-align: center;
+
+	margin-bottom: 1rem;
+}
+
+.page section {
+	border: 1px solid hsl(0, 0%, 75%);
+}
+
+.flexSection {
+	padding: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.flexParent {
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
+	display: flex;
+	gap: 20px 10px;
+
+	color: hsl(0, 0%, 100%);
+}
+
+.flexChild {
+	background-color: hsl(240, 100%, 27%);
+	padding: 20px;
+
+	/* white-space: nowrap; */
+}
+
+.flexParentRow {
+	flex-direction: row;
+}
+
+.flexParentRowReverse {
+	flex-direction: row-reverse;
+}
+
+.flexParentRowWrap {
+	flex-wrap: wrap;
+
+	justify-content: center;
+}
+
+.flexColumnWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.flexParentColumn {
+	flex-direction: column;
+}
+
+.flexParentColumnReverse {
+	flex-direction: column-reverse;
+}
+
+.flexParentChildren {
+	justify-content: center;
+}
+
+.flexParentChildren > * {
+	flex: 1;
+
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+}
+
+.flexParentChildren > :nth-child(1) {
+	align-self: center;
+}
+
+.flexParentChildren > :nth-child(2) {
+	background-color: hsl(240, 33%, 35%);
+	color: hsl(0, 100%, 75%);
+	height: 150px;
+}
+
+.flexParentChildren > :nth-child(3) {
+	background-color: hsl(240, 33%, 45%);
+	color: hsl(0, 100%, 90%);
+	height: 100px;
+
+	align-self: flex-end;
+}
+
+.flexParentChildrenFancy {
+	flex: 1;
+}
+
+.flexParentChildrenFancy > :nth-child(2) {
+	background-color: hsla(240, 33%, 25%);
+	color: hsl(0, 100%, 75%);
+	flex: 2;
+}
