@@ -25,22 +25,92 @@ export default function Layouts() {
 			</header>
 
 			<main className={styles.main}>
-				<section className={styles.textSection}>
+				<section className={styles.flexSection}>
 					<h2>Flex</h2>
-					<p>This is the flex content section.</p>
 
-					<div className={styles.flexParent}>
+					<p>Flex row:</p>
+					<div className={`${styles.flexParent} ${styles.flexParentRow}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
 						<div className={styles.flexChild}>Flex Child 2</div>
 						<div className={styles.flexChild}>Flex Child 3</div>
 						<div className={styles.flexChild}>Flex Child 4</div>
 					</div>
-				</section>
 
-				<section className={styles.imageSection}>
-					<h2>Image Gallery</h2>
-					<Image src='/image1.jpg' alt='Image 1' width={300} height={200} />
-					<Image src='/image2.jpg' alt='Image 2' width={300} height={200} />
+					<hr />
+
+					<p>Flex row reverse:</p>
+					<div
+						className={`${styles.flexParent} ${styles.flexParentRowReverse}`}
+					>
+						<div className={styles.flexChild}>Flex Child 1</div>
+						<div className={styles.flexChild}>Flex Child 2</div>
+						<div className={styles.flexChild}>Flex Child 3</div>
+						<div className={styles.flexChild}>Flex Child 4</div>
+					</div>
+
+					<hr />
+
+					<p>Flex row wrap:</p>
+					<div className={`${styles.flexParent} ${styles.flexParentRowWrap}`}>
+						<div className={styles.flexChild}>Flex Child 1</div>
+						<div className={styles.flexChild}>Flex Child 2</div>
+						<div className={styles.flexChild}>
+							Flex Child 3 Flex Child 3 Flex Child 3 Flex Child 3
+						</div>
+						<div className={styles.flexChild}>Flex Child 4</div>
+						<div className={styles.flexChild}>Flex Child 5</div>
+						<div className={styles.flexChild}>
+							Flex Child 6 Flex Child 6 Flex Child 6
+						</div>
+						<div className={styles.flexChild}>Flex Child 7</div>
+						<div className={styles.flexChild}>Flex Child 8</div>
+					</div>
+
+					<hr />
+
+					<p>Flex column and Flex column reverse:</p>
+					<div className={styles.flexColumnWrapper}>
+						<div className={`${styles.flexParent} ${styles.flexParentColumn}`}>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>Flex Child 2</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+							<div className={styles.flexChild}>Flex Child 4</div>
+						</div>
+						<div
+							className={`${styles.flexParent} ${styles.flexParentColumnReverse}`}
+						>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>Flex Child 2</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+							<div className={styles.flexChild}>Flex Child 4</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<p>Flex children:</p>
+					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
+						<div className={styles.flexChild}>Flex Child 1</div>
+						<div className={styles.flexChild}>
+							Flex Child 2 Flex Child 2 Flex Child 2
+						</div>
+						<div className={styles.flexChild}>Flex Child 3</div>
+					</div>
+
+					<hr />
+
+					<p>Flex children Fancy:</p>
+					<div
+						className={`${styles.flexParent} ${styles.flexParentChildrenFancy}`}
+					>
+						<div className={styles.flexChild}>Flex Child 1</div>
+						<div className={styles.flexChild}>
+							Flex Child 2 Flex Child 2 Flex Child 2
+						</div>
+						<div className={styles.flexChild}>Flex Child 3</div>
+					</div>
+
+					<hr />
 				</section>
 			</main>
 
