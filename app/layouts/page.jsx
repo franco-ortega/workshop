@@ -5,6 +5,14 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import FlexRow from '@/components/Flex/FlexRow';
 
+const flexRowData = [
+	{ id: 1, item: 'cat' },
+	{ id: 2, item: 'hamster' },
+	{ id: 3, item: 'rabbit' },
+	{ id: 4, item: 'bird' },
+	{ id: 5, item: 'weasel' },
+];
+
 export default function Layouts() {
 	return (
 		<div className={styles.page}>
@@ -30,7 +38,7 @@ export default function Layouts() {
 					<h2>Flex</h2>
 
 					<h3>Flex row:</h3>
-					<FlexRow />
+					<FlexRow flexItems={flexRowData} />
 
 					<hr />
 
