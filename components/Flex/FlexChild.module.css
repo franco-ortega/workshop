@@ -1,5 +1,5 @@
 .flexChild {
 	background-color: hsl(240, 100%, 27%);
 	border-radius: 10px;
-	padding: 20px;
+	padding: 0.5rem 1rem;
 }
