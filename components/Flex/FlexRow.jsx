@@ -1,14 +1,17 @@
 // a component that creates a flex row with the given children
+import FlexChild from './FlexChild';
 import styles from './FlexRow.module.css';
+
+const testData = ['cat', 'hamster', 'rabbit', 'bird'];
 
 const FlexRow = ({ children }) => {
 	return (
 		<ul className={styles.flexRow}>
+			{/* update children to display testData using the FlexChild component */}
 			{children}
-			<li className={styles.flexChild}>Flex Child 1</li>
-			<li className={styles.flexChild}>Flex Child 2</li>
-			<li className={styles.flexChild}>Flex Child 3</li>
-			<li className={styles.flexChild}>Flex Child 4</li>
+			{testData.map((item, index) => (
+				<FlexChild key={index}>{item}</FlexChild>
+			))}
 		</ul>
 	);
 };
