@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import FlexRow from '@/components/Flex/FlexRow';
+import FlexRowReverse from '@/components/Flex/FlexRowReverse';
 
 const flexRowData = [
 	{ id: 1, item: 'cat' },
@@ -43,14 +44,7 @@ export default function Layouts() {
 					<hr />
 
 					<h3>Flex row reverse:</h3>
-					<div
-						className={`${styles.flexParent} ${styles.flexParentRowReverse}`}
-					>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-					</div>
+					<FlexRowReverse flexItems={flexRowData} />
 
 					<hr />
 

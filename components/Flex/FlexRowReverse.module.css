@@ -1,0 +1,12 @@
+.flexRowReverse {
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 20px;
+
+	padding: 1rem;
+
+	color: hsl(0, 0%, 100%);
+}
