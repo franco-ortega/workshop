@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
+import FlexRow from '@/components/Flex/FlexRow';
 
 export default function Layouts() {
 	return (
@@ -28,17 +29,12 @@ export default function Layouts() {
 				<section className={styles.flexSection}>
 					<h2>Flex</h2>
 
-					<p>Flex row:</p>
-					<div className={`${styles.flexParent} ${styles.flexParentRow}`}>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-					</div>
+					<h3>Flex row:</h3>
+					<FlexRow />
 
 					<hr />
 
-					<p>Flex row reverse:</p>
+					<h3>Flex row reverse:</h3>
 					<div
 						className={`${styles.flexParent} ${styles.flexParentRowReverse}`}
 					>
@@ -50,7 +46,7 @@ export default function Layouts() {
 
 					<hr />
 
-					<p>Flex row wrap:</p>
+					<h3>Flex row wrap:</h3>
 					<div className={`${styles.flexParent} ${styles.flexParentRowWrap}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
 						<div className={styles.flexChild}>Flex Child 2</div>
@@ -68,7 +64,7 @@ export default function Layouts() {
 
 					<hr />
 
-					<p>Flex column and Flex column reverse:</p>
+					<h3>Flex column and Flex column reverse:</h3>
 					<div className={styles.flexColumnWrapper}>
 						<div className={`${styles.flexParent} ${styles.flexParentColumn}`}>
 							<div className={styles.flexChild}>Flex Child 1</div>
@@ -88,7 +84,7 @@ export default function Layouts() {
 
 					<hr />
 
-					<p>Flex children:</p>
+					<h3>Flex children:</h3>
 					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
 						<div className={styles.flexChild}>
@@ -99,7 +95,7 @@ export default function Layouts() {
 
 					<hr />
 
-					<p>Flex children Fancy:</p>
+					<h3>Flex children Fancy:</h3>
 					<div
 						className={`${styles.flexParent} ${styles.flexParentChildrenFancy}`}
 					>

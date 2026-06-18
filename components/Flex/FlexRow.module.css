@@ -1,0 +1,19 @@
+/* FlexRow styles */
+.flexRow {
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
+	display: flex;
+	flex-direction: row;
+	gap: 20px 10px;
+
+	padding: 1rem;
+
+	color: hsl(0, 0%, 100%);
+}
+
+.flexChild {
+	background-color: hsl(240, 100%, 27%);
+	border-radius: 10px;
+	padding: 20px;
+}
