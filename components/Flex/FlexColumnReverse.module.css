@@ -1,0 +1,15 @@
+.FlexColumnReverse {
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
+	min-width: min-content;
+
+	display: flex;
+	flex-direction: column-reverse;
+	flex-wrap: wrap;
+	gap: 20px 10px;
+
+	padding: 1rem;
+
+	color: hsl(0, 0%, 100%);
+}

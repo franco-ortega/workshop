@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import FlexContainer from '@/components/Flex/FlexContainer';
+import Button from '@/components/Button/Button';
 import FlexRow from '@/components/Flex/FlexRow';
 import FlexRowReverse from '@/components/Flex/FlexRowReverse';
+import FlexColumn from '@/components/Flex/FlexColumn';
+import FlexColumnReverse from '@/components/Flex/FlexColumnReverse';
 import FlexChild from '@/components/Flex/FlexChild';
 import styles from './page.module.css';
-import Button from '@/components/Button/Button';
 
 const flexRowData = [
 	{ id: 1, item: 'cat' },
@@ -16,8 +17,13 @@ const flexRowData = [
 	{ id: 5, item: 'weasel' },
 ];
 
+const flexData = flexRowData.map((item) => (
+	<FlexChild key={item.id}>{item.item}</FlexChild>
+));
+
 export default function Layouts() {
 	const [flexRowDirection, setFlexRowDirection] = useState('FlexRow');
+	const [flexColumnDirection, setFlexColumnDirection] = useState('FlexColumn');
 
 	const onFlexRowDirectionChange = (event) => {
 		setFlexRowDirection((prev) => {
@@ -25,6 +31,16 @@ export default function Layouts() {
 				return 'FlexRowReverse';
 			} else {
 				return 'FlexRow';
+			}
+		});
+	};
+
+	const onFlexColumnDirectionChange = (event) => {
+		setFlexColumnDirection((prev) => {
+			if (prev === 'FlexColumn') {
+				return 'FlexColumnReverse';
+			} else {
+				return 'FlexColumn';
 			}
 		});
 	};
@@ -39,6 +55,7 @@ export default function Layouts() {
 				<h2>Flex</h2>
 				<section className={styles.flexSection}>
 					<h3>Flex Row</h3>
+
 					<Button
 						handler={onFlexRowDirectionChange}
 						text={'Toggle Flex Row Direction'}
@@ -47,34 +64,35 @@ export default function Layouts() {
 					{flexRowDirection === 'FlexRow' ? (
 						<>
 							<h4>Flex row:</h4>
-							<FlexRow flexItems={flexRowData} />
+							<FlexRow>{flexData}</FlexRow>
 						</>
 					) : (
 						<>
 							<h4>Flex row reverse:</h4>
-							<FlexRowReverse flexItems={flexRowData} />
+							<FlexRowReverse>{flexData}</FlexRowReverse>
 						</>
 					)}
 
 					<hr />
 
-					<h3>Flex column and Flex column reverse:</h3>
-					<div className={styles.flexColumnWrapper}>
-						<div className={`${styles.flexParent} ${styles.flexParentColumn}`}>
-							<div className={styles.flexChild}>Flex Child 1</div>
-							<div className={styles.flexChild}>Flex Child 2</div>
-							<div className={styles.flexChild}>Flex Child 3</div>
-							<div className={styles.flexChild}>Flex Child 4</div>
-						</div>
-						<div
-							className={`${styles.flexParent} ${styles.flexParentColumnReverse}`}
-						>
-							<div className={styles.flexChild}>Flex Child 1</div>
-							<div className={styles.flexChild}>Flex Child 2</div>
-							<div className={styles.flexChild}>Flex Child 3</div>
-							<div className={styles.flexChild}>Flex Child 4</div>
-						</div>
-					</div>
+					<h3>Flex Column</h3>
+
+					<Button
+						handler={onFlexColumnDirectionChange}
+						text={'Toggle Flex Column Direction'}
+					/>
+
+					{flexColumnDirection === 'FlexColumn' ? (
+						<>
+							<h4>Flex Column:</h4>
+							<FlexColumn>{flexData}</FlexColumn>
+						</>
+					) : (
+						<>
+							<h4>Flex Column Reverse:</h4>
+							<FlexColumnReverse>{flexData}</FlexColumnReverse>
+						</>
+					)}
 
 					<hr />
 
