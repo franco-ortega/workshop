@@ -3,7 +3,7 @@ import styles from './FlexRow.module.css';
 
 const FlexRow = ({ flexItems }) => {
 	return (
-		<ul className={styles.flexRow}>
+		<ul className={styles.FlexRow}>
 			{flexItems.map((item) => (
 				<FlexChild key={item.id}>{item.item}</FlexChild>
 			))}
