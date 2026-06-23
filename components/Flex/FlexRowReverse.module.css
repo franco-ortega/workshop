@@ -1,5 +1,5 @@
 .FlexRowReverse {
-	background-color: hsl(85, 76%, 50%);
+	background: var(--bkgd-flex-row);
 	border: 1px solid hsl(0, 0%, 5%);
 
 	min-width: min-content;
