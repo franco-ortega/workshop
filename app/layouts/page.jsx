@@ -1,12 +1,8 @@
-// create a page that uses display flex to create a layout with a header, main content area, and footer. The header should contain a title and a navigation menu. The main content area should have two sections: one for text and one for images. The footer should contain some copyright information.
-
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './page.module.css';
+import FlexContainer from '@/components/Flex/FlexContainer';
 import FlexRow from '@/components/Flex/FlexRow';
 import FlexRowReverse from '@/components/Flex/FlexRowReverse';
-import FlexContainer from '@/components/Flex/FlexContainer';
 import FlexChild from '@/components/Flex/FlexChild';
+import styles from './page.module.css';
 
 const flexRowData = [
 	{ id: 1, item: 'cat' },
@@ -21,19 +17,6 @@ export default function Layouts() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1 className={styles.title}>Layouts</h1>
-				{/* <nav className={styles.nav}>
-					<ul>
-						<li>
-							<Link href='/'>Home</Link>
-						</li>
-						<li>
-							<Link href='/about'>About</Link>
-						</li>
-						<li>
-							<Link href='/contact'>Contact</Link>
-						</li>
-					</ul>
-				</nav> */}
 			</header>
 
 			<main className={styles.main}>
@@ -51,6 +34,25 @@ export default function Layouts() {
 
 					<h3>Flex container: Flex Row Reverse</h3>
 					<FlexContainer direction='FlexRowReverse'>
+						{flexRowData.map((item) => (
+							<FlexChild key={item.id}>{item.item}</FlexChild>
+						))}
+					</FlexContainer>
+
+					<hr />
+
+					<h3>Flex container: Flex Column</h3>
+					<FlexContainer direction='FlexColumn'>
+						<h4>Column</h4>
+						{flexRowData.map((item) => (
+							<FlexChild key={item.id}>{item.item}</FlexChild>
+						))}
+					</FlexContainer>
+
+					<hr />
+
+					<h3>Flex container: Flex Column Reverse</h3>
+					<FlexContainer direction='FlexColumnReverse'>
 						{flexRowData.map((item) => (
 							<FlexChild key={item.id}>{item.item}</FlexChild>
 						))}

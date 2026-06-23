@@ -3,11 +3,14 @@
 	border: 1px solid hsl(0, 0%, 5%);
 
 	min-width: min-content;
+	max-width: fit-content;
 	padding: 1rem;
 
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem 1rem;
+
+	align-items: center;
 
 	color: hsl(0, 0%, 100%);
 }
@@ -18,4 +21,12 @@
 
 .FlexRowReverse {
 	flex-direction: row-reverse;
+}
+
+.FlexColumn {
+	flex-direction: column;
+}
+
+.FlexColumnReverse {
+	flex-direction: column-reverse;
 }
