@@ -22,6 +22,8 @@ NOTES
 - notes for next time:
   - create components for Flex Column examples
 
+- Session start Tuesday, June 23, 2026
+
 - Session start Tuesday, June 17, 2026 - end session
 - Session start Monday, June 15, 2026
 
