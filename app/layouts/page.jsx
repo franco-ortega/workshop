@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import FlexRow from '@/components/Flex/FlexRow';
 import FlexRowReverse from '@/components/Flex/FlexRowReverse';
+import FlexContainer from '@/components/Flex/FlexContainer';
+import FlexChild from '@/components/Flex/FlexChild';
 
 const flexRowData = [
 	{ id: 1, item: 'cat' },
@@ -37,6 +39,24 @@ export default function Layouts() {
 			<main className={styles.main}>
 				<section className={styles.flexSection}>
 					<h2>Flex</h2>
+
+					<h3>Flex container: Flex Row</h3>
+					<FlexContainer direction='FlexRow'>
+						{flexRowData.map((item) => (
+							<FlexChild key={item.id}>{item.item}</FlexChild>
+						))}
+					</FlexContainer>
+
+					<hr />
+
+					<h3>Flex container: Flex Row Reverse</h3>
+					<FlexContainer direction='FlexRowReverse'>
+						{flexRowData.map((item) => (
+							<FlexChild key={item.id}>{item.item}</FlexChild>
+						))}
+					</FlexContainer>
+
+					<hr />
 
 					<h3>Flex row:</h3>
 					<FlexRow flexItems={flexRowData} />

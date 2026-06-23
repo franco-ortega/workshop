@@ -1,0 +1,21 @@
+.FlexContainer {
+	background-color: hsl(85, 76%, 50%);
+	border: 1px solid hsl(0, 0%, 5%);
+
+	min-width: min-content;
+	padding: 1rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem 1rem;
+
+	color: hsl(0, 0%, 100%);
+}
+
+.FlexRow {
+	flex-direction: row;
+}
+
+.FlexRowReverse {
+	flex-direction: row-reverse;
+}
