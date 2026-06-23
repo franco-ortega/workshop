@@ -1,8 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import FlexContainer from '@/components/Flex/FlexContainer';
 import FlexRow from '@/components/Flex/FlexRow';
 import FlexRowReverse from '@/components/Flex/FlexRowReverse';
 import FlexChild from '@/components/Flex/FlexChild';
 import styles from './page.module.css';
+import Button from '@/components/Button/Button';
 
 const flexRowData = [
 	{ id: 1, item: 'cat' },
@@ -13,6 +17,18 @@ const flexRowData = [
 ];
 
 export default function Layouts() {
+	const [flexRowDirection, setFlexRowDirection] = useState('FlexRow');
+
+	const onFlexRowDirectionChange = (event) => {
+		setFlexRowDirection((prev) => {
+			if (prev === 'FlexRow') {
+				return 'FlexRowReverse';
+			} else {
+				return 'FlexRow';
+			}
+		});
+	};
+
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
@@ -20,71 +36,25 @@ export default function Layouts() {
 			</header>
 
 			<main className={styles.main}>
+				<h2>Flex</h2>
 				<section className={styles.flexSection}>
-					<h2>Flex</h2>
+					<h3>Flex Row</h3>
+					<Button
+						handler={onFlexRowDirectionChange}
+						text={'Toggle Flex Row Direction'}
+					/>
 
-					<h3>Flex container: Flex Row</h3>
-					<FlexContainer direction='FlexRow'>
-						{flexRowData.map((item) => (
-							<FlexChild key={item.id}>{item.item}</FlexChild>
-						))}
-					</FlexContainer>
-
-					<hr />
-
-					<h3>Flex container: Flex Row Reverse</h3>
-					<FlexContainer direction='FlexRowReverse'>
-						{flexRowData.map((item) => (
-							<FlexChild key={item.id}>{item.item}</FlexChild>
-						))}
-					</FlexContainer>
-
-					<hr />
-
-					<h3>Flex container: Flex Column</h3>
-					<FlexContainer direction='FlexColumn'>
-						<h4>Column</h4>
-						{flexRowData.map((item) => (
-							<FlexChild key={item.id}>{item.item}</FlexChild>
-						))}
-					</FlexContainer>
-
-					<hr />
-
-					<h3>Flex container: Flex Column Reverse</h3>
-					<FlexContainer direction='FlexColumnReverse'>
-						{flexRowData.map((item) => (
-							<FlexChild key={item.id}>{item.item}</FlexChild>
-						))}
-					</FlexContainer>
-
-					<hr />
-
-					<h3>Flex row:</h3>
-					<FlexRow flexItems={flexRowData} />
-
-					<hr />
-
-					<h3>Flex row reverse:</h3>
-					<FlexRowReverse flexItems={flexRowData} />
-
-					<hr />
-
-					<h3>Flex row wrap:</h3>
-					<div className={`${styles.flexParent} ${styles.flexParentRowWrap}`}>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>
-							Flex Child 3 Flex Child 3 Flex Child 3 Flex Child 3
-						</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-						<div className={styles.flexChild}>Flex Child 5</div>
-						<div className={styles.flexChild}>
-							Flex Child 6 Flex Child 6 Flex Child 6
-						</div>
-						<div className={styles.flexChild}>Flex Child 7</div>
-						<div className={styles.flexChild}>Flex Child 8</div>
-					</div>
+					{flexRowDirection === 'FlexRow' ? (
+						<>
+							<h4>Flex row:</h4>
+							<FlexRow flexItems={flexRowData} />
+						</>
+					) : (
+						<>
+							<h4>Flex row reverse:</h4>
+							<FlexRowReverse flexItems={flexRowData} />
+						</>
+					)}
 
 					<hr />
 
@@ -135,7 +105,7 @@ export default function Layouts() {
 			</main>
 
 			<footer className={styles.footer}>
-				<p>&copy; 2023 My Website. All rights reserved.</p>
+				<p>&copy; 2026 My Website. All rights reserved.</p>
 			</footer>
 		</div>
 	);
