@@ -79,22 +79,22 @@ export default function Layouts() {
 					<hr />
 
 					<section className={styles.flexSection}>
-						<h3>Flex Row</h3>
+						<h3>Flex Column</h3>
 
 						<Button
-							handler={onFlexRowDirectionChange}
-							text={'Toggle Flex Row Direction'}
+							handler={onFlexColumnDirectionChange}
+							text={'Toggle Flex Column Direction'}
 						/>
 
-						{flexRowDirection === 'FlexRow' ? (
+						{flexColumnDirection === 'FlexColumn' ? (
 							<>
-								<h4>Flex row:</h4>
-								<FlexRow>{flexData}</FlexRow>
+								<h4>Flex Column:</h4>
+								<FlexColumn>{flexData}</FlexColumn>
 							</>
 						) : (
 							<>
-								<h4>Flex row reverse:</h4>
-								<FlexRowReverse>{flexData}</FlexRowReverse>
+								<h4>Flex Column Reverse:</h4>
+								<FlexColumnReverse>{flexData}</FlexColumnReverse>
 							</>
 						)}
 					</section>
@@ -103,29 +103,6 @@ export default function Layouts() {
 				<hr />
 
 				<section className={styles.flexSection}>
-					<h3>Flex Column</h3>
-
-					<Button
-						handler={onFlexColumnDirectionChange}
-						text={'Toggle Flex Column Direction'}
-					/>
-
-					{flexColumnDirection === 'FlexColumn' ? (
-						<>
-							<h4>Flex Column:</h4>
-							<FlexColumn>{flexData}</FlexColumn>
-						</>
-					) : (
-						<>
-							<h4>Flex Column Reverse:</h4>
-							<FlexColumnReverse>{flexData}</FlexColumnReverse>
-						</>
-					)}
-					{/* </section> */}
-
-					<hr />
-
-					{/* <section className={styles.flexSection}> */}
 					<h3>Flex children:</h3>
 					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
