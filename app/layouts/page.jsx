@@ -1,94 +1,109 @@
-// create a page that uses display flex to create a layout with a header, main content area, and footer. The header should contain a title and a navigation menu. The main content area should have two sections: one for text and one for images. The footer should contain some copyright information.
+'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react';
+import Button from '@/components/Button/Button';
+import FlexRow from '@/components/Flex/FlexRow';
+import FlexRowReverse from '@/components/Flex/FlexRowReverse';
+import FlexColumn from '@/components/Flex/FlexColumn';
+import FlexColumnReverse from '@/components/Flex/FlexColumnReverse';
+import FlexChild from '@/components/Flex/FlexChild';
 import styles from './page.module.css';
 
+const flexRowData = [
+	{ id: 1, item: 'cat' },
+	{ id: 2, item: 'hamster' },
+	{ id: 3, item: 'rabbit' },
+	{ id: 4, item: 'bird' },
+	{ id: 5, item: 'weasel' },
+];
+
+const flexData = flexRowData.map((item) => (
+	<FlexChild key={item.id}>{item.item}</FlexChild>
+));
+
 export default function Layouts() {
+	const [flexRowDirection, setFlexRowDirection] = useState('FlexRow');
+	const [flexColumnDirection, setFlexColumnDirection] = useState('FlexColumn');
+
+	const onFlexRowDirectionChange = (event) => {
+		setFlexRowDirection((prev) => {
+			if (prev === 'FlexRow') {
+				return 'FlexRowReverse';
+			} else {
+				return 'FlexRow';
+			}
+		});
+	};
+
+	const onFlexColumnDirectionChange = (event) => {
+		setFlexColumnDirection((prev) => {
+			if (prev === 'FlexColumn') {
+				return 'FlexColumnReverse';
+			} else {
+				return 'FlexColumn';
+			}
+		});
+	};
+
+	const flexRowheader =
+		flexRowDirection === 'FlexRow' ? 'Flex Row' : 'Flex Row  Reverse';
+
+	const flexRowButton =
+		flexRowDirection === 'FlexRow' ? 'Flex Row Reverse' : 'Flex Row';
+
+	const flexColumnheader =
+		flexColumnDirection === 'FlexColumn'
+			? 'Flex Column Reverse'
+			: 'Flex Column';
+
+	const flexColumnButton =
+		flexColumnDirection === 'FlexColumn'
+			? 'Flex Column'
+			: 'Flex Column Reverse';
+
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<h1 className={styles.title}>Layouts</h1>
-				{/* <nav className={styles.nav}>
-					<ul>
-						<li>
-							<Link href='/'>Home</Link>
-						</li>
-						<li>
-							<Link href='/about'>About</Link>
-						</li>
-						<li>
-							<Link href='/contact'>Contact</Link>
-						</li>
-					</ul>
-				</nav> */}
 			</header>
 
 			<main className={styles.main}>
+				<h2>Flex</h2>
+
+				<div className={styles.wrapper}>
+					<section className={styles.flexSection}>
+						<h3>{flexRowheader}</h3>
+
+						{flexRowDirection === 'FlexRow' ? (
+							<FlexRow>{flexData}</FlexRow>
+						) : (
+							<FlexRowReverse>{flexData}</FlexRowReverse>
+						)}
+
+						<Button handler={onFlexRowDirectionChange} text={flexRowButton} />
+					</section>
+
+					<hr />
+
+					<section className={styles.flexSection}>
+						<h3>{flexColumnheader}</h3>
+
+						{flexColumnDirection === 'FlexColumn' ? (
+							<FlexColumn>{flexData}</FlexColumn>
+						) : (
+							<FlexColumnReverse>{flexData}</FlexColumnReverse>
+						)}
+						<Button
+							handler={onFlexColumnDirectionChange}
+							text={flexColumnButton}
+						/>
+					</section>
+				</div>
+
+				<hr />
+
 				<section className={styles.flexSection}>
-					<h2>Flex</h2>
-
-					<p>Flex row:</p>
-					<div className={`${styles.flexParent} ${styles.flexParentRow}`}>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-					</div>
-
-					<hr />
-
-					<p>Flex row reverse:</p>
-					<div
-						className={`${styles.flexParent} ${styles.flexParentRowReverse}`}
-					>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-					</div>
-
-					<hr />
-
-					<p>Flex row wrap:</p>
-					<div className={`${styles.flexParent} ${styles.flexParentRowWrap}`}>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>Flex Child 2</div>
-						<div className={styles.flexChild}>
-							Flex Child 3 Flex Child 3 Flex Child 3 Flex Child 3
-						</div>
-						<div className={styles.flexChild}>Flex Child 4</div>
-						<div className={styles.flexChild}>Flex Child 5</div>
-						<div className={styles.flexChild}>
-							Flex Child 6 Flex Child 6 Flex Child 6
-						</div>
-						<div className={styles.flexChild}>Flex Child 7</div>
-						<div className={styles.flexChild}>Flex Child 8</div>
-					</div>
-
-					<hr />
-
-					<p>Flex column and Flex column reverse:</p>
-					<div className={styles.flexColumnWrapper}>
-						<div className={`${styles.flexParent} ${styles.flexParentColumn}`}>
-							<div className={styles.flexChild}>Flex Child 1</div>
-							<div className={styles.flexChild}>Flex Child 2</div>
-							<div className={styles.flexChild}>Flex Child 3</div>
-							<div className={styles.flexChild}>Flex Child 4</div>
-						</div>
-						<div
-							className={`${styles.flexParent} ${styles.flexParentColumnReverse}`}
-						>
-							<div className={styles.flexChild}>Flex Child 1</div>
-							<div className={styles.flexChild}>Flex Child 2</div>
-							<div className={styles.flexChild}>Flex Child 3</div>
-							<div className={styles.flexChild}>Flex Child 4</div>
-						</div>
-					</div>
-
-					<hr />
-
-					<p>Flex children:</p>
+					<h3>Flex children:</h3>
 					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
 						<div className={styles.flexChild}>
@@ -99,7 +114,7 @@ export default function Layouts() {
 
 					<hr />
 
-					<p>Flex children Fancy:</p>
+					<h3>Flex children Fancy:</h3>
 					<div
 						className={`${styles.flexParent} ${styles.flexParentChildrenFancy}`}
 					>
@@ -115,7 +130,7 @@ export default function Layouts() {
 			</main>
 
 			<footer className={styles.footer}>
-				<p>&copy; 2023 My Website. All rights reserved.</p>
+				<p>&copy; 2026 My Website. All rights reserved.</p>
 			</footer>
 		</div>
 	);
