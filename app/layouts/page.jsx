@@ -19,16 +19,12 @@ const flexRowData = [
 
 const flexDirectionData = {
 	flexRow: {
-		rowDirection: {
-			row: { state: 'FlexRow', title: 'Flex Row' },
-			reverse: { state: 'FlexRowReverse', title: 'Flex Row Reverse' },
-		},
+		row: { state: 'FlexRow', title: 'Flex Row' },
+		rowReverse: { state: 'FlexRowReverse', title: 'Flex Row Reverse' },
 	},
 	flexColumn: {
-		columnDirection: {
-			column: { state: 'FlexColumn', title: 'Flex Column' },
-			reverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
-		},
+		column: { state: 'FlexColumn', title: 'Flex Column' },
+		columnReverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
 	},
 };
 
@@ -38,10 +34,10 @@ const flexData = flexRowData.map((item) => (
 
 export default function Layouts() {
 	const [flexRowDirection, setFlexRowDirection] = useState(
-		flexDirectionData.flexRow.rowDirection.row.state,
+		flexDirectionData.flexRow.row.state,
 	);
 	const [flexColumnDirection, setFlexColumnDirection] = useState(
-		flexDirectionData.flexColumn.columnDirection.column.state,
+		flexDirectionData.flexColumn.column.state,
 	);
 
 	const onFlexRowDirectionChange = (event) => {
