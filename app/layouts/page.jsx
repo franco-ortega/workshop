@@ -53,28 +53,56 @@ export default function Layouts() {
 
 			<main className={styles.main}>
 				<h2>Flex</h2>
-				<section className={styles.flexSection}>
-					<h3>Flex Row</h3>
 
-					<Button
-						handler={onFlexRowDirectionChange}
-						text={'Toggle Flex Row Direction'}
-					/>
+				<div className={styles.wrapper}>
+					<section className={styles.flexSection}>
+						<h3>Flex Row</h3>
 
-					{flexRowDirection === 'FlexRow' ? (
-						<>
-							<h4>Flex row:</h4>
-							<FlexRow>{flexData}</FlexRow>
-						</>
-					) : (
-						<>
-							<h4>Flex row reverse:</h4>
-							<FlexRowReverse>{flexData}</FlexRowReverse>
-						</>
-					)}
+						<Button
+							handler={onFlexRowDirectionChange}
+							text={'Toggle Flex Row Direction'}
+						/>
+
+						{flexRowDirection === 'FlexRow' ? (
+							<>
+								<h4>Flex row:</h4>
+								<FlexRow>{flexData}</FlexRow>
+							</>
+						) : (
+							<>
+								<h4>Flex row reverse:</h4>
+								<FlexRowReverse>{flexData}</FlexRowReverse>
+							</>
+						)}
+					</section>
 
 					<hr />
 
+					<section className={styles.flexSection}>
+						<h3>Flex Row</h3>
+
+						<Button
+							handler={onFlexRowDirectionChange}
+							text={'Toggle Flex Row Direction'}
+						/>
+
+						{flexRowDirection === 'FlexRow' ? (
+							<>
+								<h4>Flex row:</h4>
+								<FlexRow>{flexData}</FlexRow>
+							</>
+						) : (
+							<>
+								<h4>Flex row reverse:</h4>
+								<FlexRowReverse>{flexData}</FlexRowReverse>
+							</>
+						)}
+					</section>
+				</div>
+
+				<hr />
+
+				<section className={styles.flexSection}>
 					<h3>Flex Column</h3>
 
 					<Button
@@ -93,9 +121,11 @@ export default function Layouts() {
 							<FlexColumnReverse>{flexData}</FlexColumnReverse>
 						</>
 					)}
+					{/* </section> */}
 
 					<hr />
 
+					{/* <section className={styles.flexSection}> */}
 					<h3>Flex children:</h3>
 					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
 						<div className={styles.flexChild}>Flex Child 1</div>
