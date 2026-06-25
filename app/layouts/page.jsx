@@ -19,12 +19,12 @@ const flexRowData = [
 
 const flexDirectionData = {
 	flexRow: {
-		row: { state: 'FlexRow', title: 'Flex Row' },
-		rowReverse: { state: 'FlexRowReverse', title: 'Flex Row Reverse' },
+		default: { state: 'FlexRow', title: 'Flex Row' },
+		reverse: { state: 'FlexRowReverse', title: 'Flex Row Reverse' },
 	},
 	flexColumn: {
-		column: { state: 'FlexColumn', title: 'Flex Column' },
-		columnReverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
+		default: { state: 'FlexColumn', title: 'Flex Column' },
+		reverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
 	},
 };
 
@@ -33,48 +33,51 @@ const flexData = flexRowData.map((item) => (
 ));
 
 export default function Layouts() {
+	const { flexRow, flexColumn } = flexDirectionData;
+
 	const [flexRowDirection, setFlexRowDirection] = useState(
-		flexDirectionData.flexRow.row.state,
+		flexRow.default.state,
 	);
 	const [flexColumnDirection, setFlexColumnDirection] = useState(
-		flexDirectionData.flexColumn.column.state,
+		flexColumn.default.state,
 	);
 
-	const onFlexRowDirectionChange = (event) => {
+	const onFlexRowDirectionChange = () => {
 		setFlexRowDirection((prev) => {
-			if (prev === 'FlexRow') {
-				return 'FlexRowReverse';
+			if (prev === flexRow.default.state) {
+				return flexRow.reverse.state;
 			} else {
-				return 'FlexRow';
+				return flexRow.default.state;
 			}
 		});
 	};
 
-	const onFlexColumnDirectionChange = (event) => {
+	const onFlexColumnDirectionChange = () => {
 		setFlexColumnDirection((prev) => {
-			if (prev === 'FlexColumn') {
-				return 'FlexColumnReverse';
+			if (prev === flexColumn.column.state) {
+				return flexColumn.columnReverse.state;
 			} else {
-				return 'FlexColumn';
+				return flexColumn.column.state;
 			}
 		});
 	};
 
-	const flexRowheader =
-		flexRowDirection === 'FlexRow' ? 'Flex Row' : 'Flex Row  Reverse';
+	const createHeaderText = (direction, data) => {
+		return direction === data.default.state
+			? data.default.title
+			: data.reverse.title;
+	};
 
-	const flexRowButton =
-		flexRowDirection === 'FlexRow' ? 'Flex Row Reverse' : 'Flex Row';
+	const createButtonText = (direction, data) => {
+		return direction === data.default.state
+			? data.reverse.title
+			: data.default.title;
+	};
 
-	const flexColumnheader =
-		flexColumnDirection === 'FlexColumn'
-			? 'Flex Column Reverse'
-			: 'Flex Column';
-
-	const flexColumnButton =
-		flexColumnDirection === 'FlexColumn'
-			? 'Flex Column'
-			: 'Flex Column Reverse';
+	const flexRowheader = createHeaderText(flexRowDirection, flexRow);
+	const flexRowButton = createButtonText(flexRowDirection, flexRow);
+	const flexColumnheader = createHeaderText(flexColumnDirection, flexColumn);
+	const flexColumnButton = createButtonText(flexColumnDirection, flexColumn);
 
 	return (
 		<div className={styles.page}>
