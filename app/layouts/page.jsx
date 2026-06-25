@@ -92,7 +92,7 @@ export default function Layouts() {
 					<section className={styles.flexSection}>
 						<h3>{flexRowheaderText}</h3>
 
-						{flexRowDirection === 'FlexRow' ? (
+						{flexRowDirection === flexRow.default.state ? (
 							<FlexRow>{flexData}</FlexRow>
 						) : (
 							<FlexRowReverse>{flexData}</FlexRowReverse>
@@ -109,7 +109,7 @@ export default function Layouts() {
 					<section className={styles.flexSection}>
 						<h3>{flexColumnheaderText}</h3>
 
-						{flexColumnDirection === 'FlexColumn' ? (
+						{flexColumnDirection === flexColumn.default.state ? (
 							<FlexColumn>{flexData}</FlexColumn>
 						) : (
 							<FlexColumnReverse>{flexData}</FlexColumnReverse>
@@ -119,35 +119,37 @@ export default function Layouts() {
 							text={flexColumnButtonText}
 						/>
 					</section>
+
+					<hr />
+
+					<section className={styles.flexSection}>
+						<h3>Flex Children</h3>
+						<div
+							className={`${styles.flexParent} ${styles.flexParentChildren}`}
+						>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>
+								Flex Child 2 Flex Child 2 Flex Child 2
+							</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+						</div>
+					</section>
+
+					<hr />
+
+					<section>
+						<h3>Flex Children Fancy:</h3>
+						<div
+							className={`${styles.flexParent} ${styles.flexParentChildrenFancy}`}
+						>
+							<div className={styles.flexChild}>Flex Child 1</div>
+							<div className={styles.flexChild}>
+								Flex Child 2 Flex Child 2 Flex Child 2
+							</div>
+							<div className={styles.flexChild}>Flex Child 3</div>
+						</div>
+					</section>
 				</div>
-
-				<hr />
-
-				<section className={styles.flexSection}>
-					<h3>Flex children:</h3>
-					<div className={`${styles.flexParent} ${styles.flexParentChildren}`}>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>
-							Flex Child 2 Flex Child 2 Flex Child 2
-						</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-					</div>
-
-					<hr />
-
-					<h3>Flex children Fancy:</h3>
-					<div
-						className={`${styles.flexParent} ${styles.flexParentChildrenFancy}`}
-					>
-						<div className={styles.flexChild}>Flex Child 1</div>
-						<div className={styles.flexChild}>
-							Flex Child 2 Flex Child 2 Flex Child 2
-						</div>
-						<div className={styles.flexChild}>Flex Child 3</div>
-					</div>
-
-					<hr />
-				</section>
 			</main>
 
 			<footer className={styles.footer}>
