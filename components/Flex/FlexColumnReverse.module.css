@@ -3,10 +3,12 @@
 	border: 1px solid hsl(0, 0%, 5%);
 
 	min-width: min-content;
+	max-width: fit-content;
 
 	display: flex;
 	flex-direction: column-reverse;
 	flex-wrap: wrap;
+	align-items: center;
 	gap: 20px 10px;
 
 	padding: 1rem;
