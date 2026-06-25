@@ -20,6 +20,47 @@
 		var(--background-gradient-island-2),
 		var(--background-gradient-island-3)
 	);
+
+	--bkgd-flex: hsl(85, 76%, 50%);
+	--bkgd-flex: hsl(85, 76%, 50%);
+	--bkgd-flex: hsl(85, 76%, 50%);
+	--bkgd-flex: hsl(85, 76%, 40%);
+
+	--bkgd-flex: linear-gradient(
+		to right,
+		hsl(85, 76%, 50%),
+		hsl(85, 76%, 45%),
+		hsl(85, 76%, 40%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 25%)
+	);
+
+	--bkgd-flex-row: linear-gradient(
+		to right,
+		hsl(85, 76%, 50%),
+		hsl(85, 76%, 45%),
+		hsl(85, 76%, 40%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 25%)
+	);
+
+	--bkgd-flex-col: linear-gradient(
+		to bottom,
+		hsl(85, 76%, 50%),
+		hsl(85, 76%, 45%),
+		hsl(85, 76%, 40%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 35%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 30%),
+		hsl(85, 76%, 25%)
+	);
 }
 
 /*
