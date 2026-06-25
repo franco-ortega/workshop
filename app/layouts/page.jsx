@@ -17,13 +17,32 @@ const flexRowData = [
 	{ id: 5, item: 'weasel' },
 ];
 
+const flexDirectionData = {
+	flexRow: {
+		rowDirection: {
+			row: { state: 'FlexRow', title: 'Flex Row' },
+			reverse: { state: 'FlexRowReverse', title: 'Flex Row Reverse' },
+		},
+	},
+	flexColumn: {
+		columnDirection: {
+			column: { state: 'FlexColumn', title: 'Flex Column' },
+			reverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
+		},
+	},
+};
+
 const flexData = flexRowData.map((item) => (
 	<FlexChild key={item.id}>{item.item}</FlexChild>
 ));
 
 export default function Layouts() {
-	const [flexRowDirection, setFlexRowDirection] = useState('FlexRow');
-	const [flexColumnDirection, setFlexColumnDirection] = useState('FlexColumn');
+	const [flexRowDirection, setFlexRowDirection] = useState(
+		flexDirectionData.flexRow.rowDirection.row.state,
+	);
+	const [flexColumnDirection, setFlexColumnDirection] = useState(
+		flexDirectionData.flexColumn.columnDirection.column.state,
+	);
 
 	const onFlexRowDirectionChange = (event) => {
 		setFlexRowDirection((prev) => {
