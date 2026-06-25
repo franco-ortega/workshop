@@ -54,30 +54,30 @@ export default function Layouts() {
 
 	const onFlexColumnDirectionChange = () => {
 		setFlexColumnDirection((prev) => {
-			if (prev === flexColumn.column.state) {
-				return flexColumn.columnReverse.state;
+			if (prev === flexColumn.default.state) {
+				return flexColumn.reverse.state;
 			} else {
-				return flexColumn.column.state;
+				return flexColumn.default.state;
 			}
 		});
 	};
 
-	const createHeaderText = (direction, data) => {
-		return direction === data.default.state
-			? data.default.title
-			: data.reverse.title;
-	};
+	const createHeaderText = (direction, data) =>
+		direction === data.default.state ? data.default.title : data.reverse.title;
 
-	const createButtonText = (direction, data) => {
-		return direction === data.default.state
-			? data.reverse.title
-			: data.default.title;
-	};
+	const createButtonText = (direction, data) =>
+		direction === data.default.state ? data.reverse.title : data.default.title;
 
-	const flexRowheader = createHeaderText(flexRowDirection, flexRow);
-	const flexRowButton = createButtonText(flexRowDirection, flexRow);
-	const flexColumnheader = createHeaderText(flexColumnDirection, flexColumn);
-	const flexColumnButton = createButtonText(flexColumnDirection, flexColumn);
+	const flexRowheaderText = createHeaderText(flexRowDirection, flexRow);
+	const flexRowButtonText = createButtonText(flexRowDirection, flexRow);
+	const flexColumnheaderText = createHeaderText(
+		flexColumnDirection,
+		flexColumn,
+	);
+	const flexColumnButtonText = createButtonText(
+		flexColumnDirection,
+		flexColumn,
+	);
 
 	return (
 		<div className={styles.page}>
@@ -90,7 +90,7 @@ export default function Layouts() {
 
 				<div className={styles.wrapper}>
 					<section className={styles.flexSection}>
-						<h3>{flexRowheader}</h3>
+						<h3>{flexRowheaderText}</h3>
 
 						{flexRowDirection === 'FlexRow' ? (
 							<FlexRow>{flexData}</FlexRow>
@@ -98,13 +98,16 @@ export default function Layouts() {
 							<FlexRowReverse>{flexData}</FlexRowReverse>
 						)}
 
-						<Button handler={onFlexRowDirectionChange} text={flexRowButton} />
+						<Button
+							handler={onFlexRowDirectionChange}
+							text={flexRowButtonText}
+						/>
 					</section>
 
 					<hr />
 
 					<section className={styles.flexSection}>
-						<h3>{flexColumnheader}</h3>
+						<h3>{flexColumnheaderText}</h3>
 
 						{flexColumnDirection === 'FlexColumn' ? (
 							<FlexColumn>{flexData}</FlexColumn>
@@ -113,7 +116,7 @@ export default function Layouts() {
 						)}
 						<Button
 							handler={onFlexColumnDirectionChange}
-							text={flexColumnButton}
+							text={flexColumnButtonText}
 						/>
 					</section>
 				</div>
