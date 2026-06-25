@@ -51,10 +51,15 @@ export default function Layouts() {
 	const flexRowButton =
 		flexRowDirection === 'FlexRow' ? 'Flex Row Reverse' : 'Flex Row';
 
-	const flexColumnButton =
+	const flexColumnheader =
 		flexColumnDirection === 'FlexColumn'
 			? 'Flex Column Reverse'
 			: 'Flex Column';
+
+	const flexColumnButton =
+		flexColumnDirection === 'FlexColumn'
+			? 'Flex Column'
+			: 'Flex Column Reverse';
 
 	return (
 		<div className={styles.page}>
@@ -81,26 +86,17 @@ export default function Layouts() {
 					<hr />
 
 					<section className={styles.flexSection}>
-						<div className={styles.subtitle}>
-							<h3>Flex Column</h3>
-
-							<Button
-								handler={onFlexColumnDirectionChange}
-								text={flexColumnButton}
-							/>
-						</div>
+						<h3>{flexColumnheader}</h3>
 
 						{flexColumnDirection === 'FlexColumn' ? (
-							<>
-								<h4>Flex Column:</h4>
-								<FlexColumn>{flexData}</FlexColumn>
-							</>
+							<FlexColumn>{flexData}</FlexColumn>
 						) : (
-							<>
-								<h4>Flex Column Reverse:</h4>
-								<FlexColumnReverse>{flexData}</FlexColumnReverse>
-							</>
+							<FlexColumnReverse>{flexData}</FlexColumnReverse>
 						)}
+						<Button
+							handler={onFlexColumnDirectionChange}
+							text={flexColumnButton}
+						/>
 					</section>
 				</div>
 
