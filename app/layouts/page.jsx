@@ -45,6 +45,9 @@ export default function Layouts() {
 		});
 	};
 
+	const flexRowheader =
+		flexRowDirection === 'FlexRow' ? 'Flex Row' : 'Flex Row  Reverse';
+
 	const flexRowButton =
 		flexRowDirection === 'FlexRow' ? 'Flex Row Reverse' : 'Flex Row';
 
@@ -64,23 +67,15 @@ export default function Layouts() {
 
 				<div className={styles.wrapper}>
 					<section className={styles.flexSection}>
-						<div className={styles.subtitle}>
-							<h3>Flex Row</h3>
-
-							<Button handler={onFlexRowDirectionChange} text={flexRowButton} />
-						</div>
+						<h3>{flexRowheader}</h3>
 
 						{flexRowDirection === 'FlexRow' ? (
-							<>
-								<h4>Flex row:</h4>
-								<FlexRow>{flexData}</FlexRow>
-							</>
+							<FlexRow>{flexData}</FlexRow>
 						) : (
-							<>
-								<h4>Flex row reverse:</h4>
-								<FlexRowReverse>{flexData}</FlexRowReverse>
-							</>
+							<FlexRowReverse>{flexData}</FlexRowReverse>
 						)}
+
+						<Button handler={onFlexRowDirectionChange} text={flexRowButton} />
 					</section>
 
 					<hr />
