@@ -68,17 +68,6 @@
 	gap: 1rem;
 }
 
-.subtitle {
-	/* display: flex; */
-	flex-wrap: wrap;
-	justify-content: space-between;
-
-	width: fit-content;
-	margin: auto;
-
-	text-align: center;
-}
-
 .page h3 {
 	width: fit-content;
 	margin-inline: auto;
@@ -98,6 +87,17 @@
 
 	width: 10rem;
 	margin-inline: auto;
+}
+
+.page section:nth-child(5) > div {
+	display: flex;
+}
+
+.page section:nth-child(7) > div {
+	display: flex;
+	/* background-color: magenta; */
+
+	border: 2px red solid;
 }
 
 /* don't need the styles below here */
@@ -146,7 +146,7 @@
 .flexParentChildren > :nth-child(3) {
 	background-color: hsl(240, 33%, 45%);
 	color: hsl(0, 100%, 90%);
-	height: 100px;
+	height: 50px;
 
 	align-self: flex-end;
 }
@@ -159,4 +159,9 @@
 	background-color: hsla(240, 33%, 25%);
 	color: hsl(0, 100%, 75%);
 	flex: 2;
+}
+
+.flexParentChildrenFancy > :nth-child(3) {
+	background-color: hsla(240, 33%, 45%);
+	color: hsl(0, 100%, 75%);
 }
