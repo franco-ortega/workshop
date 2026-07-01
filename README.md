@@ -22,8 +22,11 @@ NOTES
 - notes for next time:
   - n/a
 
+- Session start Tuesday, June 30, 2026
+- Session start Monday, June 29, 2026
+
 - Session start Thursday, June 25, 2026
-- Session start Wednesday, June 24, 2026
+- Session start Wednesday, June 24, 2026 - end session
 - Session start Tuesday, June 23, 2026 - end session
 
 - Session start Tuesday, June 17, 2026 - end session
