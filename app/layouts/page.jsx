@@ -42,25 +42,24 @@ export default function Layouts() {
 		flexColumn.default.state,
 	);
 
-	const onFlexRowDirectionChange = () => {
-		setFlexRowDirection((prev) => {
-			if (prev === flexRow.default.state) {
-				return flexRow.reverse.state;
+	const changeDirection = (direction, setDirection) => () =>
+		setDirection((prev) => {
+			if (prev === direction.default.state) {
+				return direction.reverse.state;
 			} else {
-				return flexRow.default.state;
+				return direction.default.state;
 			}
 		});
-	};
 
-	const onFlexColumnDirectionChange = () => {
-		setFlexColumnDirection((prev) => {
-			if (prev === flexColumn.default.state) {
-				return flexColumn.reverse.state;
-			} else {
-				return flexColumn.default.state;
-			}
-		});
-	};
+	const onFlexRowDirectionChange = changeDirection(
+		flexRow,
+		setFlexRowDirection,
+	);
+
+	const onFlexColumnDirectionChange = changeDirection(
+		flexColumn,
+		setFlexColumnDirection,
+	);
 
 	const createHeaderText = (direction, data) =>
 		direction === data.default.state ? data.default.title : data.reverse.title;
