@@ -17,8 +17,6 @@ const flexRowData = [
 	{ id: 5, item: 'weasel' },
 ];
 
-// the main thing that changes a lot in this app is whether it is 'Row' or 'Column', so maybe things could be streamlined to simply handle that shift instead of having different data and state for each version of 'Row' vs 'Column'
-
 const flexDirectionData = {
 	flexRow: {
 		default: { state: 'FlexRow', title: 'Flex Row' },
@@ -27,17 +25,6 @@ const flexDirectionData = {
 	flexColumn: {
 		default: { state: 'FlexColumn', title: 'Flex Column' },
 		reverse: { state: 'FlexColumnReverse', title: 'Flex Column Reverse' },
-	},
-};
-
-const flexDirectionData2 = {
-	row: {
-		row: 'row',
-		reverse: 'reverse',
-	},
-	column: {
-		column: 'column',
-		reverse: 'reverse',
 	},
 };
 
@@ -55,25 +42,24 @@ export default function Layouts() {
 		flexColumn.default.state,
 	);
 
-	const onFlexRowDirectionChange = () => {
-		setFlexRowDirection((prev) => {
-			if (prev === flexRow.default.state) {
-				return flexRow.reverse.state;
+	const changeDirection = (direction, setDirection) => () =>
+		setDirection((prev) => {
+			if (prev === direction.default.state) {
+				return direction.reverse.state;
 			} else {
-				return flexRow.default.state;
+				return direction.default.state;
 			}
 		});
-	};
 
-	const onFlexColumnDirectionChange = () => {
-		setFlexColumnDirection((prev) => {
-			if (prev === flexColumn.default.state) {
-				return flexColumn.reverse.state;
-			} else {
-				return flexColumn.default.state;
-			}
-		});
-	};
+	const onFlexRowDirectionChange = changeDirection(
+		flexRow,
+		setFlexRowDirection,
+	);
+
+	const onFlexColumnDirectionChange = changeDirection(
+		flexColumn,
+		setFlexColumnDirection,
+	);
 
 	const createHeaderText = (direction, data) =>
 		direction === data.default.state ? data.default.title : data.reverse.title;
@@ -92,15 +78,6 @@ export default function Layouts() {
 		flexColumn,
 	);
 
-	const createHeaderText2 = (rowOrColumn, direction) => {
-		// Flex Row
-		// Flex Column
-		return `Flex ${rowOrColumn} ${direction}`;
-	};
-
-	const flexRowHeader = createHeaderText2('row', '');
-	const flexColumnHeader = createHeaderText2('column', '');
-
 	return (
 		<div className={styles.page}>
 			<header className={styles.header}>
@@ -113,7 +90,6 @@ export default function Layouts() {
 				<div className={styles.wrapper}>
 					<section className={styles.flexSection}>
 						<h3>{flexRowheaderText}</h3>
-						<h3>{flexRowHeader}</h3>
 
 						{flexRowDirection === flexRow.default.state ? (
 							<FlexRow>{flexData}</FlexRow>
@@ -131,7 +107,6 @@ export default function Layouts() {
 
 					<section className={styles.flexSection}>
 						<h3>{flexColumnheaderText}</h3>
-						<h3>{flexColumnHeader}</h3>
 
 						{flexColumnDirection === flexColumn.default.state ? (
 							<FlexColumn>{flexData}</FlexColumn>
